@@ -34,16 +34,29 @@ public class AlgorithmControl {
 		
 	}
 	
+	
 	long timeNow = System.currentTimeMillis();
-	long intValA = timeNow;
-	long intValB;
+	long intValB = timeNow;
+	long intValA;
 	int w = 0;
+	int countvar = 0;
+	int iremainder;
 	boolean timervar = true;
 			
 	public void timer() {
 		while (timervar) {
-			intValB = timeNow;
-			timervar = (intValA % intValB)<=10000;
+			
+			long timeNow = System.currentTimeMillis();
+			intValA = timeNow;
+			iremainder = (int) (intValA % intValB);
+			timervar = (iremainder<=10000);
+			w++;
+			
+			if (w==100) {
+				w = 0;
+				countvar = countvar + 100;
+				System.out.println(countvar);	
+			}
 			
 		}
 	}
@@ -53,6 +66,8 @@ public class AlgorithmControl {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		AlgorithmControl ac = new AlgorithmControl();
+		ac.timer();
 		
 	}
 
