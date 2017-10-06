@@ -47,7 +47,7 @@ public class AlgorithmControl {
 			
 		}
 	}
-		//change
+
 
 
 	public static void main(String[] args) {
