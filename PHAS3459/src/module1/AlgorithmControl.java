@@ -9,7 +9,7 @@ public class AlgorithmControl {
 	
 	public void loop() {
 		for ( i = 0; i <= imax; i++) {
-		System.out.println(i);
+			System.out.println(i);
 		}
 	}	
 		
@@ -47,7 +47,7 @@ public class AlgorithmControl {
 			
 		}
 	}
-		
+		//change
 
 
 	public static void main(String[] args) {
