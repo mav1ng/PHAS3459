@@ -30,8 +30,9 @@ public class ThreeVector {
 	
 	
 	//magnitude method
-	double magvar;
+	
 	public double magnitude(ThreeVector vec) {
+		double magvar;
 		magvar = Math.sqrt(vec.x*vec.x+vec.y*vec.y+vec.z*vec.z);
 		return magvar;
 	}
@@ -58,6 +59,8 @@ public class ThreeVector {
 		return scalvar;
 	}
 	
+	
+	
 	//Static Method VectorProduct
 	public static ThreeVector vectorProduct( ThreeVector vec1, ThreeVector vec2 ) {
 		ThreeVector vpv = new ThreeVector();
@@ -66,6 +69,8 @@ public class ThreeVector {
 		vpv.z = vec1.x*vec2.y - vec1.y*vec2.x;
 		return vpv;
 	}
+	
+	
 	
 	//static method add
 	public static ThreeVector add( ThreeVector vec1, ThreeVector vec2 ) {
@@ -76,6 +81,8 @@ public class ThreeVector {
 		return vpa;
 	}
 	
+	
+	
 	//static method angle
 	public static double angle(ThreeVector vec1, ThreeVector vec2) {
 		ThreeVector vec = new ThreeVector();
@@ -85,8 +92,34 @@ public class ThreeVector {
 		anglevar = Math.acos(scalarProduct(vec1, vec2)/vec.magnitude(vec1)*vec.magnitude(vec2));
 		return anglevar;
 	}
+	
+	
+	
+	//non static Version scalarProduct
+	public double scalarProductns(ThreeVector vec1, ThreeVector vec2) {
+		return scalarProduct(vec1, vec2);
+		
+	}
+	
+	//non static Version vectorPoduct
+	public ThreeVector vectorProductns(ThreeVector vec1, ThreeVector vec2) {
+		return vectorProduct(vec1, vec2);
+	}
+	
+	
+	//non static Version add
+	public ThreeVector addns(ThreeVector vec1, ThreeVector vec2) {
+		return add(vec1, vec2);
+	}
 
 
+	
+	//non static Version angle
+	public double anglens(ThreeVector vec1, ThreeVector vec2) {
+		return angle(vec1, vec2);
+	}
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
