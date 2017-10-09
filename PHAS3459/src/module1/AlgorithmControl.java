@@ -91,7 +91,7 @@ public class AlgorithmControl {
 
 		System.out.println(" ");
 		System.out.println(" ");
-
+/*
 		int result1 = ac.timer(8000, 1000);
 		System.out.println("Total number of loops: " + result1); 	//first run
 
@@ -103,7 +103,7 @@ public class AlgorithmControl {
 
 		System.out.println("The number of total loops of the second go is significantly larger then the one of the first go. The reason for that is the time the system needs to print out a line. Since, in the first go the System has to print out every 1000th loop, which is a lot more than every 40000th, it needs a lot more time. Since the maxTime is the same for both runs the total number of loops is significantly different.");
 
-			
+*/			
 	}
 
 }
