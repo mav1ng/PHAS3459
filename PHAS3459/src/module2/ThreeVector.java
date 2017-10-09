@@ -6,8 +6,14 @@ public class ThreeVector {
 	double y;
 	double z;
 	
-	//constructior
+	//constructor
 	public ThreeVector() {};
+	//second constructor
+	public ThreeVector(double x, double y, double z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
 	
 	
 	
