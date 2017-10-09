@@ -44,8 +44,9 @@ public class ThreeVector {
 	}
 	
 	//method Unit Vector
-	ThreeVector vece = new ThreeVector();
+
 	public ThreeVector unitVector(ThreeVector vec) {
+		ThreeVector vece = new ThreeVector();
 		vece.x = vec.x/vec.x;
 		vece.y = vec.y/vec.y;
 		vece.z = vec.y/vec.z;
@@ -56,7 +57,7 @@ public class ThreeVector {
 
 	//method toString()
 	public String toString() {
-		return "x-component: " + this.x + ",," + "y-component: " + this.y + ",," + "z-component: " + this.z;
+		return "x-component: " + this.x + "  " + "y-component: " + this.y + "  " + "z-component: " + this.z;
 	}
 	
 	private static double scalvar;
