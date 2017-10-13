@@ -34,8 +34,13 @@ public class FallingParticle {
 	
 	//method to get the velocity of the particle
 	public double getV() {
-		this.v = g * t;
+		this.v = g * t + this.v;
 		return this.v;
+	}
+	
+	//method to get the time elapsed sind the particle was dropped
+	public double getT() {
+		return t;
 	}
 
 	public static void main(String[] args) {
