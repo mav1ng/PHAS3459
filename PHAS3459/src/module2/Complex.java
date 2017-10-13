@@ -6,6 +6,8 @@ public class Complex {
 	double y;
 	
 	//constructor
+	public Complex() {};
+	//constructor
 	public Complex(double x, double y) {
 		this.x = x;
 		this.y = y;
@@ -32,6 +34,12 @@ public class Complex {
 	public double angle() {
 		double anglevar = Math.atan(this.y/this.x);
 		return anglevar;
+	}
+	
+	public Complex conjugate() {
+		Complex z = new Complex();
+		z.y = (-1)*this.y;
+		return z;
 	}
 	
 	public static void main(String[] args) {
