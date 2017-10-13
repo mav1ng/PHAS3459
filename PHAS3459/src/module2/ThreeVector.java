@@ -60,9 +60,10 @@ public class ThreeVector {
 		return "x-component: " + this.x + "  " + "y-component: " + this.y + "  " + "z-component: " + this.z;
 	}
 	
-	private static double scalvar;
+
 	public static double scalarProduct( ThreeVector vec1, ThreeVector vec2) {
-		scalvar = vec1.x*vec2.x + vec1.y*vec2.y + vec1.z + vec2.z;
+		double scalvar;
+		scalvar = vec1.x*vec2.x + vec1.y*vec2.y + vec1.z*vec2.z;
 		return scalvar;
 	}
 	
@@ -92,12 +93,13 @@ public class ThreeVector {
 	
 	//static method angle
 	public static double angle(ThreeVector vec1, ThreeVector vec2) {
-		ThreeVector vec = new ThreeVector();
 		double anglevar;
+		double anglevar2;
 		
 		//calculating the angle
-		anglevar = Math.acos(scalarProduct(vec1, vec2)/vec.magnitude(vec1)*vec.magnitude(vec2));
-		return anglevar;
+		anglevar = Math.acos(scalarProduct(vec1, vec2)/(vec1.magnitude(vec1)*vec2.magnitude(vec2)));
+		anglevar2 = anglevar * (360/(2*Math.PI));
+		return anglevar2;
 	}
 	
 	
