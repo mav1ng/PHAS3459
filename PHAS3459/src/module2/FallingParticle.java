@@ -51,6 +51,12 @@ public class FallingParticle {
 		this.z = this.v*deltaT;
 	}
 	
+	//method to simulate the descent of the particle until it reaches the bottom
+	public void drop(double deltaT) {
+		while (this.z >= 0) {
+			doTimeStep(deltaT);
+		}
+	}
 	
 	
 	public static void main(String[] args) {
