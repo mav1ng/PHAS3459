@@ -43,6 +43,16 @@ public class FallingParticle {
 		return t;
 	}
 
+	//method to update velocity and position of the particle 
+	public void doTimeStep(double deltaT) {
+		//calculating the current acceleration of the particle
+		double a = ((this.d*this.v*this.v)/m)-g;
+		this.v = a*deltaT;
+		this.z = this.v*deltaT;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
