@@ -115,7 +115,6 @@ public class Complex {
 	static Complex ZERO = new Complex(0, 0);
 	static Complex I = new Complex(0, -1);
 	
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

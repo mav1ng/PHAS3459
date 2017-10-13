@@ -1,5 +1,6 @@
 package module2;
 
+
 public class ThreeVector {
 	
 	double x;
