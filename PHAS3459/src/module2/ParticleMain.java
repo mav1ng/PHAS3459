@@ -39,6 +39,7 @@ public class ParticleMain {
 		System.out.println();
 		System.out.println();
 		
+		//explaining the difference in the times and velocities
 		System.out.println("So why do the data different?");
 		System.out.println("In the vast majority of all cases the exact time the object needs to reach "
 				+ "the ground of the vessel is not an integer number. It is rather a real number with"
