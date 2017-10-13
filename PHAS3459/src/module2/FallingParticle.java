@@ -8,7 +8,7 @@ public class FallingParticle {
 	double z;
 	double h;
 	double v;
-	final double g = 9.81;
+	final double g = 9.80665;
 	
 	//constructor
 	public FallingParticle(double m, double d) {
@@ -38,7 +38,7 @@ public class FallingParticle {
 		return this.v;
 	}
 	
-	//method to get the time elapsed sind the particle was dropped
+	//method to get the time elapsed since the particle was dropped
 	public double getT() {
 		return t;
 	}
@@ -47,14 +47,22 @@ public class FallingParticle {
 	public void doTimeStep(double deltaT) {
 		//calculating the current acceleration of the particle
 		double a = ((this.d*this.v*this.v)/m)-g;
-		this.v = a*deltaT;
-		this.z = this.v*deltaT;
+		this.v = this.v + a*deltaT;
+		this.z = this.z + (this.v*deltaT);
 	}
 	
 	//method to simulate the descent of the particle until it reaches the bottom
 	public void drop(double deltaT) {
+		//setting object to starting position
+		this.z = this.h;
+		//resetting time
+		t = 0;
+		//setting initial velocity to 0
+		this.v = 0;
+		//simulating the drop
 		while (this.z >= 0) {
 			doTimeStep(deltaT);
+			t = t + deltaT;
 		}
 	}
 	
