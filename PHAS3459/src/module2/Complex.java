@@ -49,6 +49,15 @@ public class Complex {
 		return z; 
 	}
 	
+	public boolean equals(Complex c) {
+		if(this.x == c.x & this.y == c.y) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	
 	
 	public static void main(String[] args) {
