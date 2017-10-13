@@ -4,7 +4,7 @@ public class FallingParticle {
 	
 	final double m;
 	double d;
-	double t;
+	static double t;
 	double z;
 	double h;
 	double v;
@@ -19,6 +19,23 @@ public class FallingParticle {
 	//method to set the height of the falling particle
 	public void setH(double h) {
 		this.h = h;
+	}
+	
+	//method to get the current position of the particle
+	public double getZ() {
+		this.z = -(1/2)*g*t*t + h;
+		return this.z;
+	}
+	
+	//method to set the velocity of the particle
+	public void setV(double v) {
+		this.v = v;
+	}
+	
+	//method to get the velocity of the particle
+	public double getV() {
+		this.v = g * t;
+		return this.v;
 	}
 
 	public static void main(String[] args) {
