@@ -62,6 +62,12 @@ public class Complex {
 		return "real parts: " + this.x + "  imaginary parts: " + this.y;
 	}
 	
+	
+	public void setFromModulusAngle(double mag, double ang) {
+		this.x = mag * Math.cos(ang);
+		this.y = mag * Math.sin(ang);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
