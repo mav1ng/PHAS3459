@@ -4,6 +4,7 @@ package module2;
 //represents a Complex Number
 public class Complex {
 	
+	//declaring the variables
 	double x;
 	double y;
 	
@@ -28,12 +29,14 @@ public class Complex {
 	//get the modulus of the complex number
 	public double modulus() {
 		double modvar;
+		//calculation of the modulus by using pythagoras
 		modvar = Math.sqrt((this.x*this.x + this.y*this.y));
 		return modvar;
 	}
 	
 	//get the angle of the complex number
 	public double angle() {
+		//calculating the angle
 		double anglevar = Math.atan(this.y/this.x);
 		return anglevar;
 	}
@@ -41,6 +44,7 @@ public class Complex {
 	//returns the complex conjugate of the current complex number
 	public Complex conjugate() {
 		Complex z = new Complex();
+		//calculating the complex conjugate
 		z.y = (-1)*this.y;
 		return z;
 	}
@@ -48,6 +52,7 @@ public class Complex {
 	//returns the normalized current complex number
 	public Complex normalised() {
 		Complex z = new Complex();
+		//normalising the complex number: dividing by the modulus of it
 		z.x = z.x/modulus();
 		z.y = z.y/modulus();
 		return z; 
@@ -70,7 +75,9 @@ public class Complex {
 	
 	//sets the complex number according to entered magnitude and angle
 	public void setFromModulusAngle(double mag, double ang) {
+		//setting the real parts of the complex variable
 		this.x = mag * Math.cos(ang);
+		//setting the imaginary parts of the complex variable
 		this.y = mag * Math.sin(ang);
 	}
 	
@@ -90,12 +97,14 @@ public class Complex {
 	}
 	
 	public static Complex multiply(Complex z1, Complex z2) {
+		//calculating the complex multiplication
 		//(a + bi)(c + di) ==> (ac - bd) + (bc + ad)i 
 		Complex z = new Complex((z1.x*z2.x - z1.y*z2.y), (z1.y*z2.x + z1.x*z2.y));
 		return z;
 	}
 	
 	public static Complex divide(Complex z1, Complex z2) {
+		//calculating the complex division
 		//(a + bi)/(c + di) ==> ((ac + bd)/(c² + d²)) + ((bc - ad)/(c² + d²))i 
 		Complex z = new Complex((z1.x*z2.x + z1.y*z2.y)/(z2.modulus()*z2.modulus()), ((z1.y*z2.x - z1.x*z2.y)/(z2.modulus()*z2.modulus())));
 		return z;
