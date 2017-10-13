@@ -17,6 +17,12 @@ public class Complex {
 	public double imag() {
 		return this.y;
 	}
+	
+	public double modulus() {
+		double modvar;
+		modvar = Math.sqrt((this.x*this.x + this.y*this.y));
+		return modvar;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
