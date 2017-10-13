@@ -101,6 +101,10 @@ public class Complex {
 		return z;
 	}
 	
+	//defining the static variables
+	static Complex ONE = new Complex(1, 0);
+	static Complex ZERO = new Complex(0, 0);
+	static Complex I = new Complex(0, -1);
 	
 	
 	public static void main(String[] args) {
