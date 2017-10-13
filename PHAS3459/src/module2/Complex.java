@@ -58,7 +58,9 @@ public class Complex {
 		}
 	}
 	
-	
+	public String toString() {
+		return "real parts: " + this.x + "  imaginary parts: " + this.y;
+	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
