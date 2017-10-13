@@ -42,6 +42,15 @@ public class Complex {
 		return z;
 	}
 	
+	public Complex normalised() {
+		Complex z = new Complex();
+		z.x = z.x/modulus();
+		z.y = z.y/modulus();
+		return z; 
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
