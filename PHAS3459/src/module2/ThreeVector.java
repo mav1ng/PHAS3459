@@ -28,23 +28,24 @@ public class ThreeVector {
 		z = val3;
 	}
 	
-	//method getVector
+	//method which gives out the current ThreeVector
 	public ThreeVector getVector() {
 		ThreeVector vec = new ThreeVector();
 		return vec;
 	}
 	
 	
-	//magnitude method
-	
+	//method to calculate the magnitude of the current ThreeVector
 	public double magnitude(ThreeVector vec) {
 		double magvar;
+		//calculating the magnitude, its the square root of all the 
+		//components squared and added together
 		magvar = Math.sqrt(vec.x*vec.x+vec.y*vec.y+vec.z*vec.z);
 		return magvar;
 	}
 	
-	//method Unit Vector
-
+	//method that gives out the UnitVector of the object that was put in as
+	//an argument
 	public ThreeVector unitVector(ThreeVector vec) {
 		ThreeVector vece = new ThreeVector();
 		vece.x = vec.x/vec.x;
@@ -55,34 +56,39 @@ public class ThreeVector {
 	
 	
 
-	//method toString()
+	//toString() method
 	public String toString() {
 		return "x-component: " + this.x + "  " + "y-component: " + this.y + "  " + "z-component: " + this.z;
 	}
 	
-
+	//method that calculated the scalar prodcut between to ThreeVectors
 	public static double scalarProduct( ThreeVector vec1, ThreeVector vec2) {
 		double scalvar;
+		//calculation of the scalarproduct by multiplying the several componets and adding them up
 		scalvar = vec1.x*vec2.x + vec1.y*vec2.y + vec1.z*vec2.z;
 		return scalvar;
 	}
 	
 	
 	
-	//Static Method VectorProduct
+	//method gives you out the vectorProduct between the two ThreeVectors that were put in
 	public static ThreeVector vectorProduct( ThreeVector vec1, ThreeVector vec2 ) {
 		ThreeVector vpv = new ThreeVector();
+		//calculating the first component of the new Vector
 		vpv.x = vec1.y*vec2.z - vec1.z*vec2.y;
+		//calculating the second component of the new Vector
 		vpv.y = (-1)*(vec1.x*vec2.z - vec1.z*vec2.x);
+		//calculating the third component of the new Vector
 		vpv.z = vec1.x*vec2.y - vec1.y*vec2.x;
 		return vpv;
 	}
 	
 	
 	
-	//static method add
+	//method that adds two ThreeVectors and gives out the new one
 	public static ThreeVector add( ThreeVector vec1, ThreeVector vec2 ) {
 		ThreeVector vpa = new ThreeVector();
+		//Adding the different components of the two Vectors together
 		vpa.x = vec1.x+vec2.x;
 		vpa.y = vec1.y+vec2.y;
 		vpa.z = vec1.z+vec2.z;
@@ -91,13 +97,13 @@ public class ThreeVector {
 	
 	
 	
-	//static method angle
+	//method that gives you out the angle between to Vectors in degrees
 	public static double angle(ThreeVector vec1, ThreeVector vec2) {
 		double anglevar;
 		double anglevar2;
-		
-		//calculating the angle
+		//calculating the angle (arccos((vec1*vec2/(mag(vec1)*mag(vec2))) where mag is the magnitude of the Vector
 		anglevar = Math.acos(scalarProduct(vec1, vec2)/(vec1.magnitude(vec1)*vec2.magnitude(vec2)));
+		//converting from radiant into degrees
 		anglevar2 = anglevar * (360/(2*Math.PI));
 		return anglevar2;
 	}
