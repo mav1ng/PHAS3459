@@ -16,7 +16,8 @@ public class ThreeVector {
 		this.z = z;
 	}
 	
-	
+	//creating zero vector
+	ThreeVector ZERO = new ThreeVector(0, 0, 0);
 	
 	//printing out the components
 	//System.out.println(this);
@@ -47,7 +48,11 @@ public class ThreeVector {
 	
 	//method that gives out the UnitVector of the object that was put in as
 	//an argument
-	public ThreeVector unitVector(ThreeVector vec) {
+	public ThreeVector unitVector(ThreeVector vec) throws Exception {
+		//exception
+		if (vec == ZERO) {
+			throw new Exception("The zero vector has no unitVector!");
+		}
 		ThreeVector vece = new ThreeVector();
 		vece.x = vec.x/vec.x;
 		vece.y = vec.y/vec.y;
