@@ -42,7 +42,11 @@ public class FallingParticle {
 	}
 	
 	//method to set the velocity of the particle
-	public void setV(double v) {
+	public void setV(double v) throws Exception {
+		//inital velocity has to be equal or greater than 0
+		if (v < 0) {
+			throw new Exception("There is no negative velocity.");
+		}
 		this.v = v;
 	}
 	
