@@ -106,7 +106,7 @@ public class ThreeVector {
 	//method that gives you out the angle between to Vectors in degrees
 	public static double angle(ThreeVector vec1, ThreeVector vec2) throws Exception {
 		//exception
-		if (vec1 == ZERO && vec2 == ZERO) {
+		if (vec1 == ZERO || vec2 == ZERO) {
 			throw new Exception("Cannot calculate an angle to the zero Vector!");
 		}
 		double anglevar;
