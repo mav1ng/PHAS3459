@@ -41,14 +41,14 @@ public class ParticleMain {
 		System.out.println();
 		
 		//explaining the difference in the times and velocities
-		System.out.println("So why do the data different?");
-		System.out.println("In the vast majority of all cases the exact time the object needs to reach "
-				+ "the ground of the vessel is not an integer number. It is rather a real number with"
-				+ "a lot of decimal places. The while loop used by the system cannot measure the time exactly "
-				+ "but can only converge towards the exact time in the deltaT-steps. As soon as the approached"
-				+ "time exceeds the exact time the loops stops and thus misses the remaining time the object"
-				+ "would need to reach the ground. That is why the Time taken and the final velocity increases"
-				+ "with decreasing deltaT-steps");
+		System.out.println("So why does the data differ?");
+		System.out.println("In the vast majority of all cases the exact time the object needs to reach ");
+		System.out.println("the ground of the vessel is not an integer number. It is rather a real number with");
+		System.out.println("a lot of decimal places. The while loop used by the system cannot measure the time exactly ");
+		System.out.println("but can only converge towards the exact time in the deltaT-steps. As soon as the approached");
+		System.out.println("time exceeds the exact time the loops stops and thus misses the remaining time the object");
+		System.out.println("would need to reach the ground. That is why the Time taken and the final velocity increases");	
+		System.out.println("with decreasing deltaT-steps");
 	}
 
 }
