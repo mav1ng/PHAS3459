@@ -103,7 +103,11 @@ public class Complex {
 		return z;
 	}
 	
-	public static Complex divide(Complex z1, Complex z2) {
+	public static Complex divide(Complex z1, Complex z2) throws Exception {
+		//adding the Exception
+		if (z2 == ZERO) {
+			throw new Exception("You cannot divide by zero!");
+		}
 		//calculating the complex division
 		//(a + bi)/(c + di) ==> ((ac + bd)/(c² + d²)) + ((bc - ad)/(c² + d²))i 
 		Complex z = new Complex((z1.x*z2.x + z1.y*z2.y)/(z2.modulus()*z2.modulus()), ((z1.y*z2.x - z1.x*z2.y)/(z2.modulus()*z2.modulus())));
