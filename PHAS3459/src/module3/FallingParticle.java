@@ -86,8 +86,13 @@ public class FallingParticle {
 		this.v = 0;
 		//simulating the drop
 		while (this.z >= 0) {
-			doTimeStep(deltaT);
-			t = t + deltaT;
+			try {
+				doTimeStep(deltaT);
+				t = t + deltaT;
+			}
+			catch (Exception e) {
+				System.out.println(e);
+			}
 		}
 	}
 	
