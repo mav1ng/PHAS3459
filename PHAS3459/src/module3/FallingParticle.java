@@ -25,7 +25,11 @@ public class FallingParticle {
 	}
 	
 	//method to set the height of the falling particle
-	public void setH(double h) {
+	public void setH(double h) throws Exception {
+		//The initial height of the object has to be higher or equal to zero
+		if (h < 0) {
+			throw new Exception("The object has to be inside the vessel!");
+		}
 		this.h = h;
 	}
 	
