@@ -134,9 +134,7 @@ public class TestExceptions {
 			System.out.println(e);
 		}
 		System.out.println("The Exceptions work just fine!");
-		System.out.println("All Exceptions work fine!");
-		
-		
+		System.out.println("ALL EXCEPTIONS WORK FINE!");
 		
 	}
 
