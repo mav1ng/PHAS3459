@@ -92,6 +92,7 @@ public class FallingParticle {
 			}
 			catch (Exception e) {
 				System.out.println(e);
+				break;
 			}
 		}
 	}
