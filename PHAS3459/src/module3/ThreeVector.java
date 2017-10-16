@@ -17,7 +17,7 @@ public class ThreeVector {
 	}
 	
 	//creating zero vector
-	ThreeVector ZERO = new ThreeVector(0, 0, 0);
+	static ThreeVector ZERO = new ThreeVector(0, 0, 0);
 	
 	//printing out the components
 	//System.out.println(this);
@@ -104,7 +104,11 @@ public class ThreeVector {
 	
 	
 	//method that gives you out the angle between to Vectors in degrees
-	public static double angle(ThreeVector vec1, ThreeVector vec2) {
+	public static double angle(ThreeVector vec1, ThreeVector vec2) throws Exception {
+		//exception
+		if (vec1 == ZERO && vec2 == ZERO) {
+			throw new Exception("Cannot calculate an angle to the zero Vector!");
+		}
 		double anglevar;
 		double anglevar2;
 		//calculating the angle (arccos((vec1*vec2/(mag(vec1)*mag(vec2))) where mag is the magnitude of the Vector
@@ -136,9 +140,9 @@ public class ThreeVector {
 
 	
 	//non static Version angle
-	public double anglens(ThreeVector vec1, ThreeVector vec2) {
-		return angle(vec1, vec2);
-	}
+	//public double anglens(ThreeVector vec1, ThreeVector vec2) {
+	//	return angle(vec1, vec2);
+	//}
 	
 	
 	public static void main(String[] args) {
