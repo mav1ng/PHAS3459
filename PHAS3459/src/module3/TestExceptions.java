@@ -15,6 +15,16 @@ public class TestExceptions {
 			System.out.println(e);
 		}
 		
+		//testing Error message fo Complex class:
+		System.out.println();
+		System.out.println("Testing Complex.normalised:");
+		try {
+			Complex.ZERO.normalised();
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
 	}
 
 }
