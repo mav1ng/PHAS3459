@@ -14,6 +14,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		System.out.println("The Exceptions work just fine!");
 		
 		//testing Error message fo Complex class:
 		System.out.println();
@@ -24,6 +25,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		System.out.println("The Exceptions work just fine!");
 		
 		//testing Threevector.unitVector()
 		System.out.println();
@@ -34,6 +36,27 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		System.out.println("The Exceptions work just fine!");
+		
+		//testing ThreeVector.angle()
+		System.out.println();
+		System.out.println("Testing ThreeVector.angle()");
+		//creating random ThreeVector
+		ThreeVector v = new ThreeVector(1, 1, 1);
+		try {
+			ThreeVector.angle(v, ThreeVector.ZERO);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		//changing the vectors
+		try {
+			ThreeVector.angle(ThreeVector.ZERO, v);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("The Exceptions work just fine!");
 	}
 
 }
