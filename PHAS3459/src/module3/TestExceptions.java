@@ -97,10 +97,24 @@ public class TestExceptions {
 		System.out.println();
 		System.out.println("Testing the setV() method:");
 		try {
-			//creating random object
+			//creating random object (has to be ok)
 			FallingParticle p = new FallingParticle (1, 1);
 			//calling on setV()
 			p.setV(-1);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		
+		//testing doTimeStep() method
+		System.out.println();
+		System.out.println("Testing doTimeStep() method:");
+		try {
+			//creating random object (has to be ok)
+			FallingParticle p = new FallingParticle (1, 1);
+			//calling on setV()
+			p.doTimeStep(0);
 		}
 		catch (Exception e) {
 			System.out.println(e);
