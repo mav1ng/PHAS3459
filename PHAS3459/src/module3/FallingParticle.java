@@ -63,7 +63,11 @@ public class FallingParticle {
 	}
 
 	//method to update velocity and position of the particle 
-	public void doTimeStep(double deltaT) {
+	public void doTimeStep(double deltaT) throws Exception {
+		//deltaT needs to be greater than zero
+		if (deltaT <= 0) {
+			throw new Exception("DeltaT has to be greater than 0!");
+		}
 		//calculating the current acceleration of the particle
 		double a = ((this.d*this.v*this.v)/m)-g;
 		//updating the current speed
