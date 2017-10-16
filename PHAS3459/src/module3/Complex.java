@@ -49,7 +49,7 @@ public class Complex {
 		return z;
 	}
 	
-	//returns the normalized current complex number
+	//returns the normalised current complex number
 	public Complex normalised() throws Exception {
 		//adding Exception
 		if (this == ZERO) {
