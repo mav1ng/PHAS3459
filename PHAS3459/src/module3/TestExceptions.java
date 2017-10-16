@@ -25,6 +25,15 @@ public class TestExceptions {
 			System.out.println(e);
 		}
 		
+		//testing Threevector.unitVector()
+		System.out.println();
+		System.out.println("Testing Threevector.unitVector()");
+		try {
+			ThreeVector.ZERO.unitVector(ThreeVector.ZERO);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 }
