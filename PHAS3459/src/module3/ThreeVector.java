@@ -140,9 +140,14 @@ public class ThreeVector {
 
 	
 	//non static Version angle
-	//public double anglens(ThreeVector vec1, ThreeVector vec2) {
-	//	return angle(vec1, vec2);
-	//}
+	public double anglens(ThreeVector vec1, ThreeVector vec2) throws Exception {
+		try {
+			return angle(vec1, vec2);
+		}
+		catch (Exception e) {
+			throw (e);
+		}
+	}
 	
 	
 	public static void main(String[] args) {
