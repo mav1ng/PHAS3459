@@ -17,7 +17,7 @@ public class FallingParticle {
 	public FallingParticle(double m, double d) throws Exception {
 		//exception for unphysical values of m and d (less than zero)
 		if (m < 0 || d < 0) {
-			throw new Exception("The mass or the drag coefficient of an object "
+			throw new Exception("The mass and the drag coefficient of an object "
 					+ "cannot be less than zero!");
 		}
 		this.m = m;

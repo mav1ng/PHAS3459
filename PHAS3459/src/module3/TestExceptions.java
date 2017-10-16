@@ -5,6 +5,8 @@ public class TestExceptions {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		
+		
 		//testing Error message for Complex class:
 		System.out.println("Testing Complex Class");
 		Complex z = new Complex(1, 3);
@@ -15,6 +17,8 @@ public class TestExceptions {
 			System.out.println(e);
 		}
 		System.out.println("The Exceptions work just fine!");
+		
+		
 		
 		//testing Error message fo Complex class:
 		System.out.println();
@@ -27,6 +31,8 @@ public class TestExceptions {
 		}
 		System.out.println("The Exceptions work just fine!");
 		
+		
+		
 		//testing Threevector.unitVector()
 		System.out.println();
 		System.out.println("Testing Threevector.unitVector()");
@@ -37,6 +43,8 @@ public class TestExceptions {
 			System.out.println(e);
 		}
 		System.out.println("The Exceptions work just fine!");
+		
+		
 		
 		//testing ThreeVector.angle()
 		System.out.println();
@@ -52,6 +60,21 @@ public class TestExceptions {
 		//changing the vectors
 		try {
 			ThreeVector.angle(ThreeVector.ZERO, v);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("The Exceptions work just fine!");
+		
+		
+		
+		//testing all the FallingParticle methods and constructors on exception
+		System.out.println();
+		System.out.println("Testing all the FallingParticle methods and the constructor");
+		//testing the constructor
+		try {
+			FallingParticle par = new FallingParticle(-1, 5);
+			System.out.println(par);
 		}
 		catch (Exception e) {
 			System.out.println(e);
