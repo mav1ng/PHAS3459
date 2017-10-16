@@ -53,7 +53,7 @@ public class Complex {
 	public Complex normalised() throws Exception {
 		//adding Exception
 		if (this == ZERO) {
-			throw new Exception("You cannot divide by zero!");
+			throw new Exception("You cannot normalise the zero vector!");
 		}
 		this.x = this.x/modulus();
 		this.y = this.y/modulus();
