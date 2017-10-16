@@ -82,11 +82,25 @@ public class TestExceptions {
 		
 		//testing setH
 		System.out.println();
+		System.out.println("Testing the FallingParticle setH() method:");
 		try {
 			//creating random object
 			FallingParticle p = new FallingParticle (1, 1);
 			//calling on setH()
 			p.setH(-1);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		//testing setV() method
+		System.out.println();
+		System.out.println("Testing the setV() method:");
+		try {
+			//creating random object
+			FallingParticle p = new FallingParticle (1, 1);
+			//calling on setV()
+			p.setV(-1);
 		}
 		catch (Exception e) {
 			System.out.println(e);
