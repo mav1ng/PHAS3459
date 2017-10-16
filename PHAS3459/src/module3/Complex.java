@@ -50,12 +50,14 @@ public class Complex {
 	}
 	
 	//returns the normalized current complex number
-	public Complex normalised() {
-		Complex z = new Complex();
-		//normalising the complex number: dividing by the modulus of it
-		z.x = z.x/modulus();
-		z.y = z.y/modulus();
-		return z; 
+	public Complex normalised() throws Exception {
+		//adding Exception
+		if (this == ZERO) {
+			throw new Exception("You cannot divide by zero!");
+		}
+		this.x = this.x/modulus();
+		this.y = this.y/modulus();
+		return this; 
 	}
 	
 	//checks if entered complex number and current complex number are the same
