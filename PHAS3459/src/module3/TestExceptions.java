@@ -113,12 +113,30 @@ public class TestExceptions {
 		try {
 			//creating random object (has to be ok)
 			FallingParticle p = new FallingParticle (1, 1);
-			//calling on setV()
+			//calling on doTimeStep()
 			p.doTimeStep(0);
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		
+		
+		//testing drop() method (should be the same)
+		System.out.println();
+		System.out.println("Testing drop() method:");
+		try {
+			//creating random object (has to be ok)
+			FallingParticle p = new FallingParticle (1, 1);
+			//calling on drop()
+			p.drop(0);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		System.out.println("The Exceptions work just fine!");
+		System.out.println("All Exceptions work fine!");
+		
+		
 		
 	}
 
