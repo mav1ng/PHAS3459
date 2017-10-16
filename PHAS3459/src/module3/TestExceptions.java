@@ -68,9 +68,9 @@ public class TestExceptions {
 		
 		
 		
-		//testing all the FallingParticle methods and constructors on exception
+		//testing the FallingParticle constructor
 		System.out.println();
-		System.out.println("Testing all the FallingParticle methods and the constructor");
+		System.out.println("Testing the FallingParticle constructor");
 		//testing the constructor
 		try {
 			FallingParticle par = new FallingParticle(-1, 5);
@@ -79,7 +79,19 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println("The Exceptions work just fine!");
+		
+		//testing setH
+		System.out.println();
+		try {
+			//creating random object
+			FallingParticle p = new FallingParticle (1, 1);
+			//calling on setH()
+			p.setH(-1);
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
 	}
 
 }

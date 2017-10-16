@@ -28,7 +28,7 @@ public class FallingParticle {
 	public void setH(double h) throws Exception {
 		//The initial height of the object has to be higher or equal to zero
 		if (h < 0) {
-			throw new Exception("The object has to be inside the vessel!");
+			throw new Exception("The object has to be inside the vessel! The height has to be bigger or equal to zero!");
 		}
 		this.h = h;
 	}
