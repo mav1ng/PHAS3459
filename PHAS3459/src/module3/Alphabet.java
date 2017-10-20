@@ -1,5 +1,6 @@
 package module3;
 
+//Importing the java.util class
 import java.util.* ;
 
 public class Alphabet {
@@ -23,6 +24,8 @@ public class Alphabet {
 		int excCount = 0; //var for counting the number of exceptions being thrown
 		
 		StringBuilder str = new StringBuilder();
+		
+		System.out.println("Printing out the thrown Exceptions:");
 		
 		for (int i = 0; i <= 250; i++) {
 			
@@ -48,10 +51,14 @@ public class Alphabet {
 			
 		}
 		
-		System.out.println("Contents of the StringBuilder: str ");
+		System.out.println();
+		System.out.println("Contents of the StringBuilder str: ");
 		System.out.println(str);
-		System.out.println("Lenght of str: " + str.length());
+		System.out.println();
+		System.out.println("Number of characters of str-object:  " + str.length());
+		System.out.println();
 		System.out.println("Sum of all the Numbers: " + runningTotal);
+		System.out.println();
 		System.out.println("Number of all exceptions " + excCount);
 		
 	}
