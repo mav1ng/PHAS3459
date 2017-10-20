@@ -19,21 +19,25 @@ public class Alphabet {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int runningTotal = 0;
-		int excCount = 0;
+		int runningTotal = 0; //var for counting the total sum of the added numbers
+		int excCount = 0; //var for counting the number of exceptions being thrown
 		
 		StringBuilder str = new StringBuilder();
 		
 		for (int i = 0; i <= 250; i++) {
+			
 			char randomchar = randomCharacter();
+			
 			//testing if randomchar is a Letter or a Digit
 			if (Character.isLetter(randomchar) || Character.isDigit(randomchar)) {
 				str.append(randomchar);
+				
 				//if randomchar is a number
 				try {
 					int runningVar = Integer.parseInt(Character.toString(randomchar));
 					runningTotal = runningTotal + runningVar;
 				}
+				
 				//if parseInt throws an exception (randomchar is a letter)
 				catch (Exception e) {
 					System.out.println(e);
@@ -41,6 +45,7 @@ public class Alphabet {
 				}
 				
 			}
+			
 		}
 		
 		System.out.println("Contents of the StringBuilder: str ");
