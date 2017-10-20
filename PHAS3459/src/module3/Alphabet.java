@@ -22,7 +22,7 @@ public class Alphabet {
 		int runningTotal = 0;
 		int excCount = 0;
 		
-		java.lang.StringBuilder str = new java.lang.StringBuilder();
+		StringBuilder str = new StringBuilder();
 		
 		for (int i = 0; i <= 250; i++) {
 			char randomchar = randomCharacter();
