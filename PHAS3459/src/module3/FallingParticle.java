@@ -3,15 +3,15 @@ package module3;
 public class FallingParticle {
 	
 	//declaring the used variables
-	//m=mass, d=drag coefficient, t=elapsed time, z=position
-	//h=initial height, v=current velocity, g=earth gravity constant
-	final double m;
-	double d;
-	static double t;
-	double z;
-	double h;
-	double v;
-	final double g = 9.80665;
+	
+	
+	double m; //m=mass,
+	double d; //d=drag coefficient
+	double t; //t=elapsed time
+	double z; //z=position
+	double h; //h=initial height
+	double v; //v=current velocity
+	final static double g = 9.80665; //g=earth gravity constant
 	
 	//constructor
 	public FallingParticle(double m, double d) throws Exception {
@@ -95,11 +95,6 @@ public class FallingParticle {
 				break;
 			}
 		}
-	}
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

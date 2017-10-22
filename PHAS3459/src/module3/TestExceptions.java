@@ -16,7 +16,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println("The Exceptions work just fine!");
+		System.out.println("The exception works just fine!");
 		
 		
 		
@@ -29,7 +29,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println("The Exceptions work just fine!");
+		System.out.println("The exception works just fine!");
 		
 		
 		
@@ -42,7 +42,7 @@ public class TestExceptions {
 		catch (Exception e) {
 			System.out.println(e);
 		}
-		System.out.println("The Exceptions work just fine!");
+		System.out.println("The exceptions works just fine!");
 		
 		
 		
