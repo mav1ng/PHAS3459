@@ -30,7 +30,7 @@ public class WordCounter {
 	public static BufferedReader brFromFile(String fileName) throws Exception {
 		
 		try {
-			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
+			BufferedReader in = new BufferedReader(new FileReader(fileName));
 			return in;
 			
 		}
@@ -40,9 +40,37 @@ public class WordCounter {
 	}
 	
 	
+	
 	public static int countWordsinResource(BufferedReader dataAsBR) throws Exception {
+		//defining the needed variables
+		int blankCount = 0, wordsCount = 0, lineCount = 0;
+		
+		String line = dataAsBR.readLine();
+		
 		try {
 			
+			while (line != null) {
+				
+				
+				for (int i = 0; i < line.length(); i++) {
+					if (line.charAt(i) == ' ') {
+						blankCount++;
+					}
+				}
+				
+				
+				//read the next line
+				line = dataAsBR.readLine();
+				lineCount++;
+				
+			}
+			
+			//setting the wordsCount
+			wordsCount = blankCount + lineCount;
+			return wordsCount;
+		}
+		catch (Exception e) {
+			throw (e);
 		}
 	}
 
