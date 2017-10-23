@@ -4,6 +4,8 @@ package module4;
 import java.io.* ;
 //importing the Class java.net
 import java.net.*;
+//importing the Class java.util
+import java.util.*;
 
 public class WordCounter {
 
@@ -41,33 +43,19 @@ public class WordCounter {
 	
 	
 	
-	public static int countWordsinResource(BufferedReader dataAsBR) throws Exception {
+	public static int countWordsInResource(BufferedReader dataAsBR) throws Exception {
 		//defining the needed variables
-		int blankCount = 0, wordsCount = 0, lineCount = 1;
-		
-		String line = dataAsBR.readLine();
+		int wordsCount = 0;
 		
 		try {
 			
-			while (line != null) {
-				
-				
-				for (int i = 0; i < line.length(); i++) {
-					if (line.charAt(i) == ' ') {
-						blankCount++;
-					}
-				}
-				
-				
-				//read the next line
-				line = dataAsBR.readLine();
-				lineCount++;
-				
+			Scanner scline = new Scanner(dataAsBR);
+			if (scline.hasNext()) {
+				wordsCount++;
 			}
-			
-			//setting the wordsCount
-			wordsCount = blankCount + lineCount;
+			scline.close();
 			return wordsCount;
+			
 		}
 		catch (Exception e) {
 			throw (e);
@@ -75,14 +63,13 @@ public class WordCounter {
 	}
 	
 	public static void main(String[] args) {
-		
-		//testing the defined methods with an URL
-		try	{
-			brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt");
+		try {
+			System.out.println(countWordsInResource(brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt")));
 		}
 		catch (Exception e) {
 			System.out.println(e);
 		}
+		
 	}
 
 }
