@@ -1,12 +1,13 @@
 package module3;
 
+
 //Importing the java.util class
 import java.util.* ;
 
 public class Alphabet {
 
 	static char randomCharacter() {
-		//creating new random number generator
+		//creating new random Random object which is a number generator
 		Random Rvar = new Random();
 		//creates random int between 0 and 127
 		int randomint = Rvar.nextInt(128);
@@ -53,6 +54,7 @@ public class Alphabet {
 			
 		}
 		
+		//printing out the solutions 
 		System.out.println();
 		System.out.println("Contents of the StringBuilder str: ");
 		System.out.println(str);

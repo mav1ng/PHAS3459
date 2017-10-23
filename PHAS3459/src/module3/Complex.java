@@ -111,7 +111,7 @@ public class Complex {
 			throw new Exception("You cannot divide by zero!");
 		}
 		//calculating the complex division
-		//(a + bi)/(c + di) ==> ((ac + bd)/(c² + d²)) + ((bc - ad)/(c² + d²))i 
+		//(a + bi)/(c + di) ==> ((ac + bd)/(cï¿½ + dï¿½)) + ((bc - ad)/(cï¿½ + dï¿½))i 
 		Complex z = new Complex((z1.x*z2.x + z1.y*z2.y)/(z2.modulus()*z2.modulus()), ((z1.y*z2.x - z1.x*z2.y)/(z2.modulus()*z2.modulus())));
 		return z;
 	}
@@ -121,9 +121,5 @@ public class Complex {
 	static Complex ZERO = new Complex(0, 0);
 	static Complex I = new Complex(0, -1);
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 }

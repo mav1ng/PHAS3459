@@ -3,9 +3,9 @@ package module3;
 
 public class ThreeVector {
 	
-	double x;
-	double y;
-	double z;
+	double x; //x-component
+	double y; //y-component
+	double z; //z-component
 	
 	//constructor
 	public ThreeVector() {};
@@ -54,9 +54,9 @@ public class ThreeVector {
 			throw new Exception("The zero vector has no unitVector!");
 		}
 		ThreeVector vece = new ThreeVector();
-		vece.x = vec.x/vec.x;
-		vece.y = vec.y/vec.y;
-		vece.z = vec.y/vec.z;
+		vece.x = vec.x/vece.magnitude(vece);
+		vece.y = vec.y/vece.magnitude(vece);
+		vece.z = vec.y/vece.magnitude(vece);
 		return vece;
 	}
 	
@@ -67,8 +67,8 @@ public class ThreeVector {
 		return "x-component: " + this.x + "  " + "y-component: " + this.y + "  " + "z-component: " + this.z;
 	}
 	
-	//method that calculated the scalar prodcut between to ThreeVectors
-	public static double scalarProduct( ThreeVector vec1, ThreeVector vec2) {
+	//method that calculated the scalar product between to ThreeVectors
+	public static double scalarProduct(ThreeVector vec1, ThreeVector vec2) {
 		double scalvar;
 		//calculation of the scalarproduct by multiplying the several componets and adding them up
 		scalvar = vec1.x*vec2.x + vec1.y*vec2.y + vec1.z*vec2.z;
@@ -149,10 +149,5 @@ public class ThreeVector {
 		}
 	}
 	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }
