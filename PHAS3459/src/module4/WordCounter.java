@@ -43,7 +43,7 @@ public class WordCounter {
 	
 	public static int countWordsinResource(BufferedReader dataAsBR) throws Exception {
 		//defining the needed variables
-		int blankCount = 0, wordsCount = 0, lineCount = 0;
+		int blankCount = 0, wordsCount = 0, lineCount = 1;
 		
 		String line = dataAsBR.readLine();
 		
@@ -71,6 +71,17 @@ public class WordCounter {
 		}
 		catch (Exception e) {
 			throw (e);
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		//testing the defined methods with an URL
+		try	{
+			brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt");
+		}
+		catch (Exception e) {
+			System.out.println(e);
 		}
 	}
 
