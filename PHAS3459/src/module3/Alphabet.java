@@ -33,6 +33,8 @@ public class Alphabet {
 			
 			//testing if randomchar is a Letter or a Digit
 			if (Character.isLetter(randomchar) || Character.isDigit(randomchar)) {
+				
+				//append to the BuildingString object
 				str.append(randomchar);
 				
 				//if randomchar is a number
