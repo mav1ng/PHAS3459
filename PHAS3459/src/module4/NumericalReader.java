@@ -1,7 +1,10 @@
 package module4;
 
+
 import java.io.*;
 import java.net.URL;
+import java.lang.Character.*;
+
 
 public class NumericalReader {
 	
@@ -40,11 +43,11 @@ public class NumericalReader {
 		}	
 	}
 	
-	void analysisStart(String dataFile) throws Exception {
+	public void analysisStart(String dataFileIn) throws Exception {
 		
 		try {
 		
-		File inputFile = new File(dataFile);
+		File dataFile = new File(dataFileIn);
 		
 		//initializing the private variables
 		minValue = 0;
@@ -59,7 +62,24 @@ public class NumericalReader {
 	}
 		
 	
-	
+	public void analyseData(String line) throws Exception {
+		try {
+			@SuppressWarnings("deprecation")
+			Character first = new Character (line.charAt(0));
+			if (line.isEmpty() || Character.isLetter(first)) {
+			}
+			else {
+				
+				System.out.println(line.substring(0, 1));
+				System.out.println();
+				System.out.println(line.substring(1, 2));
+				System.out.println();
+				System.out.println(line.substring(2, 3));
+				
+				
+			}
+		}
+	}
 	
 	
 	
