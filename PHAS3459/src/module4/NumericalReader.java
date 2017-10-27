@@ -10,19 +10,21 @@ import java.lang.Integer;
 
 public class NumericalReader {
 	
-	private double minValue, maxValue, nValues, sumOfValues; //declaring the private variables
+		private double minValue, maxValue, nValues, sumOfValues; //declaring the private variables
+		private String fileName; //the filename the user is prompt to enter
+
 	
 	//defining the method that prompts user to input string and then stores it
-	public static String getStringFromKeyboard() throws Exception {
+	public static String getStringFromKeyboard() throws IOException {
 		
-		System.out.println("Please enter a String!");
+		System.out.println("Please enter the name of the file to be created!");
 		
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 			String input = in.readLine();
 			return input;
 	}
 	
-	public BufferedReader brFromURL(String urlName) throws Exception {
+	public BufferedReader brFromURL(String urlName) throws IOException {
 		
 			//creating a new URL object it will throw an exception when the entered urlName is not a URL
 			URL website = new URL(urlName);
@@ -35,30 +37,34 @@ public class NumericalReader {
 	
 	public void analysisStart(String dataFileIn) throws Exception {
 		
+		fileName = dataFileIn;
 		File dataFile = new File(dataFileIn);
 		
 		//initializing the private variables
-		minValue = 0;
-		maxValue = 0;
-		nValues = 0;
-		sumOfValues = 0;
+		this.minValue = 0;
+		this.maxValue = 0;
+		this.nValues = 0;
+		this.sumOfValues = 0;
 
 	}
 	
 		
 	
 	public void analyseData(String line) throws IOException {
+		
+		
 		//the system should skip the line if it is blank or a comment, eg. starts with a letter
 		if (line.isEmpty() || Character.isLetter(line.charAt(0))) {
 			}
+		
+		
 		else {
-			
+						
 			try 
 			
 				(	
 					Scanner lineSc = new Scanner(line); 
-					File output = new File("numbers.txt");
-					FileWriter fr = new FileWriter(output);
+					FileWriter fr = new FileWriter(fileName);
 					BufferedWriter bw = new BufferedWriter(fr);
 					PrintWriter pw = new PrintWriter(bw);
 				)
@@ -67,6 +73,7 @@ public class NumericalReader {
 				
 				
 				while (lineSc.hasNextDouble()) {
+					
 					
 					//printing to screen
 					double currentNo = lineSc.nextDouble();
@@ -91,8 +98,9 @@ public class NumericalReader {
 					//updating sum of values
 					sumOfValues = sumOfValues + currentNo;
 					
+					
 				}
-				
+			
 			}
 			
 		}
@@ -105,7 +113,7 @@ public class NumericalReader {
 		//printing out the minimumValue
 		System.out.println("The minimum value: " + minValue);
 		System.out.println();
-		//prinring out the maximum value
+		//printing out the maximum value
 		System.out.println("The maximum value: " + maxValue);
 		System.out.println();
 		//printing out the average value
@@ -119,6 +127,27 @@ public class NumericalReader {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		NumericalReader nr = new NumericalReader();
+		String userInput;
+		
+		try {
+			userInput = getStringFromKeyboard();
+		}
+		catch (IOException e) {
+			userInput = System.getProperty("user.home");
+		}
+	
+		String directoryFile = (userInput + File.separator + nr.fileName);
+		
+		try	{
+			BufferedReader reader = nr.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
+		}
+		catch (IOException e) {
+			System.out.println(e);
+		}
+			
+
 
 	}
 
