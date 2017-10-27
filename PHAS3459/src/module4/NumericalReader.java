@@ -3,15 +3,16 @@ package module4;
 
 import java.io.*;
 import java.net.URL;
-import java.lang.Character.*;
+import java.util.Scanner;
+import java.lang.Character;
 import java.lang.Integer;
 
 
 public class NumericalReader {
 	
-	private int minValue, maxValue, nValues, sumOfValues; //declaring the private variables
+	private double minValue, maxValue, nValues, sumOfValues; //declaring the private variables
 	
-	//defining the method that promps user to input string and then stores it
+	//defining the method that prompts user to input string and then stores it
 	public static String getStringFromKeyboard() throws Exception {
 		
 		System.out.println("Please enter a String!");
@@ -51,30 +52,33 @@ public class NumericalReader {
 		if (line.isEmpty() || Character.isLetter(line.charAt(0))) {
 			}
 		else {
+			Scanner lineSc = new Scanner(line);
+			while (lineSc.hasNextDouble()) {
 				
-			//printing the numbers out to the screen
-			for (int i = 0; i <= 2; i++) {
-			System.out.println(line.substring(i, i+1));
-			}
-			
-			//storing the numbers in a file
-			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File("numberFile"))));
-			for (int i = 0; i<=2; i++) {
-				pw.println(line.substring(i, i+1));	
-			}	
-			pw.close();
-			
-			//updating the variables minValue, maxValue, nValues, sumOfValues
-			for (int i = 0; i <= 2; i++) {
-				int no = Integer.parseInt(line.substring(i, i+1));
-				if (no < minValue) {
-					minValue = no;
+				//printing to screen
+				double currentNo = lineSc.nextDouble();
+				System.out.println(currentNo);
+				
+				//saving it in a file
+				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File("numbers.txt"))));
+				pw.println(currentNo);
+				
+				//updating minValue
+				if (currentNo < minValue) {
+					minValue = currentNo;
 				}
-				if (no > maxValue) {
-					maxValue = no;
+				
+				//updating maxValue
+				if (currentNo > maxValue) {
+					maxValue = currentNo;
 				}
+				
+				//updating nValues
 				nValues++;
-				sumOfValues = sumOfValues + no;
+				
+				//updating sum of values
+				sumOfValues = sumOfValues + currentNo;
+				
 			}
 		}
 	}
