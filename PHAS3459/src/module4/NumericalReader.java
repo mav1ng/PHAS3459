@@ -8,7 +8,7 @@ import java.lang.Character.*;
 
 public class NumericalReader {
 	
-	private double minValue, maxValue, nValues, sumOfValues;
+	private double minValue, maxValue, nValues, sumOfValues; //declaring the private variables
 	
 	//defining the method that promps user to input string and then stores it
 	public static String getStringFromKeyboard() throws Exception {
@@ -64,20 +64,24 @@ public class NumericalReader {
 	
 	public void analyseData(String line) throws Exception {
 		try {
-			@SuppressWarnings("deprecation")
-			Character first = new Character (line.charAt(0));
-			if (line.isEmpty() || Character.isLetter(first)) {
+			if (line.isEmpty() || Character.isLetter(line.charAt(0))) {
 			}
 			else {
 				
-				System.out.println(line.substring(0, 1));
-				System.out.println();
-				System.out.println(line.substring(1, 2));
-				System.out.println();
-				System.out.println(line.substring(2, 3));
+				//printing the numbers out to the screen
+				for (int i = 0; i <= 2; i++) {
+				System.out.println(line.substring(i, i+1));
+				}
 				
-				
+				//storing the numbers in a file
+				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File("numberFile"))));
+				for (int i = 0; i<=2; i++) {
+					pw.println(line.substring(i, i+1));	
+				}	
 			}
+		}
+		catch (Exception e) {
+			throw (e);
 		}
 	}
 	
