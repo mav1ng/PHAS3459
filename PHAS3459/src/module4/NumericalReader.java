@@ -47,42 +47,73 @@ public class NumericalReader {
 	
 		
 	
-	public void analyseData(String line) throws Exception {
+	public void analyseData(String line) throws IOException {
 		//the system should skip the line if it is blank or a comment, eg. starts with a letter
 		if (line.isEmpty() || Character.isLetter(line.charAt(0))) {
 			}
 		else {
-			Scanner lineSc = new Scanner(line);
-			while (lineSc.hasNextDouble()) {
+			
+			try 
+			
+				(	
+					Scanner lineSc = new Scanner(line); 
+					File output = new File("numbers.txt");
+					FileWriter fr = new FileWriter(output);
+					BufferedWriter bw = new BufferedWriter(fr);
+					PrintWriter pw = new PrintWriter(bw);
+				)
+			
+			{
 				
-				//printing to screen
-				double currentNo = lineSc.nextDouble();
-				System.out.println(currentNo);
 				
-				//saving it in a file
-				PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File("numbers.txt"))));
-				pw.println(currentNo);
-				
-				//updating minValue
-				if (currentNo < minValue) {
-					minValue = currentNo;
+				while (lineSc.hasNextDouble()) {
+					
+					//printing to screen
+					double currentNo = lineSc.nextDouble();
+					System.out.println(currentNo);
+					
+					//saving it in the file
+					pw.println(currentNo);
+					
+					//updating minValue
+					if (currentNo < minValue) {
+						minValue = currentNo;
+					}
+					
+					//updating maxValue
+					if (currentNo > maxValue) {
+						maxValue = currentNo;
+					}
+					
+					//updating nValues
+					nValues++;
+					
+					//updating sum of values
+					sumOfValues = sumOfValues + currentNo;
+					
 				}
-				
-				//updating maxValue
-				if (currentNo > maxValue) {
-					maxValue = currentNo;
-				}
-				
-				//updating nValues
-				nValues++;
-				
-				//updating sum of values
-				sumOfValues = sumOfValues + currentNo;
 				
 			}
+			
 		}
+		
 	}
 	
+	//method analysEnd() that print the minimum Value, the maximum Value, 
+	//the average Value and the total number of Values read
+	public void analysisEnd() {
+		//printing out the minimumValue
+		System.out.println("The minimum value: " + minValue);
+		System.out.println();
+		//prinring out the maximum value
+		System.out.println("The maximum value: " + maxValue);
+		System.out.println();
+		//printing out the average value
+		System.out.println("The average value: " + sumOfValues/nValues);
+		System.out.println();
+		//printing out the total number of values read
+		System.out.println("The total number of values read: " + nValues);
+	}
 	
 	
 
