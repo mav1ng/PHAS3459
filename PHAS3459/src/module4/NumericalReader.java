@@ -5,7 +5,6 @@ import java.io.*;
 import java.net.URL;
 import java.util.Scanner;
 import java.lang.Character;
-import java.lang.Integer;
 
 
 public class NumericalReader {
@@ -17,7 +16,7 @@ public class NumericalReader {
 	//defining the method that prompts user to input string and then stores it
 	public static String getStringFromKeyboard() throws IOException {
 		
-		System.out.println("Please enter the name of the file to be created!");
+		System.out.println("Please enter the directory in which the file should be created!");
 		
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 			String input = in.readLine();
@@ -35,10 +34,11 @@ public class NumericalReader {
 	}
 	
 	
-	public void analysisStart(String dataFileIn) throws Exception {
+	public void analysisStart(String dataFile) throws IOException {
 		
-		fileName = dataFileIn;
-		File dataFile = new File(dataFileIn);
+		fileName = dataFile;
+		File outputfile = new File(dataFile);
+		FileWriter fw = new FileWriter(outputfile);
 		
 		//initializing the private variables
 		this.minValue = 0;
@@ -71,7 +71,10 @@ public class NumericalReader {
 			
 			{
 				
-				
+				if(lineSc.hasNext()) {
+					System.out.println("lol");
+					System.out.println(lineSc.nextDouble());
+				}
 				while (lineSc.hasNextDouble()) {
 					
 					
@@ -81,6 +84,9 @@ public class NumericalReader {
 					
 					//saving it in the file
 					pw.println(currentNo);
+					
+					//setting the first minimalValue
+					minValue = currentNo;
 					
 					//updating minValue
 					if (currentNo < minValue) {
@@ -128,27 +134,69 @@ public class NumericalReader {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		NumericalReader nr = new NumericalReader();
 		String userInput;
+		String homeDirectory = System.getProperty("user.home");
+		System.out.println("Your home directory is: " + homeDirectory);
 		
+		//asking the user to specify the directory. if no input is made the system will 
+		//use the home directory location
 		try {
 			userInput = getStringFromKeyboard();
 		}
 		catch (IOException e) {
-			userInput = System.getProperty("user.home");
+			userInput = homeDirectory;
 		}
 	
-		String directoryFile = (userInput + File.separator + nr.fileName);
+		System.out.println("That is directory the file should be in: " + userInput + "/mywork");
+		System.out.println();
+		System.out.println("Results of the first file:");
+		System.out.println();
 		
+		//testing with URL1 and saving it in the file numbers1.txt
+		NumericalReader nr = new NumericalReader();
+		
+		
+		//initializing the filename
+		nr.fileName = "numbers1.txt";
+		
+		
+		//concenating all the stings together to have the complete and correct 
+		//directory with the filename
+		String directoryFile = (userInput + File.separator + "mywork" + File.separator + nr.fileName);
+		
+		String line;
+		
+		
+		//getting the BufferedReader Object from the website
 		try	{
+			//defining the variable line
 			BufferedReader reader = nr.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
+			
+			
+			while ((line = reader.readLine()) != null) {
+				
+				//initializing the necessary variables
+				nr.analysisStart(directoryFile);
+
+				//starting the analysis
+				nr.analyseData(line);
+				
+			}	
+			
+			//printing out the values and ending the analysis
+			nr.analysisEnd();
+			
 		}
 		catch (IOException e) {
 			System.out.println(e);
 		}
-			
-
-
+		
+		
+		System.out.println();
+		System.out.println("Second File:");
+		System.out.println();
+		
+		
 	}
 
 }
