@@ -12,6 +12,7 @@ public class NumericalReader {
 	
 		private double minValue, maxValue, nValues, sumOfValues, currentNo; //declaring the private variables
 		private String fileName; //the filename the user is prompt to enter
+		
 
 	
 	//defining the method that prompts user to input string and then stores it
@@ -117,6 +118,7 @@ public class NumericalReader {
 	//the average Value and the total number of Values read
 	public void analysisEnd() {
 		//printing out the minimumValue
+		System.out.println();
 		System.out.println("The minimum value: " + minValue);
 		System.out.println();
 		//printing out the maximum value
@@ -147,7 +149,7 @@ public class NumericalReader {
 			userInput = homeDirectory;
 		}
 	
-		System.out.println("That is directory the file should be in: " + userInput + "/mywork");
+		System.out.println("That is directory the files should be in: " + userInput + "/mywork");
 		System.out.println();
 		System.out.println("Results of the first file:");
 		System.out.println();
@@ -193,9 +195,54 @@ public class NumericalReader {
 		}
 		
 		
+		
+		//SECOND FILE
+		
 		System.out.println();
-		System.out.println("Second File:");
 		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println("Results of the second file:");
+		System.out.println();
+		
+		//testing with URL1 and saving it in the file numbers2.txt
+		NumericalReader nr2 = new NumericalReader();
+		
+		
+		//initializing the filename
+		nr2.fileName = "numbers2.txt";
+		
+		
+		//concenating all the stings together to have the complete and correct 
+		//directory with the filename
+		String directoryFile2 = (userInput + File.separator + "mywork" + File.separator + nr2.fileName);
+		
+		
+		//getting the BufferedReader Object from the website
+		try	{
+			//defining the variable line
+			BufferedReader reader2 = nr2.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data2.txt");
+			
+			//initializing the necessary variables
+			nr2.analysisStart(directoryFile2);
+			
+			
+			while ((line = reader2.readLine()) != null) {
+			
+
+				//starting the analysis
+				nr2.analyseData(line);
+				
+			}	
+			
+			//printing out the values and ending the analysis
+			nr2.analysisEnd();
+			
+		}
+		catch (IOException e) {
+			System.out.println(e);
+		}
 		
 		
 	}
