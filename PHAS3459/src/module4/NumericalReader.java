@@ -71,44 +71,42 @@ public class NumericalReader {
 			
 			{
 				
-				if(lineSc.hasNext()) {
-					System.out.println("lol");
-					System.out.println(lineSc.nextDouble());
-				}
-				while (lineSc.hasNextDouble()) {
-					
-					
-					//printing to screen
-					double currentNo = lineSc.nextDouble();
-					System.out.println(currentNo);
-					
-					//saving it in the file
-					pw.println(currentNo);
-					
-					//setting the first minimalValue
-					minValue = currentNo;
-					
-					//updating minValue
-					if (currentNo < minValue) {
+				while (lineSc.hasNext()) {
+					if (lineSc.hasNext()) {	
+						
+						System.out.println("finally");
+						
+						//printing to screen
+						double currentNo = lineSc.nextDouble();
+						System.out.println(currentNo);
+						
+						//saving it in the file
+						pw.println(currentNo);
+						
+						//setting the first minimalValue
 						minValue = currentNo;
+						
+						//updating minValue
+						if (currentNo < minValue) {
+							minValue = currentNo;
+						}	
+						
+						//updating maxValue
+						if (currentNo > maxValue) {
+							maxValue = currentNo;
+						}	
+						
+						//updating nValues
+						nValues++;
+						
+						//updating sum of values
+						sumOfValues = sumOfValues + currentNo;
 					}
-					
-					//updating maxValue
-					if (currentNo > maxValue) {
-						maxValue = currentNo;
+					else {
+					lineSc.next();
 					}
-					
-					//updating nValues
-					nValues++;
-					
-					//updating sum of values
-					sumOfValues = sumOfValues + currentNo;
-					
-					
 				}
-			
 			}
-			
 		}
 		
 	}
@@ -174,7 +172,7 @@ public class NumericalReader {
 			
 			
 			while ((line = reader.readLine()) != null) {
-				
+			
 				//initializing the necessary variables
 				nr.analysisStart(directoryFile);
 
