@@ -18,7 +18,7 @@ public class NumericalReader {
 	//defining the method that prompts user to input string and then stores it
 	public static String getStringFromKeyboard() throws IOException {
 		
-		System.out.println("Please enter the directory in which the file should be created!");
+		System.out.println("Please enter the directory in which the files should be created!");
 		
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 			String input = in.readLine();
@@ -150,6 +150,9 @@ public class NumericalReader {
 		}
 	
 		System.out.println("That is directory the files should be in: " + userInput + "/mywork");
+		System.out.println();
+		System.out.println("Please create the 'mywork'-folder if it doesn't exist already!");
+		System.out.println();
 		System.out.println();
 		System.out.println("Results of the first file:");
 		System.out.println();
