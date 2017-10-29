@@ -140,6 +140,12 @@ public class NumericalReader {
 		String homeDirectory = System.getProperty("user.home");
 		System.out.println("Your home directory is: " + homeDirectory);
 		
+		
+		System.out.println();
+		System.out.println("Please create as 'mywork'-folder in which the files should be safed!");
+		System.out.println();
+		
+		
 		//asking the user to specify the directory. if no input is made the system will 
 		//use the home directory location
 		try {
@@ -150,8 +156,6 @@ public class NumericalReader {
 		}
 	
 		System.out.println("That is directory the files should be in: " + userInput + "/mywork");
-		System.out.println();
-		System.out.println("Please create the 'mywork'-folder if it doesn't exist already!");
 		System.out.println();
 		System.out.println();
 		System.out.println("Results of the first file:");
