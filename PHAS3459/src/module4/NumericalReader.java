@@ -3,6 +3,7 @@ package module4;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Scanner;
 import java.lang.Character;
 
@@ -10,6 +11,7 @@ import java.lang.Character;
 public class NumericalReader {
 	
 		private double minValue, maxValue, nValues, sumOfValues; //declaring the private variables
+		private double currentNo = 0;
 		private String fileName; //the filename the user is prompt to enter
 
 	
@@ -37,8 +39,6 @@ public class NumericalReader {
 	public void analysisStart(String dataFile) throws IOException {
 		
 		fileName = dataFile;
-		File outputfile = new File(dataFile);
-		FileWriter fw = new FileWriter(outputfile);
 		
 		//initializing the private variables
 		this.minValue = 0;
@@ -55,6 +55,7 @@ public class NumericalReader {
 		
 		//the system should skip the line if it is blank or a comment, eg. starts with a letter
 		if (line.isEmpty() || Character.isLetter(line.charAt(0))) {
+			System.out.println("This is a comment, no need to print!");
 			}
 		
 		
@@ -63,7 +64,7 @@ public class NumericalReader {
 			try 
 			
 				(	
-					Scanner lineSc = new Scanner(line); 
+					Scanner lineSc = new Scanner(line).useLocale(Locale.ENGLISH); 
 					FileWriter fr = new FileWriter(fileName);
 					BufferedWriter bw = new BufferedWriter(fr);
 					PrintWriter pw = new PrintWriter(bw);
@@ -71,41 +72,53 @@ public class NumericalReader {
 			
 			{
 				
-				if(lineSc.hasNext()) {
-					System.out.println("lol");
-					System.out.println(lineSc.nextDouble());
-				}
-				while (lineSc.hasNextDouble()) {
+
+				while (lineSc.hasNext()) {
+					
+					if (lineSc.hasNextDouble()) {
+					
+						
+						//printing to screen
+						System.out.println(currentNo = lineSc.nextDouble());
+						
+						
+						//saving it in the file
+						pw.println(currentNo);
+
+						
+						//setting the first minimalValue
+						if (minValue == 0) {
+							minValue = currentNo;
+						}
 					
 					
-					//printing to screen
-					double currentNo = lineSc.nextDouble();
-					System.out.println(currentNo);
-					
-					//saving it in the file
-					pw.println(currentNo);
-					
-					//setting the first minimalValue
-					minValue = currentNo;
-					
-					//updating minValue
-					if (currentNo < minValue) {
-						minValue = currentNo;
+						//updating minValue
+						if (currentNo < minValue) {
+							minValue = currentNo;
+						}
+
+						
+						//updating maxValue
+						if (currentNo > maxValue) {
+							maxValue = currentNo;
+						}
+
+						
+						//updating nValues
+						nValues++;
+
+						//updating sum of values
+						sumOfValues = sumOfValues + currentNo;
+
+
+				
+						
 					}
 					
-					//updating maxValue
-					if (currentNo > maxValue) {
-						maxValue = currentNo;
-					}
-					
-					//updating nValues
-					nValues++;
-					
-					//updating sum of values
-					sumOfValues = sumOfValues + currentNo;
-					
 					
 				}
+				
+				pw.close();
 			
 			}
 			
@@ -116,6 +129,7 @@ public class NumericalReader {
 	//method analysEnd() that print the minimum Value, the maximum Value, 
 	//the average Value and the total number of Values read
 	public void analysisEnd() {
+		System.out.println();
 		//printing out the minimumValue
 		System.out.println("The minimum value: " + minValue);
 		System.out.println();
@@ -123,7 +137,7 @@ public class NumericalReader {
 		System.out.println("The maximum value: " + maxValue);
 		System.out.println();
 		//printing out the average value
-		System.out.println("The average value: " + sumOfValues/nValues);
+		System.out.println("The average value: " + (sumOfValues/nValues));
 		System.out.println();
 		//printing out the total number of values read
 		System.out.println("The total number of values read: " + nValues);
@@ -172,12 +186,11 @@ public class NumericalReader {
 			//defining the variable line
 			BufferedReader reader = nr.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
 			
+			//initializing the necessary variables
+			nr.analysisStart(directoryFile);
 			
 			while ((line = reader.readLine()) != null) {
 				
-				//initializing the necessary variables
-				nr.analysisStart(directoryFile);
-
 				//starting the analysis
 				nr.analyseData(line);
 				
