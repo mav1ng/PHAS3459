@@ -3,6 +3,7 @@ package module4;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Locale;
 import java.util.Scanner;
 import java.lang.Character;
 
@@ -63,7 +64,7 @@ public class NumericalReader {
 			try 
 			
 				(	
-					Scanner lineSc = new Scanner(line); 
+					Scanner lineSc = new Scanner(line).useLocale(Locale.ENGLISH); 
 					FileWriter fr = new FileWriter(fileName);
 					BufferedWriter bw = new BufferedWriter(fr);
 					PrintWriter pw = new PrintWriter(bw);
@@ -72,7 +73,7 @@ public class NumericalReader {
 			{
 				
 				while (lineSc.hasNext()) {
-					if (lineSc.hasNext()) {	
+					if (lineSc.hasNextDouble()) {	
 						
 						System.out.println("finally");
 						
