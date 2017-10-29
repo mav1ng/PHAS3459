@@ -180,7 +180,6 @@ public class NumericalReader {
 			
 			while ((line = reader.readLine()) != null) {
 			
-
 				//starting the analysis
 				nr.analyseData(line);
 				
