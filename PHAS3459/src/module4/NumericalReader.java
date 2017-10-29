@@ -10,7 +10,7 @@ import java.lang.Character;
 
 public class NumericalReader {
 	
-		private double minValue, maxValue, nValues, sumOfValues; //declaring the private variables
+		private double minValue, maxValue, nValues, sumOfValues, currentNo; //declaring the private variables
 		private String fileName; //the filename the user is prompt to enter
 
 	
@@ -75,18 +75,19 @@ public class NumericalReader {
 				while (lineSc.hasNext()) {
 					if (lineSc.hasNextDouble()) {	
 						
-						System.out.println("finally");
 						
 						//printing to screen
-						double currentNo = lineSc.nextDouble();
+						currentNo = lineSc.nextDouble();
 						System.out.println(currentNo);
 						
 						//saving it in the file
 						pw.println(currentNo);
 						
 						//setting the first minimalValue
-						minValue = currentNo;
-						
+						if(minValue == 0) {
+							minValue = currentNo;
+						}
+					
 						//updating minValue
 						if (currentNo < minValue) {
 							minValue = currentNo;
@@ -171,11 +172,12 @@ public class NumericalReader {
 			//defining the variable line
 			BufferedReader reader = nr.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data1.txt");
 			
+			//initializing the necessary variables
+			nr.analysisStart(directoryFile);
+			
 			
 			while ((line = reader.readLine()) != null) {
 			
-				//initializing the necessary variables
-				nr.analysisStart(directoryFile);
 
 				//starting the analysis
 				nr.analyseData(line);
