@@ -2,12 +2,15 @@ package module5;
 
 //Importing the Array class
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class SquareMatrix {
 	
 	
+	
 	private int matrixDim = 0; 	//dimension of the square matrix
 	private double [][] matrix; //array representation of the square matrix
+	
 	
 	
 	//Constructor 
@@ -15,12 +18,14 @@ public class SquareMatrix {
 		
 		boolean isSquare = true;
 		
+		//checks whether the entered array can be used to create a square matrix
 		for(int row = 0; row < elements.length; row++) {
 			if (elements.length != Array.getLength(elements[row])) {
 				isSquare = false;
 			}
 		}
 		
+		//throwing the Exception
 		if (!isSquare) {
 			throw new Exception ("The entered array cannot be described as a square matrix!");
 		}
@@ -36,25 +41,32 @@ public class SquareMatrix {
 				sqMatrix[i][k] = elements[i][k];
 			}
 		
+			//saving the matrix
 		matrix = sqMatrix;	
 
 		}
 		
 	}
 	
+	
+	
 	//toString() method that returns readable representation of the matrix
 	public String toString() {
 		String matrixOutput = "";
 		int i, k;
+		//adding the different arguments to a string that will be given out in the end
 		for (i = 0; i < matrixDim; i++) {
 			for (k = 0; k < matrixDim; k++) {
-				matrixOutput = matrixOutput + this.matrix[i][k] + " ";
+				matrixOutput = matrixOutput + matrix[i][k] + " ";
 			}
 			matrixOutput = matrixOutput + "\n";
 		}
+		//final string given out
 		return matrixOutput;
 	}
 	
+
+
 	//method that returns the Unit Matrix of the dimension of the given matrix
 	public static SquareMatrix unitMatrix(int size) throws Exception {
 		if (size < 1) {
@@ -67,6 +79,39 @@ public class SquareMatrix {
 		SquareMatrix unitMatrix = new SquareMatrix(unitArray);
 		return unitMatrix;
 	}
+	
+	
+	
+	//hashCode() and equals() method
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.deepHashCode(matrix);
+		result = prime * result + matrixDim;
+		return result;
+	}
+
+
+	//equals() method 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SquareMatrix other = (SquareMatrix) obj;
+		if (!Arrays.deepEquals(matrix, other.matrix))
+			return false;
+		if (matrixDim != other.matrixDim)
+			return false;
+		return true;
+	}
+	
+	//three static methods that carry out calculations for SquareMatric objects
+	
 
 }
 
