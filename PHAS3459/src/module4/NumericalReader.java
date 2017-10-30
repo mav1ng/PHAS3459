@@ -39,8 +39,6 @@ public class NumericalReader {
 	public void analysisStart(String dataFile) throws IOException {
 		
 		fileName = dataFile;
-		File outputfile = new File(dataFile);
-		FileWriter fw = new FileWriter(outputfile);
 		
 		//initializing the private variables
 		this.minValue = 0;
@@ -57,6 +55,7 @@ public class NumericalReader {
 		
 		//the system should skip the line if it is blank or a comment, eg. starts with a letter
 		if (line.isEmpty() || Character.isLetter(line.charAt(0))) {
+			System.out.println("This is a comment, no need to print!");
 			}
 		
 		
@@ -73,6 +72,7 @@ public class NumericalReader {
 			
 			{
 				
+				
 				while (lineSc.hasNext()) {
 					if (lineSc.hasNextDouble()) {	
 						
@@ -88,7 +88,7 @@ public class NumericalReader {
 						if(minValue == 0) {
 							minValue = currentNo;
 						}
-					
+						
 						//updating minValue
 						if (currentNo < minValue) {
 							minValue = currentNo;
@@ -117,6 +117,7 @@ public class NumericalReader {
 	//method analysEnd() that print the minimum Value, the maximum Value, 
 	//the average Value and the total number of Values read
 	public void analysisEnd() {
+		System.out.println();
 		//printing out the minimumValue
 		System.out.println();
 		System.out.println("The minimum value: " + minValue);
@@ -125,7 +126,7 @@ public class NumericalReader {
 		System.out.println("The maximum value: " + maxValue);
 		System.out.println();
 		//printing out the average value
-		System.out.println("The average value: " + sumOfValues/nValues);
+		System.out.println("The average value: " + (sumOfValues/nValues));
 		System.out.println();
 		//printing out the total number of values read
 		System.out.println("The total number of values read: " + nValues);
@@ -184,10 +185,10 @@ public class NumericalReader {
 			
 			//initializing the necessary variables
 			nr.analysisStart(directoryFile);
-			
+
 			
 			while ((line = reader.readLine()) != null) {
-			
+
 				//starting the analysis
 				nr.analyseData(line);
 				
