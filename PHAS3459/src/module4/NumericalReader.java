@@ -173,6 +173,7 @@ public class NumericalReader {
 		//directory with the filename
 		String directoryFile = (userInput + File.separator + "mywork" + File.separator + nr.fileName);
 		
+		//defining the string line
 		String line;
 		
 		

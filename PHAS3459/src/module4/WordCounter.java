@@ -45,7 +45,7 @@ public class WordCounter {
 	}
 	
 	
-	
+	//method that counts the words in the given BufferedReader File
 	public static int countWordsInResource(BufferedReader dataAsBR) throws Exception {
 		
 		int wordsCount = 0; // variable for counting the words
@@ -57,9 +57,10 @@ public class WordCounter {
 			while (scline.hasNext()) {
 				scline.next();
 				
+				//updating the wordsCount
 				wordsCount++;
 			}
-			
+			//closing the scanner
 			scline.close();
 			return wordsCount;
 			
