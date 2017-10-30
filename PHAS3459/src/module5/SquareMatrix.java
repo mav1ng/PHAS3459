@@ -57,10 +57,15 @@ public class SquareMatrix {
 	
 	//method that returns the Unit Matrix of the dimension of the given matrix
 	public static SquareMatrix unitMatrix(int size) throws Exception {
-		try {
-			
+		if (size < 1) {
+			throw new Exception ("Please enter a dimension bigger than zero!");
 		}
-		
+		double[][] unitArray = new double[size][size];
+		for (int i = 0, k = 0; i < size && k < size; i++, k++) {
+			unitArray[i][k] = 1;
+		}
+		SquareMatrix unitMatrix = new SquareMatrix(unitArray);
+		return unitMatrix;
 	}
 
 }
