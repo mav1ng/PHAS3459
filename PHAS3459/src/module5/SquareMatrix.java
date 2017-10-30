@@ -1,5 +1,8 @@
 package module5;
 
+//Importing the Array class
+import java.lang.reflect.Array;
+
 public class SquareMatrix {
 	
 	
@@ -10,31 +13,31 @@ public class SquareMatrix {
 	//Constructor 
 	public SquareMatrix(double[][] elements) throws Exception {
 		
-		try {
-			int length1 = elements[0].length;
-			int length2 = elements[1].length;
-			double [][] sqMatrix = new double[length1][length2];
-			
-			//creating the matrix Object and assigning the values from the elements matrix
-			//should throw an Exception if length1 != length2
-			for (int i = 0; i <= length1; i++) {
-				for (int k = 0; k <= length2; k++ ) {
-					sqMatrix[i][k] = elements[i][k];
-				}
-			
-			matrix = sqMatrix;	
-				
-			//defining the dimension of the matrix
-			this.matrixDim = sqMatrix[0].length;
+		boolean isSquare = true;
+		
+		for(int row = 0; row < elements.length; row++) {
+			if (elements.length != Array.getLength(elements[row])) {
+				isSquare = false;
 			}
-			
 		}
-		catch (Exception e) {
-			System.out.println("The entered array is not representable in a square matrix. Eg has");
-			System.out.println();
-			System.out.println(" not the same number of rows and columns");
-			this.matrixDim = 0;
-			throw e;
+		
+		if (!isSquare) {
+			throw new Exception ("The entered array cannot be described as a square matrix!");
+		}
+		
+		//defining the dimension of the matrix
+		matrixDim = elements.length;
+		
+		double [][] sqMatrix = new double[matrixDim][matrixDim];
+		
+		//creating the matrix Object and assigning the values from the elements matrix
+		for (int i = 0; i < matrixDim; i++) {
+			for (int k = 0; k < matrixDim; k++ ) {
+				sqMatrix[i][k] = elements[i][k];
+			}
+		
+		matrix = sqMatrix;	
+
 		}
 		
 	}
@@ -43,13 +46,23 @@ public class SquareMatrix {
 	public String toString() {
 		String matrixOutput = "";
 		int i, k;
-		for (i = 0; i <= matrixDim; i++) {
-			for (k = 0; k <= matrixDim; k++) {
+		for (i = 0; i < matrixDim; i++) {
+			for (k = 0; k < matrixDim; k++) {
 				matrixOutput = matrixOutput + this.matrix[i][k] + " ";
 			}
 			matrixOutput = matrixOutput + "\n";
 		}
 		return matrixOutput;
 	}
+	
+	//method that returns the Unit Matrix of the dimension of the given matrix
+	public static SquareMatrix unitMatrix(int size) throws Exception {
+		try {
+			
+		}
+		
+	}
 
 }
+
+
