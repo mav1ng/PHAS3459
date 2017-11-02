@@ -180,6 +180,22 @@ public class SquareMatrix {
 		SquareMatrix smTotal = new SquareMatrix(smTotalArray);
 		return smTotal;
 	}
+	
+	//non-static methods for the three added static methods
+	//non-static add() method which adds the called on SquareMatrix two another specified one
+	public SquareMatrix add(SquareMatrix sm1) throws Exception {
+		return add(this, sm1);
+	}
+	
+	//non-static subtract() method which subtracts the specified matrix from the called-on-one
+	public SquareMatrix subtract(SquareMatrix sm1) throws Exception {
+		return subtract(this, sm1);
+	}
+	
+	//non-static multiply() method which multiplies the specified matrix to the called-on-one
+	public SquareMatrix multiply(SquareMatrix sm1) throws Exception {
+		return multiply(this, sm1);
+	}
 }
 
 
