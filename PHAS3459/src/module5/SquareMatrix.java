@@ -110,6 +110,7 @@ public class SquareMatrix {
 		return true;
 	}
 	
+	
 	//three static methods that carry out calculations for SquareMatrix objects
 	//method to add two square matrices
 	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
@@ -131,6 +132,7 @@ public class SquareMatrix {
 		return smTotal;
 	}
 	
+	
 	//method to subtract two square matrices
 	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
@@ -151,6 +153,7 @@ public class SquareMatrix {
 		return smTotal;
 	}
 	
+	
 	//method to multiply the two matrices
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		//throwing an Exception if the tow matrices cannot be multiplied
@@ -165,16 +168,17 @@ public class SquareMatrix {
 		//setting each element to the right value
 		for (int i = 0; i < sm1.matrixDim; i++) {
 			for (int k = 0; k < sm1.matrixDim; k++) {
+				//calculating the entry for the position [i][k] in the new array
 				for (int j = 0; j < sm1.matrixDim; j++) {
-					for (int h = 0; h < sm1.matrixDim; h++) {
-						newValue = sm2.matrix[h][j] * sm1.matrix[j][h];
-						newSum = newSum + newValue;
-						smTotalArray[i][k] = newSum;
-					}
+					newValue = sm1.matrix[i][j] * sm2.matrix[j][k];
+					newSum = newSum + newValue;
 				}
+			//assigning the new value to the corresponding place in the new array	
+			smTotalArray[i][k] = newSum;
 			}
 		}
-		
+		SquareMatrix smTotal = new SquareMatrix(smTotalArray);
+		return smTotal;
 	}
 }
 
