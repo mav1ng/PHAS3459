@@ -111,15 +111,15 @@ public class SquareMatrix {
 	}
 	
 	//three static methods that carry out calculations for SquareMatrix objects
-	//method to add two square Matrixes
+	//method to add two square matrices
 	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 	
-		//defining the variable of the array the sum of the two matrixes have to have
+		//defining the array that will describe the sum of the two matrices
 		double [][] smTotalArray = new double[sm1.matrixDim][sm2.matrixDim];
 		
-		//throws Exception if the dimensions of the matrixes are different
+		//throws Exception if the dimensions of the matrices are different
 		if (sm1.matrixDim != sm2.matrixDim) {
-			throw new Exception ("The dimensions of the matrixes have to be the same!");
+			throw new Exception ("The dimensions of the matrices have to be the same!");
 		}
 		//setting each element of the array to the sum of the according elements of both arrays
 		for (int i = 0; i < sm1.matrixDim; i++) {
@@ -131,26 +131,51 @@ public class SquareMatrix {
 		return smTotal;
 	}
 	
-	//method to subtract two square matrixes
+	//method to subtract two square matrices
 	public static SquareMatrix subtract(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		
-		//defining the variable of the array the difference of the two matrixes have to have
-				double [][] smTotalArray = new double[sm1.matrixDim][sm2.matrixDim];
-				
-				//throws Exception if the dimensions of the matrixes are different
-				if (sm1.matrixDim != sm2.matrixDim) {
-					throw new Exception ("The dimensions of the matrixes have to be the same!");
-				}
-				//setting each element of the array to the difference of the according elements of both arrays
-				for (int i = 0; i < sm1.matrixDim; i++) {
-					for (int k = 0; k < sm1.matrixDim; k++) {
-						smTotalArray[i][k] = sm1.matrix[i][k] - sm2.matrix[i][k];
+		//defining the array that will describe the difference of the two matrices
+		double [][] smTotalArray = new double[sm1.matrixDim][sm2.matrixDim];
+		
+		//throws Exception if the dimensions of the matrices are different
+		if (sm1.matrixDim != sm2.matrixDim) {
+			throw new Exception ("The dimensions of the matrices have to be the same!");
+		}
+		//setting each element of the array to the difference of the according elements of both arrays
+		for (int i = 0; i < sm1.matrixDim; i++) {
+			for (int k = 0; k < sm1.matrixDim; k++) {
+				smTotalArray[i][k] = sm1.matrix[i][k] - sm2.matrix[i][k];
+			}
+		}
+		SquareMatrix smTotal = new SquareMatrix (smTotalArray);
+		return smTotal;
+	}
+	
+	//method to multiply the two matrices
+	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+		//throwing an Exception if the tow matrices cannot be multiplied
+		if (sm1.matrixDim != sm2.matrixDim) {
+			throw new Exception ("The number of rows of matrix two has to be equal to the number of columns of the first one!");
+		}
+		//defining the new Array which will describe the resulting SquareMatrix
+		double[][] smTotalArray = new double[sm1.matrixDim][sm2.matrixDim];
+		//defining the needed variables
+		double newValue;
+		double newSum = 0;
+		//setting each element to the right value
+		for (int i = 0; i < sm1.matrixDim; i++) {
+			for (int k = 0; k < sm1.matrixDim; k++) {
+				for (int j = 0; j < sm1.matrixDim; j++) {
+					for (int h = 0; h < sm1.matrixDim; h++) {
+						newValue = sm2.matrix[h][j] * sm1.matrix[j][h];
+						newSum = newSum + newValue;
+						smTotalArray[i][k] = newSum;
 					}
 				}
-				SquareMatrix smTotal = new SquareMatrix (smTotalArray);
-				return smTotal;
 			}
-
+		}
+		
+	}
 }
 
 
