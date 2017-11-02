@@ -110,7 +110,26 @@ public class SquareMatrix {
 		return true;
 	}
 	
-	//three static methods that carry out calculations for SquareMatric objects
+	//three static methods that carry out calculations for SquareMatrix objects
+	//method to add two square Matrixes
+	public static SquareMatrix add(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
+	
+		//defining the variable of the array the sum of the two matrixes have to have
+		double [][] smTotalArray = new double[sm1.matrixDim][sm2.matrixDim];
+		
+		//throws Exception if the dimension of the matrixes is different
+		if (sm1.matrixDim != sm2.matrixDim) {
+			throw new Exception ("The dimensions of the matrixes have to be the same!");
+		}
+		//setting each element of the array to the sum of the according elements of both arrays
+		for (int i = 0; i < sm1.matrixDim; i++) {
+			for (int k = 0; k < sm1.matrixDim; k++) {
+				smTotalArray[i][k] = sm1.matrix[i][k] + sm2.matrix[i][k];
+			}
+		}
+		SquareMatrix smTotal = new SquareMatrix (smTotalArray);
+		return smTotal;
+	}
 	
 
 }
