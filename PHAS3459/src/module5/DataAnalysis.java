@@ -106,7 +106,6 @@ public class DataAnalysis {
 			ArrayList<DataPoint> expData = dataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data"
 					+ "/module5/module5-xy.txt");
 			
-			System.out.println("hello");
 			
 			//trying the first function first y = x^2	
 			double resultT1 = goodnessOfFit(t1, expData);
@@ -114,12 +113,16 @@ public class DataAnalysis {
 			double resultT2 = goodnessOfFit(t2, expData);
 			
 			//printing out the results
-			System.out.println("chi squared results of the two different functions with the one dataset:");
+			System.out.println("Chi squared results of the two different functions with the one dataset:");
 			System.out.println();
 			System.out.println("ChiSquared 1: " + resultT1);
 			System.out.println();
 			System.out.println("ChiSquared 2: " + resultT2);
 			
+			System.out.println();
+			System.out.println("The second function 'y = x^4' describes the data far better ");
+			System.out.println("than the first one since a chi squared value of 2.77 is far more");
+			System.out.println("convenient.");
 			
 		}
 		catch (Exception e) {
