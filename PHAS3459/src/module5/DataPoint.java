@@ -46,12 +46,7 @@ public class DataPoint {
 		}
 		finally {
 			sc.close();
-		}
-		
-		
-		
-		
-		
+		}	
 	}
 	
 	
