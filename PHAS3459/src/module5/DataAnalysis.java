@@ -33,6 +33,12 @@ public class DataAnalysis {
 		catch (Exception e) {
 			throw e;
 		}
+		finally {
+			//closing all the streams
+			br.close();
+			inReader.close();
+			inStream.close();
+		}
 
 	}
 
