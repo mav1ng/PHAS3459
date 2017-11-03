@@ -32,12 +32,12 @@ public class DataAnalysis {
 		//filling in the array list
 		try {
 			while ((line = br.readLine()) != null) {
-				//calling on the createFromURL method to scann trough the line and create the 
+				//calling on the createFromURL method to scan trough the line and create the 
 				//DataPoint object which then gets added to the ArrayList "al" which holds
 				//objects from the type DataPoints
 				al.add(DataPoint.createFromURL(line));
 			}
-		//returning the Arraylist	
+		//returning the ArrayList	
 		return	al;		
 		
 		} 
@@ -91,6 +91,42 @@ public class DataAnalysis {
 		
 		return chiSqTotal;
 		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		//defining the two theory objects first
+		Theory t1 = new Theory(2);
+		Theory t2 = new Theory(4);
+		
+		
+		try {
+			//getting the Data from the URL and creating the expData ArrayList
+			ArrayList<DataPoint> expData = dataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data"
+					+ "/module5/module5-xy.txt");
+			
+			System.out.println("hello");
+			
+			//trying the first function first y = x^2	
+			double resultT1 = goodnessOfFit(t1, expData);
+			//second function
+			double resultT2 = goodnessOfFit(t2, expData);
+			
+			//printing out the results
+			System.out.println("chi squared results of the two different functions with the one dataset:");
+			System.out.println();
+			System.out.println("ChiSquared 1: " + resultT1);
+			System.out.println();
+			System.out.println("ChiSquared 2: " + resultT2);
+			
+			
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+			
 	}
 	
 		
