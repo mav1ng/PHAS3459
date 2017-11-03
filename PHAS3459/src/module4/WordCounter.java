@@ -76,7 +76,8 @@ public class WordCounter {
 		
 		//trying the defined methods in the main method with the given URL
 		try {
-			System.out.println("There are " + countWordsInResource(brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt")) + " words on the website.");
+			System.out.println("There are " + countWordsInResource(brFromURL
+					("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_text.txt")) + " words on the website.");
 		}
 		catch (Exception e) {
 			System.out.println(e);

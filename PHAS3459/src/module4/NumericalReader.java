@@ -65,7 +65,7 @@ public class NumericalReader {
 			
 				(	
 					Scanner lineSc = new Scanner(line).useLocale(Locale.ENGLISH); 
-					FileWriter fr = new FileWriter(fileName);
+					FileWriter fr = new FileWriter(fileName, true);
 					BufferedWriter bw = new BufferedWriter(fr);
 					PrintWriter pw = new PrintWriter(bw);
 				)
@@ -230,7 +230,7 @@ public class NumericalReader {
 		//getting the BufferedReader Object from the website
 		try	{
 			//defining the variable line
-			BufferedReader reader2 = nr2.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module4/module4_data2.txt");
+			BufferedReader reader2 = nr2.brFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data-extra/module4/module4_data3.txt");
 			
 			//initializing the necessary variables
 			nr2.analysisStart(directoryFile2);
