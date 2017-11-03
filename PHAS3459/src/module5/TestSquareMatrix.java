@@ -48,8 +48,6 @@ public class TestSquareMatrix {
 			System.out.println();
 			
 			System.out.println();
-			System.out.println();
-			
 			
 			//calculating and printing the sum A+B
 			System.out.println("Printing the the sum A+B:");
@@ -72,6 +70,39 @@ public class TestSquareMatrix {
 			System.out.println(SquareMatrix.multiply(B, A));
 			System.out.println();
 			
+			//calculating and printing the product AB and BA
+			System.out.println("Printing the product BA:");
+			System.out.println();
+			
+			System.out.println(SquareMatrix.multiply(A, B));
+			System.out.println();
+			
+			//calculating and printing out the commutator [A,B]
+			//the commutator is defined bz (AB - BA)
+			//so we call multiply on both AB and BA and then call subtract on both of the results
+			System.out.println("Printing the commutator [A,B]:");
+			System.out.println();
+			
+			System.out.println(SquareMatrix.subtract(SquareMatrix.multiply(B, A), SquareMatrix.multiply(A, B)));
+			System.out.println();
+			
+			//calculating and printing out the product CD
+			System.out.println("Printing the product CD:");
+			System.out.println();
+			
+			System.out.println(SquareMatrix.multiply(D, C));
+			System.out.println();
+			
+			//checking whether it is equal to the unitmatrix of dimension 2
+			System.out.println("Checking whether the product CD is equal to the unitMatrix of dimension 2...");
+			System.out.println();
+			
+			if (I.equals(SquareMatrix.multiply(D, C))) {
+				System.out.println("The product CD is equal to the unit matrix of dimension 2!");
+			}
+			else {
+				System.out.println("The prodcut CD is not equal to the unit matrix of dimension 2!");
+			}
 			
 			
 		}
