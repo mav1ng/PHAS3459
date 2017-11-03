@@ -39,7 +39,7 @@ public class DataPoint {
 		Scanner sc = new Scanner(line);
 		try {	
 			DataPoint dp = new DataPoint(sc.nextDouble(), sc.nextDouble(), sc.nextDouble());
-			return dp;
+			return dp; //returning the DataPoint object here
 		}
 		catch (Exception e) {
 			throw e;
