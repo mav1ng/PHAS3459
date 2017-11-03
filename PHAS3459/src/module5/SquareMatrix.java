@@ -27,7 +27,7 @@ public class SquareMatrix {
 		
 		//throwing the Exception
 		if (!isSquare) {
-			throw new Exception ("The entered array cannot be described as a square matrix!");
+			throw new Exception ("Matrix Creation Error: The entered array cannot be described as a square matrix!");
 		}
 		
 		//defining the dimension of the matrix
@@ -57,7 +57,7 @@ public class SquareMatrix {
 		//adding the different arguments to a string that will be given out in the end
 		for (i = 0; i < matrixDim; i++) {
 			for (k = 0; k < matrixDim; k++) {
-				matrixOutput = matrixOutput + matrix[i][k] + " ";
+				matrixOutput =  matrixOutput + matrix[i][k] + "  ";
 			}
 			matrixOutput = matrixOutput + "\n";
 		}
@@ -120,7 +120,7 @@ public class SquareMatrix {
 		
 		//throws Exception if the dimensions of the matrices are different
 		if (sm1.matrixDim != sm2.matrixDim) {
-			throw new Exception ("The dimensions of the matrices have to be the same!");
+			throw new Exception ("Matrix Addition Error: The dimensions of the matrices have to be the same!");
 		}
 		//setting each element of the array to the sum of the according elements of both arrays
 		for (int i = 0; i < sm1.matrixDim; i++) {
@@ -141,7 +141,7 @@ public class SquareMatrix {
 		
 		//throws Exception if the dimensions of the matrices are different
 		if (sm1.matrixDim != sm2.matrixDim) {
-			throw new Exception ("The dimensions of the matrices have to be the same!");
+			throw new Exception ("Matrix Subtraction Error: The dimensions of the matrices have to be the same!");
 		}
 		//setting each element of the array to the difference of the according elements of both arrays
 		for (int i = 0; i < sm1.matrixDim; i++) {
@@ -154,11 +154,11 @@ public class SquareMatrix {
 	}
 	
 	
-	//method to multiply the two matrices
+	//method to multiply the two matrices whereas the first argument is the matrix to which argument two is multiplied to
 	public static SquareMatrix multiply(SquareMatrix sm1, SquareMatrix sm2) throws Exception {
 		//throwing an Exception if the tow matrices cannot be multiplied
 		if (sm1.matrixDim != sm2.matrixDim) {
-			throw new Exception ("The number of rows of matrix two has to be equal to the number of columns of the first one!");
+			throw new Exception ("Matrix Multiplication Error: The number of rows of matrix two has to be equal to the number of columns of the first one!");
 		}
 		//defining the new Array which will describe the resulting SquareMatrix
 		double[][] smTotalArray = new double[sm1.matrixDim][sm2.matrixDim];
@@ -168,9 +168,11 @@ public class SquareMatrix {
 		//setting each element to the right value
 		for (int i = 0; i < sm1.matrixDim; i++) {
 			for (int k = 0; k < sm1.matrixDim; k++) {
+				//resetting newSum
+				newSum = 0;
 				//calculating the entry for the position [i][k] in the new array
 				for (int j = 0; j < sm1.matrixDim; j++) {
-					newValue = sm1.matrix[i][j] * sm2.matrix[j][k];
+					newValue = sm2.matrix[i][j] * sm1.matrix[j][k];
 					newSum = newSum + newValue;
 				}
 			//assigning the new value to the corresponding place in the new array	
@@ -192,7 +194,7 @@ public class SquareMatrix {
 		return subtract(this, sm1);
 	}
 	
-	//non-static multiply() method which multiplies the specified matrix to the called-on-one
+	//non-static multiply() method which multiplies the specified matrix(argument) to the called-on-one
 	public SquareMatrix multiply(SquareMatrix sm1) throws Exception {
 		return multiply(this, sm1);
 	}
