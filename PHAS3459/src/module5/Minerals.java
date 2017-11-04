@@ -97,6 +97,8 @@ public class Minerals {
 		}
 		
 		
+		
+		
 		System.out.println("The maximum Mass is: " + maxMass);
 		System.out.println("The minimum Mass is: " + minMass);
 		
@@ -109,10 +111,9 @@ public class Minerals {
 		Minerals min = new Minerals();
 		
 		try {
-			analyseData(min.getDataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459"
-										+ "/data/module5/module5-samples.txt"), 
-						min.getDataFromURL2("http://www.hep.ucl.ac.uk/undergrad/3459"
-										+ "/data/module5/module5-locations.txt"));
+			min.getDataFromURL("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-samples.txt");
+			min.getDataFromURL2("http://www.hep.ucl.ac.uk/undergrad/3459/data/module5/module5-locations.txt");
+			analyseData(min.codeMass, min.locCode);
 		}
 		catch (Exception e) {
 			System.out.println(e);
