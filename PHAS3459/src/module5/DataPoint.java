@@ -10,9 +10,9 @@ public class DataPoint {
 	public DataPoint(double x, double y, double ey) throws Exception {
 		
 		//setting the values
-		this.x = x;
-		this.y = y;
-		this.ey = ey;
+		this.x = x;		//parameter set by the experimenter
+		this.y = y;		//measurement
+		this.ey = ey;	//measurement error on y
 	}
 	
 	//defining the methods to get the different member variables
