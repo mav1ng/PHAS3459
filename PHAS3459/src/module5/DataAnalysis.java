@@ -120,9 +120,9 @@ public class DataAnalysis {
 			System.out.println("ChiSquared 2: " + resultT2);
 			
 			System.out.println();
-			System.out.println("The second function 'y = x^4' describes the data far better ");
-			System.out.println("than the first one since a chi squared value of 2.77 is far more");
-			System.out.println("convenient than a chi squared value of 5759.31.");
+			System.out.println("The first function 'y = x^2' describes the data far better ");
+			System.out.println("than the first one since a chi squared value of 5759.31 is far more");
+			System.out.println("convenient than a chi squared value of 2.77E9.");
 			
 		}
 		catch (Exception e) {
