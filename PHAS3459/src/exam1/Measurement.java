@@ -234,7 +234,55 @@ public class Measurement {
 	}
 	
 	
-
+	//method that analyses the list reagarding to months and prints out the one with the lowest
+	//ice area in the month
+	public static void analyseMonthlyIceArea(ArrayList<Measurement> list) throws Exception {
+		
+	
+		//getting the HashMap of the monthlists 
+		HashMap<Integer, ArrayList<Measurement>> monthList = Measurement.getMonthList(list);
+		
+		//creating the needde objects
+		ArrayList<Measurement> currentList = new ArrayList<Measurement>();
+		Measurement minArea = new Measurement();
+		Measurement currentArea = new Measurement();
+		
+		for (Integer i : monthList.keySet()) {
+			
+			//getting the current list
+			currentList = monthList.get(i);
+			
+			//resetting
+			minArea = new Measurement();
+			currentArea = new Measurement();
+			
+			//looping over the current list
+			for (int k = 0; k < currentList.size(); k++ ) {
+				
+				currentArea = currentList.get(k);
+				
+				if (minArea.area == 0 && currentArea.area != -9999) {
+					
+					minArea = currentArea;
+					
+				}
+				
+				if (minArea.area > currentArea.area && currentArea.area != -9999) {
+					
+					minArea = currentArea;
+					
+				}
+				
+			}
+			
+			System.out.println("For the month " + i + "the year " + minArea.year + " had the lowest"
+					+ " total area of ice!");
+			System.out.println();
+			System.out.println();
+	
+		}
 	
 
+	}
+	
 }
