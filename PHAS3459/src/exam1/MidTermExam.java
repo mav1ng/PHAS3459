@@ -35,6 +35,9 @@ public class MidTermExam {
 			System.out.println();
 			System.out.println();
 			
+			//printing out the difference in area between each year and the previous year. 
+			Measurement.analyseAnualAreaDifference(list);
+			
 			
 		}
 		catch (Exception e) {

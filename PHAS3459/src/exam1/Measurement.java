@@ -307,6 +307,7 @@ public class Measurement {
 				currentList = monthList.get(i);
 				
 				//resetting
+				output = "";
 				lastYearArea = new Measurement();
 				currentArea = new Measurement();
 				difference = 0;
@@ -326,7 +327,8 @@ public class Measurement {
 					
 				}
 					
-				
+				System.out.println();
+				System.out.println();
 				System.out.println("Month " + i + "\n" + "--------------------------------" + "\n");
 				System.out.println(output);
 				System.out.println();
