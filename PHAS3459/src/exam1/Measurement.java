@@ -281,8 +281,63 @@ public class Measurement {
 			System.out.println();
 	
 		}
+		
+	}
+		
+		
+		
+		//method that caclulates and prints out the difference in area between each year 
+		//and the previous year for each month
+		public static void analyseAnualAreaDifference(ArrayList<Measurement> list) throws Exception {
+			
+			
+			//getting the HashMap of the monthlists 
+			HashMap<Integer, ArrayList<Measurement>> monthList = Measurement.getMonthList(list);
+			
+			//creating the needed objects
+			ArrayList<Measurement> currentList = new ArrayList<Measurement>();
+			Measurement lastYearArea = new Measurement();
+			Measurement currentArea = new Measurement();
+			double difference = 0;
+			String output ="";
+			
+			for (Integer i : monthList.keySet()) {
+				
+				//getting the current list
+				currentList = monthList.get(i);
+				
+				//resetting
+				lastYearArea = new Measurement();
+				currentArea = new Measurement();
+				difference = 0;
+				
+				//looping over the current list but leaving out object one since 
+				// there cannot be a difference calculated for the first year
+				for (int k = 1; k < currentList.size(); k++ ) {
+					
+					currentArea = currentList.get(k);
+					lastYearArea = currentList.get(k-1);
+					
+					//calculating the difference
+					difference = currentArea.area - lastYearArea.area;
+					
+					output = output + "\n" + "\n" + "The difference of the area between year " + currentArea.year +
+							" and " + lastYearArea.year + " is: "  + difference;
+					
+				}
+					
+				
+				System.out.println("Month " + i + "\n" + "--------------------------------" + "\n");
+				System.out.println(output);
+				System.out.println();
+				
+			}
+				
+
+		
+		}
 	
 
-	}
-	
 }
+	
+
