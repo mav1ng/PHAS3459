@@ -15,6 +15,18 @@ public class MidTermExam {
 					+ "3459/exam-data/N_extent_v3.0.csv");
 			
 			System.out.println("Total number of measurements: " + list.size());
+			System.out.println();
+			System.out.println();
+			
+			System.out.println("Measurement with the lowest total ice extent of the entire period: ");
+			System.out.println(Measurement.compareExtent(list));
+			System.out.println();
+			System.out.println();
+			
+			System.out.println("Measurement with the lowest total ice area of the entire period: ");
+			System.out.println(Measurement.compareArea(list));
+			System.out.println();
+			System.out.println();
 			
 		}
 		catch (Exception e) {
