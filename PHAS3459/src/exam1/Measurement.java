@@ -19,9 +19,21 @@ public class Measurement {
 	public double extent = 0;
 	public double area = 0;
 	
+	
+	//defining the toString method to clarify how the Measurement objects should be printed out
+	public String toString() {
+		
+		String output = "Measurement of Month " + mo + " in the year " + year + " :" + "\n" +
+		"data-type: " + "type" + "\n" + "Region of the Measurement" + region + "\n" +
+				"extent of the measurement: " + extent + "\n" + "area of the measurement :" + area;
+		
+		
+		return output;
+	}
+	
 
 	
-	//method that dakes data from one line and creates a Measurement object with it
+	//method that takes data from one line and creates a Measurement object with it
 	public static Measurement parseData(String line) throws Exception {
 		
 		//creating that new measurement object where the data should be stored in
@@ -74,6 +86,7 @@ public class Measurement {
 		
 		String line;
 		Measurement currentM = new Measurement();
+		ArrayList<Measurement> mList = new ArrayList<Measurement>();
 		
 		//creating an URL with given String 
 		URL website = new URL(url);
@@ -87,6 +100,24 @@ public class Measurement {
 		//creating bufferedReader with given inputStreamReader
 		BufferedReader br = new BufferedReader(inReader);
 		
+		
+		//skipping the first line in the given url
+		br.readLine();
+		
+		while ((line = br.readLine()) != null) {
+			
+			//creating the object with the given data in the line
+			currentM = parseData(line);
+			
+			//adding it to the arraylist
+			mList.add(currentM);
+			
+		}
+		
+		//closing all the inputStreams
+		inputS.close();
+		
+		return mList;
 		
 	}
 	
