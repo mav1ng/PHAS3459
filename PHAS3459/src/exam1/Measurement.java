@@ -339,6 +339,134 @@ public class Measurement {
 		
 		}
 	
+		
+		
+		
+		
+		//method that caclulates and prints out the difference in area between each year 
+		//and the previous year for each month
+		public static void analyseLargestDrop(ArrayList<Measurement> list) throws Exception {
+	
+			
+			//getting the HashMap of the monthlists 
+			HashMap<Integer, ArrayList<Measurement>> monthList = Measurement.getMonthList(list);
+			
+			//creating the needed objects
+					ArrayList<Measurement> currentList = new ArrayList<Measurement>();
+			Measurement lastYearArea = new Measurement();
+			Measurement currentArea = new Measurement();
+			double difference = 0;
+			double difference2 = 0;
+			double difference3 = 0;
+			double difference4 = 0;
+			double difference5 = 0;
+			Measurement first = new Measurement();
+			Measurement second = new Measurement();
+			Measurement third = new Measurement();
+			Measurement forth = new Measurement();
+			Measurement fifth = new Measurement();
+	
+			
+			for (Integer i : monthList.keySet()) {
+			
+				//getting the current list
+				currentList = monthList.get(i);
+					
+				//resetting
+				lastYearArea = new Measurement();
+				currentArea = new Measurement();
+				first = new Measurement();
+				second = new Measurement();
+				third = new Measurement();
+				forth = new Measurement();
+				fifth = new Measurement();
+				difference = 0;
+				difference2 = 0;
+				difference3 = 0;
+				difference4 = 0;
+				difference5 = 0;
+				
+				//looping over the current list but leaving out object one since 
+				// there cannot be a difference calculated for the first year
+				for (int k = 1; k < currentList.size(); k++ ) {
+					
+					currentArea = currentList.get(k);
+					lastYearArea = currentList.get(k-1);
+				
+					//calculating the difference
+					if ((currentArea.area - lastYearArea.area) > difference && 
+							currentArea.area != -9999 && lastYearArea.area != -9999) {
+						
+						difference = (currentArea.area - lastYearArea.area);
+						first = currentArea;
+					}
+					else {
+						if ((currentArea.area - lastYearArea.area) > difference2 && 
+								currentArea.area != -9999 && lastYearArea.area != -9999) {
+							
+							difference2 = (currentArea.area - lastYearArea.area);
+							second = currentArea;
+						}
+						else {
+							if ((currentArea.area - lastYearArea.area) > difference3 && 
+									currentArea.area != -9999 && lastYearArea.area != -9999) {
+								
+								difference3 = (currentArea.area - lastYearArea.area);
+								third = currentArea;
+							}
+							else {
+								if ((currentArea.area - lastYearArea.area) > difference4 &&
+										currentArea.area != -9999 && lastYearArea.area != -9999) {
+									
+									difference4 = (currentArea.area - lastYearArea.area);
+									forth = currentArea;
+								}
+								else {
+									if ((currentArea.area - lastYearArea.area) > difference4 &&
+											currentArea.area != -9999 && lastYearArea.area != -9999) {
+										
+										difference4 = (currentArea.area - lastYearArea.area);
+										forth = currentArea;
+									}
+									else {
+										if ((currentArea.area - lastYearArea.area) > difference5 &&
+												currentArea.area != -9999 && lastYearArea.area != -9999) {
+											
+											difference5 = (currentArea.area - lastYearArea.area);
+											fifth = currentArea;
+										}
+									}
+								}
+							}
+						}
+					}
+						
+						
+					
+					
+				}
+					
+				System.out.println();
+				System.out.println();
+				System.out.println("The highest drop rates for Month " + i + "\n" + "--------------------------------" + "\n");
+				System.out.println(first + "\n" + "with a drop rate of " + difference);
+				System.out.println();
+				System.out.println(second + "\n" + "with a drop rate of " + difference2);
+				System.out.println();
+				System.out.println(third + "\n" + "with a drop rate of " + difference3);
+				System.out.println();
+				System.out.println(forth + "\n" + "with a drop rate of " + difference4);
+				System.out.println();
+				System.out.println(fifth + "\n" + "with a drop rate of " + difference5);
+				
+				System.out.println();
+				System.out.println();
+				
+			}
+				
+			
+		}
+			
 
 }
 	

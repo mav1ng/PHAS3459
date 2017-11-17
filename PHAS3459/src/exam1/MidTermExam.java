@@ -38,6 +38,9 @@ public class MidTermExam {
 			//printing out the difference in area between each year and the previous year. 
 			Measurement.analyseAnualAreaDifference(list);
 			
+			//printing the 5 years with the hieghest drop rate for every month:
+			Measurement.analyseLargestDrop(list);
+			
 			
 		}
 		catch (Exception e) {
