@@ -29,6 +29,13 @@ public class MidTermExam {
 			System.out.println();
 			System.out.println();
 			
+			//printing out the year with the lowest area of ice in each month
+			Measurement.analyseMonthlyIceArea(list);
+				
+			System.out.println();
+			System.out.println();
+			
+			
 		}
 		catch (Exception e) {
 			System.out.println(e);

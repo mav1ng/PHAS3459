@@ -275,7 +275,7 @@ public class Measurement {
 				
 			}
 			
-			System.out.println("For the month " + i + "the year " + minArea.year + " had the lowest"
+			System.out.println("For the month " + i + " the year " + minArea.year + " had the lowest"
 					+ " total area of ice!");
 			System.out.println();
 			System.out.println();
