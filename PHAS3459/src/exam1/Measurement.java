@@ -5,8 +5,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Scanner;
+
 
 public class Measurement {
 	
@@ -196,6 +198,40 @@ public class Measurement {
 		
 	}
 	
+	
+	//method that creates a hashmap containing arraylists that contain the measurements of a distinct month
+	public static HashMap<Integer, ArrayList<Measurement>> getMonthList(ArrayList<Measurement> mainList) throws Exception {
+		
+		//creating the needed objects and variables
+		Measurement currentM = new Measurement();
+		Integer currentMonth;
+		HashMap<Integer, ArrayList<Measurement>> monthList = new HashMap<Integer, ArrayList<Measurement>>();
+		
+		//looping over the mainList
+		for (int i = 0; i < mainList.size(); i++) {
+			
+			//getting the Measurement from the main list
+			currentM = mainList.get(i);
+			
+			//getting the month from the current Measurement and storing it in currentMonth
+			currentMonth = currentM.mo;
+			
+			//getting the distinct list of measurement in one month from the HashMap
+			ArrayList<Measurement> cM = monthList.get(currentMonth);
+			
+			//if theres not an existing arraylist already create a new one
+			if (cM == null) {
+				monthList.put(currentMonth, new ArrayList<Measurement>());
+			}
+			
+			//adding the player to the arraylist
+			monthList.get(currentMonth).add(currentM);
+			
+		}
+		
+		return monthList;
+		
+	}
 	
 	
 

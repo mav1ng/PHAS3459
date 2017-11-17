@@ -8,6 +8,7 @@ public class MidTermExam {
 		
 		System.out.println("Printing the total number of measurements that have been recorded:");
 		
+		//writing in a try catch block since there might be methods that throw exceptions 
 		try {
 			
 			//getting the data from the url into the arraylist and calling it list
