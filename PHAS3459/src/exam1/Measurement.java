@@ -136,14 +136,19 @@ public class Measurement {
 			
 			currentM = mList.get(i);
 			
+			//if maxE has not been set already and measurement is not missing
 			if(maxE.extent == 0 && currentM.extent != -9999) {
 				
+				//set maxE
 				maxE = currentM;
 				
 			}
 			
+			//if the Ice extend of maxE is bigger than that of the current measurement 
+			//and the data is not missing
 			if(currentM.extent < maxE.extent && currentM.extent != -9999) {
 				
+				//set the max Measumrent to the current one
 				maxE = currentM;
 				
 			}
@@ -153,6 +158,44 @@ public class Measurement {
 		return maxE;
 		
 	}
+	
+	
+	//method to compare the measurement objects in an arraylist and giving out the on with the lowest 
+	//total ice area
+	public static Measurement compareArea(ArrayList<Measurement> mList) throws Exception {
+		
+		Measurement currentM = new Measurement();
+		Measurement maxA = new Measurement();
+		
+		
+		//looping over the whole arraylist
+		for (int i = 0; i < mList.size(); i++) {
+			
+			currentM = mList.get(i);
+			
+			//if maxA has not been set already and measurement is not missing
+			if(maxA.area == 0 && currentM.area != -9999) {
+				
+				//set maxA
+				maxA = currentM;
+				
+			}
+			
+			//if the Ice area of maxA is bigger than that of the current measurement 
+			//and the data is not missing
+			if(currentM.area < maxA.area && currentM.area != -9999) {
+				
+				//set maxA
+				maxA = currentM;
+				
+			}
+			
+		}
+		
+		return maxA;
+		
+	}
+	
 	
 	
 
