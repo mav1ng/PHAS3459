@@ -123,6 +123,38 @@ public class Measurement {
 	
 	
 	
+	//method to compare the measurement objects in an arraylist and giving out the on with te lowest 
+	//total ice extend
+	public static Measurement compareExtent(ArrayList<Measurement> mList) throws Exception {
+		
+		Measurement currentM = new Measurement();
+		Measurement maxE = new Measurement();
+		
+		
+		//looping over the whole arraylist
+		for (int i = 0; i < mList.size(); i++) {
+			
+			currentM = mList.get(i);
+			
+			if(maxE.extent == 0 && currentM.extent != -9999) {
+				
+				maxE = currentM;
+				
+			}
+			
+			if(currentM.extent < maxE.extent && currentM.extent != -9999) {
+				
+				maxE = currentM;
+				
+			}
+			
+		}
+		
+		return maxE;
+		
+	}
+	
+	
 
 	
 
