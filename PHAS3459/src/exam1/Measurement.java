@@ -1,5 +1,10 @@
 package exam1;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -32,7 +37,7 @@ public class Measurement {
 		}
 		
 		//setting the month variable
-		if (scE.hasNext()) {
+		if (scE.hasNextInt()) {
 			m.mo = scE.nextInt();
 		}
 		
@@ -63,6 +68,27 @@ public class Measurement {
 		
 	}
 
+	//method that takes information from a website to parse the information into measurement objects and 
+	//then puts them into an arraylist
+	public static ArrayList<Measurement> getDataFromURL(String url) throws Exception {
+		
+		String line;
+		Measurement currentM = new Measurement();
+		
+		//creating an URL with given String 
+		URL website = new URL(url);
+		
+		//creating an InputStream with the given URL
+		InputStream inputS = website.openStream();
+		
+		//creating an inputStreamReader with given InputStream
+		InputStreamReader inReader = new InputStreamReader(inputS);
+		
+		//creating bufferedReader with given inputStreamReader
+		BufferedReader br = new BufferedReader(inReader);
+		
+		
+	}
 	
 	
 	
