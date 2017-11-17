@@ -30,7 +30,7 @@ public class Measurement {
 	public String toString() {
 		
 		String output = "Measurement of Month " + mo + " in the year " + year + " :" + "\n" +
-		"data-type: " + "type" + "\n" + "Region of the Measurement" + region + "\n" +
+		"data-type: " + "type" + "\n" + "Region of the Measurement: " + region + "\n" +
 				"extent of the measurement: " + extent + "\n" + "area of the measurement :" + area;
 		
 		
