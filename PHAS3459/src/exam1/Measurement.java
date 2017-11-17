@@ -1,5 +1,6 @@
 package exam1;
 
+//importing the neede packages
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,13 +14,16 @@ import java.util.Scanner;
 public class Measurement {
 	
 	
-	//declaring the variables as statet in the exam paper
+	//declaring the variables as stated in the exam paper
 	public int year = 0;
 	public int mo = 0;
 	public String type = "";
 	public String region = "";
 	public double extent = 0;
 	public double area = 0;
+	
+	
+	
 	
 	
 	//defining the toString method to clarify how the Measurement objects should be printed out
@@ -34,6 +38,9 @@ public class Measurement {
 	}
 	
 
+	
+	
+	
 	
 	//method that takes data from one line and creates a Measurement object with it
 	public static Measurement parseData(String line) throws Exception {
@@ -82,6 +89,9 @@ public class Measurement {
 		
 	}
 
+	
+	
+	
 	//method that takes information from a website to parse the information into measurement objects and 
 	//then puts them into an arraylist
 	public static ArrayList<Measurement> getDataFromURL(String url) throws Exception {
@@ -125,6 +135,8 @@ public class Measurement {
 	
 	
 	
+	
+	
 	//method to compare the measurement objects in an arraylist and giving out the on with te lowest 
 	//total ice extend
 	public static Measurement compareExtent(ArrayList<Measurement> mList) throws Exception {
@@ -160,6 +172,9 @@ public class Measurement {
 		return maxE;
 		
 	}
+	
+	
+	
 	
 	
 	//method to compare the measurement objects in an arraylist and giving out the on with the lowest 
@@ -199,6 +214,9 @@ public class Measurement {
 	}
 	
 	
+	
+	
+	
 	//method that creates a hashmap containing arraylists that contain the measurements of a distinct month
 	public static HashMap<Integer, ArrayList<Measurement>> getMonthList(ArrayList<Measurement> mainList) throws Exception {
 		
@@ -232,6 +250,9 @@ public class Measurement {
 		return monthList;
 		
 	}
+	
+	
+	
 	
 	
 	//method that analyses the list reagarding to months and prints out the one with the lowest
@@ -286,6 +307,9 @@ public class Measurement {
 		
 		
 		
+	
+	
+	
 		//method that caclulates and prints out the difference in area between each year 
 		//and the previous year for each month
 		public static void analyseAnualAreaDifference(ArrayList<Measurement> list) throws Exception {
@@ -343,6 +367,7 @@ public class Measurement {
 		
 		
 		
+		
 		//method that caclulates and prints out the difference in area between each year 
 		//and the previous year for each month
 		public static void analyseLargestDrop(ArrayList<Measurement> list) throws Exception {
@@ -372,7 +397,7 @@ public class Measurement {
 				//getting the current list
 				currentList = monthList.get(i);
 					
-				//resetting
+				//resetting all the variables 
 				lastYearArea = new Measurement();
 				currentArea = new Measurement();
 				first = new Measurement();
@@ -393,7 +418,8 @@ public class Measurement {
 					currentArea = currentList.get(k);
 					lastYearArea = currentList.get(k-1);
 				
-					//calculating the difference
+					//calculating the difference and sorting them into the correct place
+					//meaning first for the highest and so on
 					if ((currentArea.area - lastYearArea.area) > difference && 
 							currentArea.area != -9999 && lastYearArea.area != -9999) {
 						
@@ -446,6 +472,7 @@ public class Measurement {
 					
 				}
 					
+				//printing out the results
 				System.out.println();
 				System.out.println();
 				System.out.println("The highest drop rates for Month " + i + "\n" + "--------------------------------" + "\n");
@@ -465,9 +492,156 @@ public class Measurement {
 			}
 				
 			
-		}
+	}
+		
+		
+		
+		
+		
+		//method that analyses the average ice area across all years for this calendar month and finds the
+		//month with the highest and lowest ice average area
+		public static void analyseAverage(ArrayList<Measurement> list) throws Exception {
 			
-
+		
+			//getting the HashMap of the monthlists 
+			HashMap<Integer, ArrayList<Measurement>> monthList = Measurement.getMonthList(list);
+			
+			//creating the needed objects
+			//declaring important variables
+			ArrayList<Measurement> currentList = new ArrayList<Measurement>();
+			double maxAvg = 0;
+			double minAvg = 0;
+			double currentSum = 0;
+			double currentAvg = 0;
+			int maxMonth = 0;
+			int minMonth = 0;
+			Measurement currentArea = new Measurement();
+			int errorCount = 0;
+			
+			for (Integer i : monthList.keySet()) {
+				
+				//getting the current list
+				currentList = monthList.get(i);
+				
+				//resetting
+				currentArea = new Measurement();
+				currentSum = 0;
+				errorCount = 0;
+				
+				//looping over the current list and calculating the average
+				for (int k = 0; k < currentList.size(); k++ ) {
+					
+					currentArea = currentList.get(k);
+					
+					if(currentArea.area != -9999) {
+							currentSum = currentSum + currentArea.area;			
+					}
+					else {
+						errorCount++;
+					}
+				
+				//calculating current avg
+					if(currentArea.area != -9999) {
+						currentAvg = currentSum/(currentList.size()-errorCount);
+						if (currentAvg > maxAvg) {
+							maxAvg = currentAvg;
+							maxMonth = currentArea.mo;
+							
+						}
+						if (minAvg == 0) {
+							minAvg = currentAvg;
+						}
+						
+						if (currentAvg < minAvg) {
+							minAvg = currentAvg;
+							minMonth = currentArea.mo;
+						}
+					}
+				
+				
+				}
+				
+			}
+			
+			System.out.println("Month with the highest ice average area: " + maxMonth);
+			System.out.println("The area average is: " + maxAvg);
+			System.out.println();
+			System.out.println("Month with the lowest ice average area: " + minMonth);
+			System.out.println("The area average is: " + minAvg);
+			System.out.println();
+		}
+		
+		
+		
+		
+		
+		//method that analyses when there will probably not be any ice left in the arctic
+		public static void extrapolation(ArrayList<Measurement> list) throws Exception {
+			
+			//getting the HashMap of the lowest average area (9)
+			HashMap<Integer, ArrayList<Measurement>> monthList = Measurement.getMonthList(list);
+			
+			//creating the needed objects
+			ArrayList<Measurement> lowestMonth = monthList.get(9);
+			double change = 0;
+			double avgChange = 0;
+			double sumChange = 0;
+			double currentArea = 0;
+			double lastArea = 0;
+			int errorCount = 0;
+			double areaAvg = 0.1174358974359;
+			double time = 0;
+			
+			//leaving out the first year since there cannot be calculated a ration
+			for (int i = 1; i < lowestMonth.size(); i++) {
+				
+				if (lowestMonth.get(i).area != -9999 && lowestMonth.get(i-1).area != -9999) {
+					currentArea = lowestMonth.get(i).area;
+					lastArea = lowestMonth.get(i-1).area;
+					change = currentArea - lastArea;
+					sumChange = sumChange + change;
+				}
+				else {
+					errorCount++;
+				}
+				
+			}
+			
+			avgChange = sumChange/(lowestMonth.size()-errorCount);
+			
+			System.out.println("The average change is: " + avgChange);
+			
+			//calculating the years until there is no ice left in the warmest month
+			time = -areaAvg/avgChange;
+			
+			//printing out the result:
+			System.out.println("It will take about " + (int)(time + 0.5) + "years until there is no "
+					+ "ice left anymore.");
+					
+		}
+		
+		
+		
+		
+		
+		//method that analyses pessimisticly when there will probably not be any ice left in the arctic
+			public static void extrapolationPessimistic(ArrayList<Measurement> list) throws Exception {
+				
+				double avgChange = -1.37; //got this from prior calculations (largest drop rate in month 9)
+				double areaAvg = 0.1174358974359;  //average ice area in month 9
+				double time;
+				
+				System.out.println("The pessimistic rate of change is: " + avgChange);
+				
+				//calculating the years until there is no ice left in the warmest month
+				time = -areaAvg/avgChange;
+				
+				//printing out the result:
+				System.out.println("It will take about " + (int)(time + 0.5) + "years until there is no "
+						+ "ice left anymore.");
+						
+			}
+		
 }
 	
 
