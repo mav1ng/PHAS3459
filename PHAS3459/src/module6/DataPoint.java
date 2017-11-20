@@ -21,6 +21,7 @@ public class DataPoint {
 	//method to define how the object DataPoint should be printed out
 	public String toString() {
 		
+		//the doubles should be limited to 5 decimal places
 		NumberFormat formatter = new DecimalFormat("#0.00000");
 		
 		String output = "x = " + formatter.format(x) + ", y = " + formatter.format(y) + 
