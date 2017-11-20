@@ -6,9 +6,9 @@ public class LabelledDataPoint extends DataPoint {
 	private String label;
 	
 	//constructor 
-	public LabelledDataPoint(double x, double y, double ey, String label) throws Exception {
+	public LabelledDataPoint(double x, double y, double ey, String labelIn) throws Exception {
 		super(x, y, ey);
-		this.label = label;
+		label = labelIn;
 	}
 	
 	
@@ -17,6 +17,7 @@ public class LabelledDataPoint extends DataPoint {
 		String output = "data_point_label: " + this.toString();
 		return output;
 	}
+	
 	
 	
 	
