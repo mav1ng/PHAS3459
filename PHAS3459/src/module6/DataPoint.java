@@ -7,7 +7,9 @@ import java.util.Scanner;		//importing the Scanner class of java
 
 public class DataPoint {
 
-	private double x, y, ey;	//defining the member variables
+	protected double x;	//defining the member variables
+	protected double y;
+	protected double ey;
 	
 	public DataPoint(double x, double y, double ey) throws Exception {
 		
@@ -25,7 +27,7 @@ public class DataPoint {
 		NumberFormat formatter = new DecimalFormat("#0.00000");
 		
 		String output = "x = " + formatter.format(x) + ", y = " + formatter.format(y) + 
-				"+- " + formatter.format(ey);
+				"+- " + formatter.format(ey) +"\n";
 		
 		return output;
 	}
