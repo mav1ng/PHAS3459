@@ -57,7 +57,7 @@ public class SquareMatrix {
 		//adding the different arguments to a string that will be given out in the end
 		for (i = 0; i < matrixDim; i++) {
 			for (k = 0; k < matrixDim; k++) {
-				matrixOutput =  matrixOutput + matrix[i][k] + "  ";
+				matrixOutput =  matrixOutput + matrix[i][k] + "\t";
 			}
 			matrixOutput = matrixOutput + "\n";
 		}

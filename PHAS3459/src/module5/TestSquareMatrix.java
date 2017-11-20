@@ -12,6 +12,9 @@ public class TestSquareMatrix {
 		double[][] arrayD = {{-2, 3}, {3, -4}};
 		double[][] arrayI = {{1, 0}, {0, 1}};
 		
+		
+		
+		
 		//creating the SqareMatrix objects
 		try {
 			//creating the SquareMatrix objects
@@ -20,6 +23,8 @@ public class TestSquareMatrix {
 			SquareMatrix C = new SquareMatrix(arrayC);
 			SquareMatrix D = new SquareMatrix(arrayD);
 			SquareMatrix I = new SquareMatrix(arrayI);
+			
+			System.out.println(A.equals(B));
 			
 			//printing out all the used matrices
 			System.out.println("Matrix A:");
