@@ -20,4 +20,11 @@ public class QuadraticTheory implements Theory {
 		
 	}
 	
+	//method that tells the system how to print out the objects belonging to that class
+	public String toString() {
+		String output = "The current function is: " + a + "x^2 + " + b + "x + " + c;
+		return output;
+		
+	}
+	
 }
