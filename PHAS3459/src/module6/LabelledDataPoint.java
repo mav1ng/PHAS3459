@@ -12,6 +12,13 @@ public class LabelledDataPoint extends DataPoint {
 	}
 	
 	
+	//method that defines how the objects of the subclass will be printed out
+	public String toString() {
+		String output = "data_point_label: " + this.toString();
+		return output;
+	}
+	
+	
 	
 
 }
