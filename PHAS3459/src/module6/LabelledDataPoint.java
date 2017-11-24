@@ -15,6 +15,8 @@ public class LabelledDataPoint extends DataPoint {
 	//method that defines how the objects of the subclass will be printed out
 	public String toString() {
 		
+		//defining how the object will be printed to the screen using the toString()
+		//method from the superclass DataPoint
 		String output = label + ": " + super.toString();
 		
 		return output;
