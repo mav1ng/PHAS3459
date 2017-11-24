@@ -27,7 +27,7 @@ public class DataPoint {
 		NumberFormat formatter = new DecimalFormat("#0.00000");
 		
 		String output = "x = " + formatter.format(x) + ", y = " + formatter.format(y) + 
-				"+- " + formatter.format(ey) +"\n";
+				" +- " + formatter.format(ey) +"\n";
 		
 		return output;
 	}

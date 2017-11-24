@@ -5,7 +5,7 @@ public class PowerLawTheory implements Theory{
 	private double n;
 
 	//constructor that sets the parameters of the function
-	public PowerLawTheory (int n) throws Exception {
+	public PowerLawTheory (double n) throws Exception {
 		this.n = n;
 	}
 	
