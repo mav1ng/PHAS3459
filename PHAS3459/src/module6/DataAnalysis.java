@@ -7,6 +7,8 @@ public class DataAnalysis {
 	
 	
 	//copied the bestTheory method in
+	//method that determines what theory fits the data the best
+	//according to one specified goodness of fit calculation
     private static Theory bestTheory(Collection<DataPoint> data,
             Collection<Theory> theories, GoodnessOfFitCalculator gofCalculator) {
         boolean first = true;
@@ -35,7 +37,7 @@ public class DataAnalysis {
 			//getting the data points from the website
 			ArrayList<DataPoint> dpList = TestDataPoints.dataFromURL("http://www.hep.ucl.ac.uk/undergrad"
 					+ "/3459/data/module6/module6-data.txt");
-			//creating a collection with the used theroies
+			//creating a collection with the used theories
 			ArrayList<Theory> theoList = new ArrayList<Theory>();
 			
 			//adding the theories to the theories list

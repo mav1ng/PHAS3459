@@ -61,6 +61,7 @@ public class DataPoint {
 		
 		
 		{	
+			//getting the data from the line that is input
 			DataPoint dp = new DataPoint(sc.nextDouble(), sc.nextDouble(), sc.nextDouble());
 			return dp; //returning the DataPoint object here
 		}

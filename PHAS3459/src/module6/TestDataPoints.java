@@ -26,7 +26,7 @@ public class TestDataPoints {
 		//Creating BufferedReader from the existing InputStreamReader
 		BufferedReader br = new BufferedReader(iSR);
 		
-		//creating needed variables
+		//creating the needed variables
 		String line;
 		double xIn, yIn, eyIn;
 		String label;
@@ -66,8 +66,9 @@ public class TestDataPoints {
 				LabelledDataPoint lDP = new LabelledDataPoint(xIn, yIn, eyIn, label);
 				dpList.add(lDP);
 			}
-			//if theres no last token in the line
+			//if there is no last token in the line
 			else {
+				//if there is no information about the label create a new DataPoint
 				DataPoint dP = new DataPoint(xIn, yIn, eyIn);
 				dpList.add(dP);
 			}
@@ -85,11 +86,13 @@ public class TestDataPoints {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		//printing out the data points
 		try {
-			
+			//getting the data from the website
 			ArrayList<DataPoint> list = dataFromURL("http://www.hep.ucl.ac.uk/undergrad/"
 				+ "3459/data/module6/module6-data.txt");
 			
+			//looping over the list
 			for (DataPoint dP : list) {
 				System.out.println(dP);
 			}

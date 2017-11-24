@@ -11,7 +11,8 @@ public class QuadraticTheory implements Theory {
 		this.c = c;
 	}
 	
-	//overriding the inherited methoed from the interface
+	//overriding the inherited method from the interface and
+	//further defining the method
 	public double y(double x) {
 		
 		double y = a * Math.pow(x, 2) + b * x + c;

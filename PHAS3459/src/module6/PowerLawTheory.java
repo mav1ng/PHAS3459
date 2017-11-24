@@ -10,7 +10,7 @@ public class PowerLawTheory implements Theory{
 	}
 	
 	
-	//method inherited from the interface
+	//further defining the method inherited from the interface
 	public double y(double x) {
 		
 		double y = Math.pow(x, n);

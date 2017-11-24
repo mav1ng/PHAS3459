@@ -7,6 +7,7 @@ public class ChiSquared implements GoodnessOfFitCalculator {
 
 	protected double chiSquared;
 	
+
 	public double goodnessOfFit(Collection<DataPoint> data, Theory theo ){
 		
 
@@ -22,8 +23,10 @@ public class ChiSquared implements GoodnessOfFitCalculator {
 			
 			DataPoint currentDP = li.next();
 			
+			//getting the current value from the list
 			currentTheoValue = theo.y(currentDP.getX());
 			
+			//calculating the single chisquared methods
 			chiSqSingle = (Math.pow(currentDP.getY() - currentTheoValue, 2)) 
 					/ Math.pow(currentDP.getEY(), 2);
 			

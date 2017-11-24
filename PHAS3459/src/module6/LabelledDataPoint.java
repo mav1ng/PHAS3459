@@ -22,7 +22,7 @@ public class LabelledDataPoint extends DataPoint {
 				NumberFormat formatter = new DecimalFormat("#0.00000");
 		
 		String output = label + ":  x = " + formatter.format(getX()) + ", y = " + formatter.format(getY()) + 
-				"+- " + formatter.format(getEY()) + "\n";
+				" +- " + formatter.format(getEY()) + "\n";
 		
 		return output;
 	}
