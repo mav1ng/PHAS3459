@@ -71,7 +71,7 @@ public class Data {
 		
 		for (int i = 0; i < mainList.size(); i++) {
 			currentEQ = mainList.get(i);
-			Character c = new Character((currentEQ.date).charAt(6));
+			Character c = (currentEQ.date).charAt(6);
 			
 			//Figuring out whether its a single digit month or not
 			if (Character.isDigit(c)) {

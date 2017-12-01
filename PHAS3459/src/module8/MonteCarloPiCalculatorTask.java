@@ -1,20 +1,20 @@
 package module8;
 
 import java.util.Random;
+import java.util.concurrent.Callable;
 
-public class MonteCarloPiCalculatorTask implements Runnable {
+public class MonteCarloPiCalculatorTask implements Callable<Double> {
 
-	private long nPoints;
+	private double nPoints;
 	
 	//constructor
 	//parameter: number of Points used to estimate pi
-	public MonteCarloPiCalculatorTask(int number) {
+	public MonteCarloPiCalculatorTask(double number) {
 		nPoints = number;
 	}
 	
 	//took the MonteCarloPiCalculatorTask method from the notes
-	@Override
-	public void run() {
+	public Double call() {
 		
 		 Random rand = new Random();
 		 long nIn = 0;
@@ -26,7 +26,8 @@ public class MonteCarloPiCalculatorTask implements Runnable {
 		 }
 		 double pi = 4.0 * nIn / nPoints;
 		 
-		 System.out.println(pi);
+		return pi;
+		
 	}
 	
 	
