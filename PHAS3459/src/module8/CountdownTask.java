@@ -15,21 +15,22 @@ public class CountdownTask implements Runnable{
 	//is implemented by the Runnable interface
 	@Override
 	public void run() {
-		int startTime = (int)(System.currentTimeMillis()/1000);
+		float startTime = System.nanoTime();
 		boolean timer = true;
-		int timeDif;
+		float timeDif;
 		
 		System.out.println(seconds);
 		
 			while (timer) {
-				timeDif = (int)(System.currentTimeMillis())/1000 - startTime; 
-				if (timeDif == 1) {
+				timeDif = System.nanoTime() - startTime; 
+				if (timeDif % 1000000000 == 0.000000000) {
 					seconds--;
-					startTime = (int)(System.currentTimeMillis()/1000);
+					startTime = System.nanoTime();
 					System.out.println(seconds);
 				}
 				if (seconds == 0) {
 					timer = false;
+					System.out.println("Finished");
 				}
 			}
 			
