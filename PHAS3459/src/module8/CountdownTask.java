@@ -1,6 +1,7 @@
 package module8;
 
-public class CountdownTask implements Runnable{
+
+public class CountdownTask implements Runnable {
 	
 	private int seconds;
 	
@@ -15,27 +16,15 @@ public class CountdownTask implements Runnable{
 	//is implemented by the Runnable interface
 	@Override
 	public void run() {
-		float startTime = System.nanoTime();
-		boolean timer = true;
-		float timeDif;
-		
-		System.out.println(seconds);
-		
-			while (timer) {
-				timeDif = System.nanoTime() - startTime; 
-				if (timeDif % 1000000000 == 0.000000000) {
-					seconds--;
-					startTime = System.nanoTime();
-					System.out.println(seconds);
-				}
-				if (seconds == 0) {
-					timer = false;
-					System.out.println("Finished");
-				}
+		for (int i = seconds; i > 0; i--) {
+			try {
+				System.out.println(i);
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-			
-			return;
-
+		}
+		return;
 	}
 
 	

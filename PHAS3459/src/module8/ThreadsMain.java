@@ -4,19 +4,24 @@ public class ThreadsMain {
 
 	public static void main(String[] args) {
 		
-		CountdownTask taskCountdown = new CountdownTask(10);
+		CountdownTask taskCount = new CountdownTask(10);
 		PrimeNumberTask taskPrime = new PrimeNumberTask();
 		
-		Thread one = new Thread(taskCountdown);
+		Thread one = new Thread(taskCount);
 		Thread two = new Thread(taskPrime);
+
+		one.start();
+		two.start();
 		
 		try {
-			one.start();
-			two.start();
-		} catch (Exception e) {
-			two.interrupt();
+			one.join();
 		}
-	
+		catch (InterruptedException e) {
+			System.out.println("Error");
+		}
+
+		two.interrupt();
+		
 	}
 
 }

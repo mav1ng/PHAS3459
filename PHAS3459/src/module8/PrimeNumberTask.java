@@ -8,11 +8,20 @@ public class PrimeNumberTask implements Runnable{
 	public void run() {
 		
 		ArrayList<Integer> primeList = new ArrayList<Integer>();
+		int largestInt = 0, largestPrime = 0, primeCount = 0;
 		
-		while(!Thread.currentThread().isInterrupted()) {
+		while (true) {
 			
-			for(int i = 0; true; i++) {
+			if (Thread.currentThread().isInterrupted()) {
+				System.out.println("Largest Number checked: " + largestInt);
+				System.out.println("Largest Prime found: " + largestPrime);			
+				System.out.println("Number of Primes found: " + primeCount);
+				break;
+			}
+			
+			for(int i = 0; true && !Thread.currentThread().isInterrupted(); i++) {
 				
+				largestInt = i;
 				boolean test = true;
 				
 				for(int k = 2; k < i; k++) {
@@ -26,9 +35,12 @@ public class PrimeNumberTask implements Runnable{
 				
 				if (test) {
 					primeList.add(i);
+					primeCount++;
+					largestPrime = i;
 				}
 				
 			}
+			
 		}
 		
 		return;
