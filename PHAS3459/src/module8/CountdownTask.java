@@ -12,10 +12,27 @@ public class CountdownTask implements Runnable{
 	
 	
 	//method that further specifies the run() method that
-	//is implemented bz the Runnable interface
+	//is implemented by the Runnable interface
 	@Override
 	public void run() {
+		int startTime = (int)(System.currentTimeMillis()/1000);
+		boolean timer = true;
+		int timeDif;
+		
 		System.out.println(seconds);
+		
+			while (timer) {
+				timeDif = (int)(System.currentTimeMillis())/1000 - startTime; 
+				if (timeDif == 1) {
+					seconds--;
+					startTime = (int)(System.currentTimeMillis()/1000);
+					System.out.println(seconds);
+				}
+				if (seconds == 0) {
+					timer = false;
+				}
+			}
+
 	}
 
 	
