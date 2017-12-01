@@ -5,6 +5,8 @@ import java.util.concurrent.Callable;
 
 public class MonteCarloPiCalculatorTask implements Callable<Double> {
 
+	//variable that specifies the number of points that should be 
+	//used to estimate pi
 	private double nPoints;
 	
 	//constructor
