@@ -66,6 +66,7 @@ public class TestDataPoints {
 				LabelledDataPoint lDP = new LabelledDataPoint(xIn, yIn, eyIn, label);
 				dpList.add(lDP);
 			}
+			
 			//if there is no last token in the line
 			else {
 				//if there is no information about the label create a new DataPoint

@@ -57,18 +57,16 @@ public class DataPoint {
 	public static DataPoint createFromURL(String line) throws Exception {
 		
 		
-		try ( //defining the new scanner
-		Scanner sc = new Scanner(line).useLocale(Locale.ENGLISH); )
+		 //defining the new scanner
+		Scanner sc = new Scanner(line);
+		Scanner scE = sc.useLocale(Locale.ENGLISH); 
 		
+		//getting the data from the line that is input
+		DataPoint dp = new DataPoint(scE.nextDouble(), scE.nextDouble(), scE.nextDouble());
 		
-		{	
-			//getting the data from the line that is input
-			DataPoint dp = new DataPoint(sc.nextDouble(), sc.nextDouble(), sc.nextDouble());
-			return dp; //returning the DataPoint object here
-		}
-		catch (Exception e) {
-			throw e;
-		}
+		sc.close();
+		
+		return dp; //returning the DataPoint object here
 
 	}
 	
