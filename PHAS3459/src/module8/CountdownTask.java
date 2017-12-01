@@ -32,6 +32,8 @@ public class CountdownTask implements Runnable{
 					timer = false;
 				}
 			}
+			
+			return;
 
 	}
 
