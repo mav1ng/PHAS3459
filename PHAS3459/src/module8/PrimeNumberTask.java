@@ -9,7 +9,7 @@ public class PrimeNumberTask implements Runnable{
 	@Override
 	public void run() {
 		
-		//getting the ArrayList that is not really neccesary but
+		//getting the ArrayList that is not really necessary but
 		//asked for in the exercise
 		ArrayList<Integer> primeList = new ArrayList<Integer>();
 		
@@ -17,7 +17,7 @@ public class PrimeNumberTask implements Runnable{
 		int largestInt = 0, largestPrime = 0, primeCount = 0;
 		
 		//looping to find the prime numbers as long as the run() method is not 
-		//interrupted by the main mehtod
+		//interrupted by the main method
 		while (true) {
 			
 			//printing out the results if interrupted
