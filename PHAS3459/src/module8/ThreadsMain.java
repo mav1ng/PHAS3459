@@ -12,7 +12,7 @@ public class ThreadsMain {
 		Thread one = new Thread(taskCount);
 		Thread two = new Thread(taskPrime);
 
-		//starting both threads simultaniously
+		//starting both threads simultaneously
 		one.start();
 		two.start();
 		
