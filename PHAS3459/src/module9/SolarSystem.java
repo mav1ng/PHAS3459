@@ -25,7 +25,7 @@ public class SolarSystem {
 
 	private static void createAndDisplayGUI() {
 		JFrame frame = new JFrame("Solar System");
-		JLabel planets = new Planets(1000, 1000);
+		JLabel planets = new Planets(5000, 5000);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(planets);
 		frame.getContentPane().setBackground(Color.BLACK);
