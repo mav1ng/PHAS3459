@@ -7,10 +7,13 @@ import javax.swing.*;
 /** Class that creates the planets in the solar system as a 
  * panel and then can be implemented in the main method to display
  * all the planets
- * @author Viktor
+ * @author zcapmvs
  *
- * @param distance is normaly given in AU in this representation 
+ * @param distance is normally given in AU in this representation 
  * we consider 1AU to be 100int
+ * 
+ * The planets will be displayed regarding to their relative real size except for 
+ * the sun which is scaled down by a factor of 10 relatively 
  */
 
 public class Planets extends JLabel {
@@ -40,32 +43,47 @@ public class Planets extends JLabel {
 		
 		
 		//creating the Sun
-		createPlanet(Color.yellow, 50, x, y, g);
+		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
+		createPlanet(x, y, sun, g);
 		
 		//creating Mercury
-		createPlanet(Color.CYAN, 20, x+100, y, g);
+		Planet mercury = new Planet("Mercury", 4879L, 58, 88, Color.CYAN);
+		createPlanet(x, y, mercury, g);
 
 		//creating Venus
-		createPlanet(Color.ORANGE, 30, x+200, y, g);
+		Planet venus = new Planet("Venus", 12104L, 108, 225, Color.ORANGE);
+		createPlanet(x, y, venus, g);
 		
 		//creating Earth
-		createPlanet(Color.BLUE, 28, x+300, y, g);
+		Planet earth = new Planet("Earth", 12742L, 150, 365, Color.blue);
+		createPlanet(x, y, earth, g);
 		
 		//creating Mars
-		createPlanet(Color.RED, 10, x+400, y, g);
+		Planet mars = new Planet("Mars", 6779L, 228, 687, Color.RED);
+		createPlanet(x, y, mars, g);
 		
 	}
 	
 	/**Method that creates a planet of certain color, certain size and certain position
 	 * in the solar system
 	 */
-	protected static void createPlanet(Color color, int diameter, 
-			int posX, int posY, Graphics g) {
+	protected static void createPlanet(int posX, int posY, Planet planet, Graphics g) {
+		
+		//scaling of the numbers
+		double scaledDiameter = planet.diameter/1000;
+		double scaledDistance = planet.distanceFromSun*2;
+		
+		//double scaled sun diameter
+		if (planet.name.equals("Sun")) {
+			scaledDiameter = planet.diameter/10000;
+		}
+		
 		
 		Graphics2D g2D= (Graphics2D)g;
-		Ellipse2D.Double circle = new Ellipse2D.Double(posX-diameter/2, 
-				posY-diameter/2, diameter, diameter);
-		g2D.setColor(color);
+		Ellipse2D.Double circle = new Ellipse2D.Double(posX + scaledDistance - 
+				(scaledDiameter/2), posY -(scaledDiameter/2),
+				scaledDiameter, scaledDiameter);
+		g2D.setColor(planet.planetColor);
 		g2D.fill(circle);
 		
 	}
