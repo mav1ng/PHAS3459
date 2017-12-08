@@ -16,7 +16,7 @@ import javax.swing.*;
  * the sun which is scaled down by a factor of 10 relatively 
  */
 
-public class Planets extends JLabel {
+public class planetsPanel extends JLabel {
 
 
 	/**
@@ -26,7 +26,7 @@ public class Planets extends JLabel {
 
 	
 	/**Constructor sets the size of the panel*/
-	public Planets(int width, int height) {
+	public planetsPanel(int width, int height) {
 		setPreferredSize(new Dimension(width, height));
 	}
 	
