@@ -81,11 +81,9 @@ public class planetsPanel extends JLabel {
 		
 		
 		Graphics2D g2D= (Graphics2D)g;
-		Ellipse2D.Double circle = new Ellipse2D.Double(posX + Math.cos(Math.toRadians(angle))
-				* ((scaledDistance) -  Math.cos(Math.toRadians(angle)) * (scaledDiameter/2))
-				, posY - scaledDiameter/2 + Math.sin(Math.toRadians(angle)) * 
-				((scaledDistance) - Math.sin(Math.toRadians(angle)) * (scaledDiameter/2))
-				, scaledDiameter, scaledDiameter);
+		Ellipse2D.Double circle = new Ellipse2D.Double(posX - scaledDiameter/2 + Math.cos(Math.toRadians(angle)) * scaledDistance, 
+				posY - scaledDiameter/2 - Math.sin(Math.toRadians(angle)) * scaledDistance,
+				 scaledDiameter, scaledDiameter);
 		g2D.setColor(planet.planetColor);
 		g2D.fill(circle);
 		
