@@ -9,7 +9,7 @@ package module9;
  *@param animationTimer controlls the framerate of the animation
  */
 
-public class AnimatedPlanets extends Planets implements ActionListener {
+public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	
 	/**Modified Constructor that */
 

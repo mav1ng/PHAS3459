@@ -40,34 +40,35 @@ public class planetsPanel extends JLabel {
 		int height = getHeight();
 		int x = width/2;
 		int y = height/2;
+		double angle = 0;
 		
 		
 		//creating the Sun
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
-		createPlanet(x, y, sun, g);
+		createPlanet(x, y, angle, sun, g);
 		
 		//creating Mercury
 		Planet mercury = new Planet("Mercury", 4879L, 58, 88, Color.CYAN);
-		createPlanet(x, y, mercury, g);
+		createPlanet(x, y, angle, mercury, g);
 
 		//creating Venus
 		Planet venus = new Planet("Venus", 12104L, 108, 225, Color.ORANGE);
-		createPlanet(x, y, venus, g);
+		createPlanet(x, y, angle, venus, g);
 		
 		//creating Earth
 		Planet earth = new Planet("Earth", 12742L, 150, 365, Color.blue);
-		createPlanet(x, y, earth, g);
+		createPlanet(x, y, angle, earth, g);
 		
 		//creating Mars
 		Planet mars = new Planet("Mars", 6779L, 228, 687, Color.RED);
-		createPlanet(x, y, mars, g);
+		createPlanet(x, y, angle, mars, g);
 		
 	}
 	
 	/**Method that creates a planet of certain color, certain size and certain position
 	 * in the solar system
 	 */
-	protected static void createPlanet(int posX, int posY, Planet planet, Graphics g) {
+	protected static void createPlanet(int posX, int posY, double angle, Planet planet, Graphics g) {
 		
 		//scaling of the numbers
 		double scaledDiameter = planet.diameter/1000;
@@ -80,9 +81,11 @@ public class planetsPanel extends JLabel {
 		
 		
 		Graphics2D g2D= (Graphics2D)g;
-		Ellipse2D.Double circle = new Ellipse2D.Double(posX + scaledDistance - 
-				(scaledDiameter/2), posY -(scaledDiameter/2),
-				scaledDiameter, scaledDiameter);
+		Ellipse2D.Double circle = new Ellipse2D.Double(posX + Math.cos(Math.toRadians(angle))
+				* ((scaledDistance) -  Math.cos(Math.toRadians(angle)) * (scaledDiameter/2))
+				, posY - scaledDiameter/2 + Math.sin(Math.toRadians(angle)) * 
+				((scaledDistance) - Math.sin(Math.toRadians(angle)) * (scaledDiameter/2))
+				, scaledDiameter, scaledDiameter);
 		g2D.setColor(planet.planetColor);
 		g2D.fill(circle);
 		
