@@ -22,11 +22,6 @@ public class planetsPanel extends JLabel {
 	protected double angle;
 
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	
 	/**Constructor sets the size of the panel*/
 	public planetsPanel(int width, int height, double angle) {
@@ -91,4 +86,6 @@ public class planetsPanel extends JLabel {
 		g2D.fill(circle);
 		
 	}
+
+
 }
