@@ -11,12 +11,15 @@ import javax.swing.*;
  *
  * @param distance is normally given in AU in this representation 
  * we consider 1AU to be 100int
+ * @param angle angle at which the solar system is positioned at the moment
  * 
  * The planets will be displayed regarding to their relative real size except for 
  * the sun which is scaled down by a factor of 10 relatively 
  */
 
 public class planetsPanel extends JLabel {
+	
+	protected double angle;
 
 
 	/**
@@ -26,8 +29,9 @@ public class planetsPanel extends JLabel {
 
 	
 	/**Constructor sets the size of the panel*/
-	public planetsPanel(int width, int height) {
+	public planetsPanel(int width, int height, double angle) {
 		setPreferredSize(new Dimension(width, height));
+		this.angle = angle;
 	}
 	
 	
@@ -40,8 +44,6 @@ public class planetsPanel extends JLabel {
 		int height = getHeight();
 		int x = width/2;
 		int y = height/2;
-		double angle = 0;
-		
 		
 		//creating the Sun
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
@@ -79,7 +81,8 @@ public class planetsPanel extends JLabel {
 			scaledDiameter = planet.diameter/10000;
 		}
 		
-		
+		//describing the different objects on the plane with the different positions 
+		//depending on the angle under which the solar system is displayed at the moment
 		Graphics2D g2D= (Graphics2D)g;
 		Ellipse2D.Double circle = new Ellipse2D.Double(posX - scaledDiameter/2 + Math.cos(Math.toRadians(angle)) * scaledDistance, 
 				posY - scaledDiameter/2 - Math.sin(Math.toRadians(angle)) * scaledDistance,
