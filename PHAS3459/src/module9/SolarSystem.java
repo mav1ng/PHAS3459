@@ -37,10 +37,12 @@ public class SolarSystem {
 	
 	private static void createAndDisplayGUI_anim() {
 		JFrame frame = new JFrame("Animation Solar System");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1000, 1000);
 		JPanel panel = new AnimationGuiPanel();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
+		//frame.setSize(1000, 1000);
+		frame.pack();
+		frame.getContentPane().setBackground(Color.BLACK);
 		frame.setVisible(true);
 	}
 

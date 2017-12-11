@@ -27,7 +27,6 @@ public class planetsPanel extends JLabel {
 	protected double angle; //the angle regarding its position towards the sun
 							//at which the planet is currently
 
-
 	
 	/**Constructor sets the size of the panel*/
 	public planetsPanel(int width, int height, double angle) {
