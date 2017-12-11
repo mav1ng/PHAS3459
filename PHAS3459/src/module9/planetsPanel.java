@@ -44,6 +44,8 @@ public class planetsPanel extends JLabel {
 		int height = getHeight();
 		int x = width/2;
 		int y = height/2;
+
+		System.out.println("Hello");
 		
 		//creating the Sun
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
@@ -72,7 +74,6 @@ public class planetsPanel extends JLabel {
 	 */
 	protected static void createPlanet(int posX, int posY, double angle, Planet planet, Graphics g) {
 		
-		System.out.println(planet.orbitalPeriod);
 		
 		//scaling of the numbers
 		double scaledDiameter = planet.diameter/1000;
@@ -87,8 +88,7 @@ public class planetsPanel extends JLabel {
 		else {
 			speed = 0;
 		}
-		
-		System.out.println(speed);
+
 		
 		//double scaled sun diameter
 		if (planet.name.equals("Sun")) {
