@@ -1,5 +1,6 @@
 package module9;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,10 +10,11 @@ import javax.swing.Timer;
 /**Class that describes the animated Planets in the frame
  * @author zcapmvs
  *
- * @param delay delay describes the ms between the steps
- * @param delta angle to rotate the planet around the sun
+ * @param delay delay describes the delay in ms between the steps
  * @param angle current angle of the shape on screen
  *@param animationTimer controls the framerate of the animation
+ *@param delta int that describes the degrees the planet will be rotatet
+ *around the sun
  */
 
 public class AnimatedPlanets extends planetsPanel implements ActionListener {
@@ -23,8 +25,9 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	
-	private final int delay = 50;
+	private final int delay = 25;
 	private Timer animationTimer;
+	private final int delta = 1;
 	
 	
 	/**Modified Constructor that varies the angle of the panel planetsPanel so that 
@@ -38,7 +41,6 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	 /** Paint shape at appropriate angle. */
 	 protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		System.out.println(angle);
 	 }
 
 	
@@ -48,9 +50,7 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	 * new position
 	 */
 	public void actionPerformed(ActionEvent event) {
-		angle += 1.0;
-		System.out.println(angle);
-		System.out.println("Repaint");
+		angle += delta;
 		repaint();
 	}
 	

@@ -17,7 +17,7 @@ import javax.swing.*;
  * the sun which is scaled down by a factor of 10 relatively 
  */
 
-public class planetsPanel extends JLabel {
+public class planetsPanel extends JPanel {
 	
 	/**
 	 * 
@@ -44,8 +44,7 @@ public class planetsPanel extends JLabel {
 		int height = getHeight();
 		int x = width/2;
 		int y = height/2;
-
-		System.out.println("Hello");
+		
 		
 		//creating the Sun
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);

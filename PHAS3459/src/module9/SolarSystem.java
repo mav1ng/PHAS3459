@@ -3,7 +3,7 @@ package module9;
 import java.awt.Color;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class SolarSystem {
@@ -15,7 +15,7 @@ public class SolarSystem {
 		
 			@Override
 			public void run() {
-				//createAndDisplayGUI_static(); 
+				createAndDisplayGUI_static(); 
 				createAndDisplayGUI_anim();
 			}
 			
@@ -26,7 +26,7 @@ public class SolarSystem {
 	
 	private static void createAndDisplayGUI_static() {
 		JFrame frame = new JFrame("Solar System");
-		JLabel planets = new planetsPanel(1000, 1000, 0);
+		JPanel planets = new planetsPanel(1000, 1000, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(planets);
 		frame.getContentPane().setBackground(Color.BLACK);
@@ -38,7 +38,7 @@ public class SolarSystem {
 		JFrame frame = new JFrame("Animation Solar System");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(1000, 1000);
-		frame.getContentPane().setBackground(Color.BLACK);
+		//frame.getContentPane().setBackground(Color.BLACK);
 		AnimationGuiPanel panel = new AnimationGuiPanel();
 		frame.add(panel);
 		frame.setVisible(true);
