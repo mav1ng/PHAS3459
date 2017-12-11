@@ -56,6 +56,7 @@ public class AnimationGuiPanel extends planetsPanel implements ActionListener {
 		
 		add(animPanel);
 		add(buttonPanel);
+		
 	}
 	
 	/** Respond to the button clicks */

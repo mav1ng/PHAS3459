@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.*;
 import javax.swing.*;
 
+
 /** Class that creates the planets in the solar system as a 
  * panel and then can be implemented in the main method to display
  * all the planets
@@ -14,7 +15,7 @@ import javax.swing.*;
  * @param angle angle at which the solar system is positioned at the moment
  * 
  * The planets will be displayed regarding to their relative real size except for 
- * the sun which is scaled down by a factor of 10 relatively 
+ * the sun which is scaled down by a factor of 25 relatively 
  */
 
 public class planetsPanel extends JPanel {
@@ -26,6 +27,8 @@ public class planetsPanel extends JPanel {
 
 	protected double angle; //the angle regarding its position towards the sun
 							//at which the planet is currently
+	protected double timeElapsed = 0;
+	protected final double startingTime = System.currentTimeMillis();
 
 	
 	/**Constructor sets the size of the panel*/
@@ -67,6 +70,9 @@ public class planetsPanel extends JPanel {
 		//creating Mars
 		Planet mars = new Planet("Mars", 6779L, 228, 687, Color.RED);
 		createPlanet(x, y, angle, mars, g);
+		//adding the time that is elapsed
+		g.drawString(Double.toString(timeElapsed) + " \tseconds elapsed", 20, 20);
+		
 		
 	}
 	
@@ -78,7 +84,7 @@ public class planetsPanel extends JPanel {
 		
 		//scaling of the numbers
 		double scaledDiameter = planet.diameter/1000;
-		double scaledDistance = planet.distanceFromSun*2;
+		double scaledDistance = planet.distanceFromSun*1.5;
 		
 		//implementing the different velocities of the planets
 		double speed;
@@ -93,7 +99,7 @@ public class planetsPanel extends JPanel {
 		
 		//double scaled sun diameter
 		if (planet.name.equals("Sun")) {
-			scaledDiameter = planet.diameter/10000;
+			scaledDiameter = planet.diameter/25000;
 		}
 		
 		//describing the different objects on the plane with the different positions 

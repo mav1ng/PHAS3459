@@ -51,6 +51,7 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent event) {
 		angle += delta;
+		timeElapsed = (System.currentTimeMillis() - startingTime) / 1000;
 		repaint();
 	}
 	
