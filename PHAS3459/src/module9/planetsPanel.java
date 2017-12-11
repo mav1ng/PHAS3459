@@ -78,13 +78,13 @@ public class planetsPanel extends JPanel {
 		g.drawString("Mars\t\t 1:1 relative size", 20, 140);
 		
 		g.setColor(Color.WHITE);
-		g.drawString("PictureUnit : Distance : Diameter \n 1 : 1/224000000km : 1/1000km", 300, 20);
+		g.drawString("Simulation Units : Scaled Distance : Scaled Diameter \n 1pixel : 99731941km : 1000km", 300, 20);
 		
 		
 		//adding the time that is elapsed
 		g.setColor(Color.WHITE);
 		g.drawString(Double.toString(timeElapsed) + " \tseconds elapsed", 20, 20);
-		
+		g.drawString("Simulation Time : Real Time \n 1 : 2263", 300, 40);
 		
 	}
 	
@@ -116,7 +116,7 @@ public class planetsPanel extends JPanel {
 		
 		//describing the different objects on the plane with the different positions 
 		//depending on the angle under which the solar system is displayed at the moment
-		Graphics2D g2D= (Graphics2D)g;
+		Graphics2D g2D = (Graphics2D)g;
 		Ellipse2D.Double circle = new Ellipse2D.Double(posX - scaledDiameter/2 + Math.cos(Math.toRadians(speed * angle)) * scaledDistance, 
 				posY - scaledDiameter/2 - Math.sin(Math.toRadians(speed * angle)) * scaledDistance,
 				 scaledDiameter, scaledDiameter);
