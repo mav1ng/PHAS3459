@@ -16,8 +16,8 @@ public class SolarSystem {
 		
 			@Override
 			public void run() {
-				//createAndDisplayGUI_static(); 
-				createAndDisplayGUI_anim();
+				createAndDisplayGUI_static(); 
+				//createAndDisplayGUI_anim();
 			}
 			
 		});

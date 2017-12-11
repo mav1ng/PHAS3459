@@ -72,9 +72,23 @@ public class planetsPanel extends JLabel {
 	 */
 	protected static void createPlanet(int posX, int posY, double angle, Planet planet, Graphics g) {
 		
+		System.out.println(planet.orbitalPeriod);
+		
 		//scaling of the numbers
 		double scaledDiameter = planet.diameter/1000;
 		double scaledDistance = planet.distanceFromSun*2;
+		
+		//implementing the different velocities of the planets
+		double speed;
+		
+		if (planet.orbitalPeriod > 0) {
+			speed = 100/planet.orbitalPeriod;	
+		}
+		else {
+			speed = 0;
+		}
+		
+		System.out.println(speed);
 		
 		//double scaled sun diameter
 		if (planet.name.equals("Sun")) {
@@ -84,8 +98,8 @@ public class planetsPanel extends JLabel {
 		//describing the different objects on the plane with the different positions 
 		//depending on the angle under which the solar system is displayed at the moment
 		Graphics2D g2D= (Graphics2D)g;
-		Ellipse2D.Double circle = new Ellipse2D.Double(posX - scaledDiameter/2 + Math.cos(Math.toRadians(angle)) * scaledDistance, 
-				posY - scaledDiameter/2 - Math.sin(Math.toRadians(angle)) * scaledDistance,
+		Ellipse2D.Double circle = new Ellipse2D.Double(posX - scaledDiameter/2 + Math.cos(Math.toRadians(speed * angle)) * scaledDistance, 
+				posY - scaledDiameter/2 - Math.sin(Math.toRadians(speed * angle)) * scaledDistance,
 				 scaledDiameter, scaledDiameter);
 		g2D.setColor(planet.planetColor);
 		g2D.fill(circle);

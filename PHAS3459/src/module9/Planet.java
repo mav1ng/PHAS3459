@@ -18,7 +18,7 @@ public class Planet {
 	String name;
 	long diameter;
 	long distanceFromSun;
-	long orbitalPeriod;
+	double orbitalPeriod;
 	Color planetColor;
 	
 	public Planet(String name, long diameter, long distanceFromSun, 
