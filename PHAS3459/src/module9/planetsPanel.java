@@ -19,7 +19,13 @@ import javax.swing.*;
 
 public class planetsPanel extends JLabel {
 	
-	protected double angle;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected double angle; //the angle regarding its position towards the sun
+							//at which the planet is currently
 
 
 	
@@ -31,7 +37,7 @@ public class planetsPanel extends JLabel {
 	
 	
 	/**Redefining the paint component method that defines how the panel
-	 * is going to look
+	 * is going to look when a planetsPanel object is created
 	 */
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

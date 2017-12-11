@@ -1,12 +1,11 @@
 package module9;
 
-import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Timer;
-import java.util.TimerTask;
-import javafx.animation.AnimationTimer;
+import javax.swing.Timer;
+
 
 /**Class that describes the animated Planets in the frame
  * @author zcapmvs
@@ -23,9 +22,11 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	
 	private final int delay = 50;
 	private final double delta;
-	private AnimationTimer animationTimer;
+	private Timer animationTimer;
 	private Planet p;
 	
 	
@@ -34,7 +35,9 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 	AnimatedPlanets(int width, int height, double angle, Planet planet) {
 		super(width, height, angle);
 		p = planet;
-		delta = 2*Math.PI*delay/(planet.orbitalPeriod*(8.64e+7));
+		delta = 2*Math.PI*delay/(p.orbitalPeriod*(8.64e+7));
+		animationTimer = new Timer(delay, this);
+		animationTimer.start();
 	}
 	
 	/**Modifying the paintComponent() method from the superclass*/
@@ -49,11 +52,19 @@ public class AnimatedPlanets extends planetsPanel implements ActionListener {
 		createPlanet(x, y, angle, p, g);
 	}
 
+	
+	/**
+	 * Called by the animation Timer object at regular intervals to
+	 * rotate the planets around the sun and repaint the planet in the
+	 * new position
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		angle += delta;
-		
+		repaint();
 	}
+	
+	
 	
 	/**Start the animation */
 	public void start() {animationTimer.start();}
