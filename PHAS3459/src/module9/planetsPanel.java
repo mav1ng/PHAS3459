@@ -45,6 +45,8 @@ public class planetsPanel extends JPanel {
 		int x = width/2;
 		int y = height/2;
 		
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, 1000, 1000);
 		
 		//creating the Sun
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
