@@ -54,23 +54,35 @@ public class planetsPanel extends JPanel {
 		//creating the Sun
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
 		createPlanet(x, y, angle, sun, g);
+		g.drawString("Sun\t\t 1:25 relative size" , 20, 60);
 		
 		//creating Mercury
 		Planet mercury = new Planet("Mercury", 4879L, 58, 88, Color.CYAN);
 		createPlanet(x, y, angle, mercury, g);
-
+		g.drawString("Mercury\t\t 1:1 relative size", 20, 80);
+		
+		
 		//creating Venus
 		Planet venus = new Planet("Venus", 12104L, 108, 225, Color.ORANGE);
 		createPlanet(x, y, angle, venus, g);
+		g.drawString("Venus\t\t 1:1 relative size", 20, 100);
 		
 		//creating Earth
 		Planet earth = new Planet("Earth", 12742L, 150, 365, Color.blue);
 		createPlanet(x, y, angle, earth, g);
+		g.drawString("Earth\t\t 1:1 relative size", 20, 120);
 		
 		//creating Mars
 		Planet mars = new Planet("Mars", 6779L, 228, 687, Color.RED);
 		createPlanet(x, y, angle, mars, g);
+		g.drawString("Mars\t\t 1:1 relative size", 20, 140);
+		
+		g.setColor(Color.WHITE);
+		g.drawString("PictureUnit : Distance : Diameter \n 1 : 1/224000000km : 1/1000km", 300, 20);
+		
+		
 		//adding the time that is elapsed
+		g.setColor(Color.WHITE);
 		g.drawString(Double.toString(timeElapsed) + " \tseconds elapsed", 20, 20);
 		
 		

@@ -12,7 +12,7 @@ public class SolarSystem {
 				+ "have the correct relative size to each other. The sun is displayed 25 times smaller\n"
 				+ "than it is in reality. The elliptic orbitals around the sun are simplified as circles.\n"
 				+ "the velocity of the planets relatively to each other is as it is in reality. Furthermore,\n"
-				+ "the size of the planets is not downscaled as much as the distance to the sun is");
+				+ "the size of the planets is not downscaled as much as the distance to the sun is.");
 		
 		
 		SwingUtilities.invokeLater(new Runnable() {
