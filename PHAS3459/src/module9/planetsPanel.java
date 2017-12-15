@@ -59,32 +59,32 @@ public class planetsPanel extends JPanel {
 		Planet sun = new Planet("Sun", 1391400L, 0, 0, Color.yellow);
 		createPlanet(x, y, angle, sun, g);
 		//adding an entry as a description
-		g.drawString("Sun\t\t 1:25 relative size" , 20, 60);
+		g.drawString("Sun\t\t 1:25 relative size" , 20, 80);
 		
 		//creating Mercury and adding it to the panel
 		Planet mercury = new Planet("Mercury", 4879L, 58, 88, Color.CYAN);
 		createPlanet(x, y, angle, mercury, g);
 		//adding an entry as a description
-		g.drawString("Mercury\t\t 1:1 relative size", 20, 80);
+		g.drawString("Mercury\t\t 1:1 relative size", 20, 100);
 		
 		
 		//creating Venus and adding it to the panel
 		Planet venus = new Planet("Venus", 12104L, 108, 225, Color.ORANGE);
 		createPlanet(x, y, angle, venus, g);
 		//adding an entry as a description
-		g.drawString("Venus\t\t 1:1 relative size", 20, 100);
+		g.drawString("Venus\t\t 1:1 relative size", 20, 120);
 		
 		//creating Earth and adding it to the panel
 		Planet earth = new Planet("Earth", 12742L, 150, 365, Color.blue);
 		createPlanet(x, y, angle, earth, g);
 		//adding an entry as a description
-		g.drawString("Earth\t\t 1:1 relative size", 20, 120);
+		g.drawString("Earth\t\t 1:1 relative size", 20, 140);
 		
 		//creating Mars and adding it to the panel
 		Planet mars = new Planet("Mars", 6779L, 228, 687, Color.RED);
 		createPlanet(x, y, angle, mars, g);
 		//adding an entry as a description
-		g.drawString("Mars\t\t 1:1 relative size", 20, 140);
+		g.drawString("Mars\t\t 1:1 relative size", 20, 160);
 		
 		//adding general scaling information about the panel
 		g.setColor(Color.WHITE);
@@ -93,8 +93,8 @@ public class planetsPanel extends JPanel {
 		
 		//adding the time that is elapsed
 		g.setColor(Color.WHITE);
-		g.drawString(Double.toString(timeElapsed) + " \tseconds elapsed", 20, 20);
-		g.drawString("Simulation Time : Real Time \n 1 : 2263", 300, 40);
+		g.drawString(String.format("%.2f", timeElapsed) + " \tseconds elapsed simulation time", 20, 20);
+		g.drawString(String.format("%.2f", (timeElapsed * 2263)/(60*60*24)) + " \t days elapsed real time", 20, 40);
 		
 	}
 	
