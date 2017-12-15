@@ -12,8 +12,11 @@ import javax.swing.JPanel;
 /**
  * @author zcapmvs
  *
+ *Class putting together all the different Panels we want to have in a main
+ *panel and at the same moment adding a layout.
  *Rotating the single planets around the sun
- *with start, stop and exit buttons
+ *with start, stop and exit buttons. Displaying legend and timer and scaling
+ *descriptions
  */
 public class AnimationGuiPanel extends planetsPanel implements ActionListener {
 	/**
@@ -23,10 +26,10 @@ public class AnimationGuiPanel extends planetsPanel implements ActionListener {
 	
 	
 	
-	private AnimatedPlanets animPanel; //panel with the animation
-	private JButton startButton;
-	private JButton stopButton;
-	private JButton exitButton;
+	private AnimatedPlanets animPanel; 	//panel with the animation
+	private JButton startButton;		//Button to start the program
+	private JButton stopButton;			//Button to stop the program
+	private JButton exitButton;			//Button to exit the program
 	
 	
 	/**
@@ -34,18 +37,23 @@ public class AnimationGuiPanel extends planetsPanel implements ActionListener {
 	 */
 	public AnimationGuiPanel() {
 		super(1000, 1000, 0);
+		
+		//setting the preferred Size and choosing the BoxLayout for this panel
 		setPreferredSize(new Dimension(1000, 1000));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 				
+		//creating the AnimatedPlanets panel
 		animPanel = new AnimatedPlanets(1000, 1000, 0);
 		startButton = new JButton("Start");
 		stopButton = new JButton("Stop");
 		exitButton = new JButton("Exit");
 		
+		//Adding ActionListeners to the Buttons
 		startButton.addActionListener(this);
 		stopButton.addActionListener(this);
 		exitButton.addActionListener(this);
 		
+		//creating the button panel
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new BoxLayout(
 				buttonPanel, BoxLayout.X_AXIS));
@@ -53,7 +61,7 @@ public class AnimationGuiPanel extends planetsPanel implements ActionListener {
 		buttonPanel.add(stopButton);
 		buttonPanel.add(exitButton);
 		
-		
+		//adding the two panels to our main panel
 		add(animPanel);
 		add(buttonPanel);
 		

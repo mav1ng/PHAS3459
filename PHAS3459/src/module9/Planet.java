@@ -2,7 +2,8 @@ package module9;
 
 import java.awt.Color;
 
-/**Class that describes all the Features of the different planets
+/**Class that describes all the Features of the different planets and
+ * stores them in this specific planet object
  * 
  * @author zcapmvs
  *
@@ -21,6 +22,7 @@ public class Planet {
 	double orbitalPeriod;
 	Color planetColor;
 	
+	//constructor, that sets all the variables
 	public Planet(String name, long diameter, long distanceFromSun, 
 			long orbitalPeriod, Color color) {
 		
