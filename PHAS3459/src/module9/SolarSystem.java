@@ -28,6 +28,7 @@ public class SolarSystem {
 
 	}
 	
+	
 //	private static void createAndDisplayGUI_static() {
 //		JFrame frame = new JFrame("Solar System");
 //		JPanel planets = new planetsPanel(1000, 1000, 0);
