@@ -102,6 +102,8 @@ public class ExamPart1 {
 		alSound.add(sound5);
 		alSound.add(sound6);
 		
+		
+		
 		for (Sound s : alSound) {
 			
 			double totalSumSquare = 0;
@@ -114,8 +116,12 @@ public class ExamPart1 {
 			
 			duration = s.samples/s.frequency;
 			amplitude = 20 * Math.log10( xrms/ s.maxAmp);
-			System.out.println("Filename: " + s.filename + "  Duration: " + duration 
-					+ "  Amplitude: " + amplitude + "  Instrument: " + s.instrument);
+			
+			s.amplitude = amplitude;
+			s.duration = duration;
+			
+			System.out.println("Filename: " + s.filename + "  Duration: " + duration + "sek" 
+					+ "  Amplitude: " + amplitude + "dBFS" + "  Instrument: " + s.instrument);
 			
 		}
 

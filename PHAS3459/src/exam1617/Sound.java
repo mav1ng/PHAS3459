@@ -15,6 +15,9 @@ public class Sound {
 	public long frequency;
 	public long samples;
 	public long maxAmp;
+	
+	public double duration;
+	public double amplitude;
 
 	ArrayList<Long> recording = new ArrayList<Long>();
 
