@@ -67,7 +67,6 @@ public class MainPulse {
 			Scanner sc = new Scanner(line);
 			
 			String currentID = "N.A";
-			ArrayList<Double> currentList = new ArrayList<Double>();
 			
 			if (sc.hasNext()) {
 				currentID = sc.next();
