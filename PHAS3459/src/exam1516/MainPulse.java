@@ -11,6 +11,8 @@ import java.util.Scanner;
 public class MainPulse {
 
 
+	
+	
 
 	/**
 	 * method to parse the data from the URL into a HashMap
@@ -53,6 +55,8 @@ public class MainPulse {
 
 	}
 
+	
+	
 	public static HashMap<String, ArrayList<ArrayList<Double>>> getDataSignal(String url) throws Exception {
 
 		URL website = new URL(url);
@@ -96,6 +100,8 @@ public class MainPulse {
 
 	}
 
+	
+	
 	public static void numberofPulses(HashMap<String, ArrayList<ArrayList<Double>>> hm) {
 
 		int totalNumber = 0;
@@ -123,6 +129,8 @@ public class MainPulse {
 		return maxVolt;
 	}
 
+	
+	
 	public static double getTotalMeanAmp(HashMap<String, ArrayList<ArrayList<Double>>> hm) throws Exception {
 		double sumOfMeanAmp = 0;
 
@@ -132,6 +140,8 @@ public class MainPulse {
 		return sumOfMeanAmp/hm.size();
 	}
 
+	
+	
 	public static double getMeanAmp(ArrayList<ArrayList<Double>> al) throws Exception {
 
 		double sumAmp = 0;
@@ -153,6 +163,7 @@ public class MainPulse {
 	}
 
 
+	
 	public static double getMeanAT(ArrayList<ArrayList<Double>> al) throws Exception {
 
 		double sumAT = 0;
@@ -164,10 +175,13 @@ public class MainPulse {
 		return sumAT/al.size();
 	}
 
+	
+	
 	public static double getAT(ArrayList<Double> al, CalculationOfAT calc) throws Exception {
 		return calc.getArrivalTime(al); 
 	}
 
+	
 	
 	public static double getMeanATGeneral(ArrayList<ArrayList<Double>> al, CalculationOfAT calc) throws Exception {
 		double sumAT = 0;
@@ -178,6 +192,8 @@ public class MainPulse {
 
 		return sumAT/al.size();
 	}
+	
+	
 	
 	public static String goodnessOfCalculation(HashMap<String, ArrayList<ArrayList<Double>>> hm, double t) throws Exception {
 		
@@ -202,7 +218,6 @@ public class MainPulse {
 		 
 		 return output;
 	}
-
 
 
 
