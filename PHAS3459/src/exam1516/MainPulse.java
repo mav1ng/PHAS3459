@@ -123,8 +123,9 @@ public class MainPulse {
 		return maxVolt;
 	}
 	
+	
 	public static double getMeanAmp(ArrayList<ArrayList<Double>> al) throws Exception {
-		
+
 		double sumAmp = 0;
 		double meanAmp;
 		
@@ -138,8 +139,23 @@ public class MainPulse {
 	}
 	
 
+	public static double getArrivalTime(ArrayList<Double> pulse) throws Exception {
+		double maxVol = getAmp(pulse);
+		return pulse.indexOf(maxVol);
+	}
 	
 	
+	public static double getMeanAT(ArrayList<ArrayList<Double>> al) throws Exception {
+		
+		double sumAT = 0;
+		
+		for (ArrayList<Double> pulse : al) {
+			sumAT = sumAT + getArrivalTime(pulse);
+		}
+		
+		return sumAT/al.size();
+	}
+		
 	
 	
 
@@ -172,6 +188,27 @@ public class MainPulse {
 				System.out.println("detector: " + det);
 				System.out.println("mean amplitude: " + getMeanAmp(hm2.get(det)));
 			}
+			
+			
+			System.out.println("\n \n \n Mean Arrival Time");
+			for (String det: hm2.keySet()) {
+				System.out.println("detector: " + det);
+				System.out.println("mean arrival time: " + getMeanAT(hm2.get(det)) + "ns");
+			}
+			
+			
+			System.out.println("\n \n \n Speed of the Particles");
+			for (String det: hm2.keySet()) {
+				
+				double distance = hm.get(det);
+				double speed = distance / (getMeanAT(hm2.get(det)) * Math.pow(10, -9));
+				
+				System.out.println("detector: " + det);
+				System.out.println("distance from source: " + distance + " m");
+				System.out.println("particle speed: " + speed + " m/s");
+			}
+			
+			
 			
 			
 		}
