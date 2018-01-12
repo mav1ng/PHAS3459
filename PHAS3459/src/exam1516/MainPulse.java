@@ -15,7 +15,7 @@ public class MainPulse {
 	/**
 	 * method to parse the data from the URL into a HashMap
 	 * 
-	 * @param URL string that represents the url of the webiste 
+	 * @param URL string that represents the url of the website 
 	 * the data should be retrieved from
 	 */
 	public static HashMap<String, Double> getDataDetector(String url) throws Exception {
