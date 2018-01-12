@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class MainPulse {
+	
+	
 
 	/**
 	 * method to parse the data from the URL into a HashMap
@@ -108,7 +110,38 @@ public class MainPulse {
 
 
 
+	public static double getAmp(ArrayList<Double> al) throws Exception {
+		
+		double maxVolt = 0;
+		
+		for (Double sig : al) {
+			if (sig > maxVolt) {
+				maxVolt = sig;
+			}
+		}
+		
+		return maxVolt;
+	}
+	
+	public static double getMeanAmp(ArrayList<ArrayList<Double>> al) throws Exception {
+		
+		double sumAmp = 0;
+		double meanAmp;
+		
+		for (ArrayList<Double> pulse : al) {
+			sumAmp = sumAmp + getAmp(pulse);
+		}
+		
+		meanAmp = sumAmp/al.size();
+		
+		return meanAmp;
+	}
+	
 
+	
+	
+	
+	
 
 	public static void main(String[] args) {
 
@@ -123,7 +156,23 @@ public class MainPulse {
 					+ "undergrad/3459/exam-data/2015-16/signals.txt"));
 			System.out.println(hm2);
 			
+			System.out.println("The total number of pulses is: ");
 			numberofPulses(hm2);
+			
+			System.out.println("\n \n \n Number of signals for each detector:");
+			for (String det: hm2.keySet()) {
+				System.out.println("detector: " + det);
+				System.out.println("number of pulses: " + hm2.get(det).size());
+			} 
+			
+			System.out.println("\n \n \n");
+			
+			System.out.println("Mean Amplitude for each detector:");
+			for (String det: hm2.keySet()) {
+				System.out.println("detector: " + det);
+				System.out.println("mean amplitude: " + getMeanAmp(hm2.get(det)));
+			}
+			
 			
 		}
 		catch (Exception e) {
