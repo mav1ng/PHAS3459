@@ -123,6 +123,14 @@ public class MainPulse {
 		return maxVolt;
 	}
 	
+	public static double getTotalMeanAmp(HashMap<String, ArrayList<ArrayList<Double>>> hm) throws Exception {
+		double sumOfMeanAmp = 0;
+		
+		for (String det: hm.keySet()) {
+			sumOfMeanAmp = sumOfMeanAmp + getMeanAmp(hm.get(det));
+		}
+		return sumOfMeanAmp/hm.size();
+	}
 	
 	public static double getMeanAmp(ArrayList<ArrayList<Double>> al) throws Exception {
 
@@ -155,6 +163,10 @@ public class MainPulse {
 		
 		return sumAT/al.size();
 	}
+	
+	public static double getAT(ArrayList<Double> al, CalculationOfAT calc) throws Exception {
+		return calc.getArrivalTime(al); 
+	}
 		
 	
 	
@@ -174,6 +186,9 @@ public class MainPulse {
 			
 			System.out.println("The total number of pulses is: ");
 			numberofPulses(hm2);
+			
+			System.out.println("\n \n \n The mean amplitude of the pulses");
+			System.out.println(getTotalMeanAmp(hm2));
 			
 			System.out.println("\n \n \n Number of signals for each detector:");
 			for (String det: hm2.keySet()) {
@@ -207,8 +222,19 @@ public class MainPulse {
 				System.out.println("distance from source: " + distance + " m");
 				System.out.println("particle speed: " + speed + " m/s");
 			}
+			getATThreshold ArrivalT = new getATThreshold(1);
 			
-			
+			System.out.println("\n \n \n PART2 Implementation");
+			System.out.println("Speed of the Particles");
+			for (String det: hm2.keySet()) {
+				
+				double distance = hm.get(det);
+				double speed = distance / (getMeanAT(hm2.get(det)) * Math.pow(10, -9));
+				
+				System.out.println("detector: " + det);
+				System.out.println("distance from source: " + distance + " m");
+				System.out.println("particle speed: " + speed + " m/s");
+
 			
 			
 		}
