@@ -1,11 +1,12 @@
 package interfaces;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FreeOfDiseaseX implements RegionFilter {
 
 	@Override
-	public List<Region> filtered = new ArrayList<Region>();
-	return filtered;
+	public List<Region> filter(List<Region> regions) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
