@@ -16,6 +16,10 @@ public class Analysis {
 		try {
 			Map<String, String> regionNames = readRegions("http://www.hep.ucl.ac.uk/undergrad/3459/exam-data/2011-12/final/regions.txt");
 					System.out.println(regionNames);
+					DiseaseData data = new DiseaseData();
+					data.readOccurences("http://www.hep.ucl.ac.uk/undergrad/3459/exam-data/2011-12/final/occurrencesAB.txt");
+//					data.readOccurences("http://www.hep.ucl.ac.uk/undergrad/3459/exam-data/2011-12/final/occurrencesXYZ.txt");
+					
 		}
 		catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -43,7 +47,7 @@ public class Analysis {
 		return regions;
 	}
 	
-	private static BufferedReader brFromURL(String url) throws IOException {
+	public static BufferedReader brFromURL(String url) throws IOException {
 		URL u = new URL(url);
 		InputStreamReader isr = new InputStreamReader(u.openStream());
 		return new BufferedReader(isr);
