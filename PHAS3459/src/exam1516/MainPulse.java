@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MainPulse {
@@ -34,6 +35,7 @@ public class MainPulse {
 		while ((line = br.readLine()) != null) {
 
 			Scanner sc = new Scanner(line);
+			sc.useLocale(Locale.ENGLISH);
 
 			String currentID = "";
 			Double currentDis = 0.0 ;
@@ -71,6 +73,7 @@ public class MainPulse {
 		while ((line = br.readLine()) != null) {
 
 			Scanner sc = new Scanner(line);
+			sc.useLocale(Locale.ENGLISH);
 
 			String currentID = "N.A";
 
