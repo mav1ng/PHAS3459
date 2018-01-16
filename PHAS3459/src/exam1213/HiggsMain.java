@@ -180,11 +180,11 @@ public class HiggsMain {
 		return output;
 
 	}
-	
+
 	public static HashMap<Double, HashMap<Double,Double>> predictionGauss(double N, double s) throws Exception {
-		
+
 		HashMap<Double, HashMap<Double, Double>> hmMain = new HashMap<Double, HashMap<Double, Double>>();
-		for (double d = 110.5; d < 179.5; d++) {
+		for (double d = 100; d < 180; d++) {
 			Gaussian gaussian = new Gaussian(N, d, s);
 			hmMain.put(d, gaussian.prediction());
 		}
@@ -198,15 +198,82 @@ public class HiggsMain {
 	 * @throws Exception
 	 */
 	public static double getLL(HashMap<Event, Integer> hm) throws Exception {
-		
+
 		double ll = 0;
-		
+
 		for (Event e: hm.keySet()) {
 			ll = ll + (e.predicted - hm.get(e)) + hm.get(e) * Math.log(hm.get(e)/e.predicted);
 		}
-		
+
 		return ll;
+
+	}
+
+	public static HashMap<Double, Double> getLL(HashMap<Event, Integer> hm, 
+			HashMap<Double, HashMap<Double, Double>> sumHM) throws Exception {
+
+		HashMap<Double, Double> output = new HashMap<Double, Double>();
+		double ll = 0;
+
+		for (Double mass : sumHM.keySet()) {
+			for (Event e: hm.keySet()) {
+				ll = ll + (sumHM.get(mass).get(e.lEdge) - hm.get(e)) + 
+								hm.get(e) * Math.log(hm.get(e)/
+								sumHM.get(mass).get(e.lEdge));
+			}
+			output.put(mass, ll);
+		}
+		return output;
+	}
+	
+
+	public static HashMap<Double, Double> getNumberHM(HashMap<Event, Integer> hm) throws Exception {
+		HashMap<Double, Double> output = new HashMap<Double, Double>();
+		for (Event e:hm.keySet()) {
+			double min = e.lEdge;
+			output.put(min, (double)(hm.get(e)));
+		}
+		return output;
+	}
+
+	public static HashMap<Double, HashMap<Double, Double>> getSum(HashMap<Double, HashMap<Double,Double>> signalHM, 
+			HashMap<Double, Double> predHM) throws Exception {
+
+		HashMap<Double, HashMap<Double, Double>> output = new HashMap<Double, HashMap<Double, Double>>();
+
+		for (Double mass: signalHM.keySet()) {
+			HashMap<Double, Double> currentHM = new HashMap<Double, Double>();
+			for (Double d: signalHM.get(mass).keySet()) {
+				double sum = 0.;
+				if (!(predHM.get(d) == null)) {
+				sum = signalHM.get(mass).get(d) + predHM.get(d);
+				}
+				currentHM.put(d, sum);
+			}
+			output.put(mass, currentHM);
+		}
+
+		return output;
+
+	}
+	
+	public static double getLowestMass(HashMap<Double, Double> hm) throws Exception{
 		
+		double minMass = 0;
+		double minLL = 0;
+		
+		for (Double higgs : hm.keySet()) {
+			if (minLL == 0  || minLL > hm.get(higgs)) {
+				minLL = hm.get(higgs);
+				minMass = higgs;
+			}
+		}
+		
+		return minMass;
+	}
+	
+	public static double sigma(double LL1, double LL2) {
+		return (Math.sqrt(-2*(LL1 - LL2)));
 	}
 
 	public static void main(String[] args) {
@@ -241,19 +308,30 @@ public class HiggsMain {
 			System.out.println("\nLog-likelihood for GG channel: " + getLL(numberGG));
 			System.out.println("Log-likelihood for ZZ channel: " + getLL(numberZZ));
 
-			
+
 			System.out.println("--------------------PART2----------------\n");
-			
+
 			HashMap<Double, HashMap<Double,Double>> hmGaussGG = predictionGauss(100, 2);
 			HashMap<Double, HashMap<Double,Double>> hmGaussZZ = predictionGauss(6, 1);
-			
-			System.out.println(hmGaussGG);
-			
-			System.out.println(hmGaussZZ);
-			System.out.println(hmGaussGG.get(165.5));
-			
+
 			System.out.println("-------------------PART3-----------------\n");
 			
+			HashMap<Double, HashMap<Double, Double>> sumHMGG = getSum(hmGaussGG, getNumberHM(numberGG));
+			HashMap<Double, HashMap<Double, Double>> sumHMZZ = getSum(hmGaussZZ, getNumberHM(numberZZ));
+			
+			HashMap<Double, Double> llGG = getLL(numberGG, sumHMGG);
+			HashMap<Double, Double> llZZ = getLL(numberZZ, sumHMZZ);
+			
+			System.out.println("Higgs mass with lowest value of the sum of the log-likelihood for GG channel: " 
+			+ getLowestMass(llGG) + "GeV");
+			System.out.println("\nHiggs mass with lowest value of the sum of the log-likelihood for ZZ channel: " 
+					+ getLowestMass(llZZ) + "GeV");
+			
+			System.out.println("The sigma value is: ");
+			System.out.println(sigma(llGG.get(getLowestMass(llGG))-llZZ.get(getLowestMass(llZZ)), 
+					getLL(numberGG)-getLL(numberZZ)));
+			System.out.println("Therefore as the sigma value is above 5, I did not find the Higgs boson");
+
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
