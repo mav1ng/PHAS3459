@@ -35,7 +35,7 @@ public class ExamPart2 {
 
 		System.out.println("\n\n--------------------------PART2-------------------------\n");
 
-		//storing the files in appropiate data structures
+		//storing the files in appropriate data structures
 		try {
 			HashMap<String, Airport> airports = ExamPart1.getAirports("http://www.hep.ucl.ac.uk/undergrad/3459/"
 					+ "exam-data/2017-18/airports.txt");

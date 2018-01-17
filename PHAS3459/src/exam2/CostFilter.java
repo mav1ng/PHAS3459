@@ -2,6 +2,8 @@ package exam2;
 
 import java.util.ArrayList;
 
+import javafx.util.Pair;
+
 public class CostFilter implements Filter {
 
 	private double maxcost; //maximum flight cost
@@ -33,5 +35,14 @@ public class CostFilter implements Filter {
 		}
 		return filteredFlights;
 	}
+
+
+	@Override
+	public ArrayList<Pair<Flight, Flight>> multiFilter(ArrayList<Flight> al, ArrayList<Flight> al2) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

@@ -2,6 +2,8 @@ package exam2;
 
 import java.util.ArrayList;
 
+import javafx.util.Pair;
+
 public class AirportFilter implements Filter {
 	
 	private String origin, destination; //origin code of the flight and 
@@ -36,5 +38,14 @@ public class AirportFilter implements Filter {
 		
 		return filteredList;
 	}
+
+
+	@Override
+	public ArrayList<Pair<Flight, Flight>> multiFilter(ArrayList<Flight> al, ArrayList<Flight> al2) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }
