@@ -103,7 +103,7 @@ public class ExamPart1 {
 	}
 
 	/**
-	 * method that calculates the duration of a flight
+	 * method that calculates the duration of a flight and returns the duration as a long
 	 * @param dDate string departure date
 	 * @param dTime string departure time
 	 * @param aDate string arrival date
@@ -127,6 +127,7 @@ public class ExamPart1 {
 
 
 	}
+	
 
 	/**
 	 * method that gives out the flight details of a flight that has been input 
@@ -154,30 +155,34 @@ public class ExamPart1 {
 
 		System.out.println("--------------------------PART1-------------------------\n");
 
-		//storing the files in appropiate data structures)
-
+		//storing the files in appropiate data structures
 		try {
 			HashMap<String, Airport> airports = getAirports("http://www.hep.ucl.ac.uk/undergrad/3459/"
 					+ "exam-data/2017-18/airports.txt");
 			ArrayList<Flight> flights = getFlights("http://www.hep.ucl.ac.uk/undergrad/3459/"
 					+ "exam-data/2017-18/flights.txt");
 
+			//printing out the flight details
 			for (Flight f: flights) {
 				printFlightDetails(f, airports);
 			}
 
 
 		} catch (IOException e) {
+			//specified error message for IOException
 			System.out.println("The data on the website might not be suited for the specified scanner. \n"
 					+ "check if the scanner is working correctly!");
 			e.printStackTrace();
 		} catch (Exception e) {
+			//specified error message for Exception
 			System.out.println("Something with the correct storage of the Data has gone wrong. Check if \n"
 					+ "there is some mistake regarding the data structures!");
 			e.printStackTrace();
 		}
+		
+		System.out.println("\n\n--------------------------PART2-------------------------\n");
 
-
+		
 	}
 
 }
