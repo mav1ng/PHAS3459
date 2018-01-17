@@ -179,8 +179,6 @@ public class ExamPart1 {
 					+ "there is some mistake regarding the data structures!");
 			e.printStackTrace();
 		}
-		
-		System.out.println("\n\n--------------------------PART2-------------------------\n");
 
 		
 	}

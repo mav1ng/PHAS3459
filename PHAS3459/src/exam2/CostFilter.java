@@ -5,6 +5,14 @@ import java.util.ArrayList;
 public class CostFilter implements Filter {
 
 	private double maxcost; //maximum flight cost
+	
+	/**
+	 * Constructor with sets the maximum cost
+	 * @param cost double maximum cost for the flights
+	 */
+	public CostFilter(double cost) {
+		maxcost = cost;
+	}
 
 
 	/**

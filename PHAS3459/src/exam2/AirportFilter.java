@@ -8,6 +8,17 @@ public class AirportFilter implements Filter {
 										//destination code of the flight
 
 	/**
+	 * Constructor that sets the specified origin and destination airports 
+	 * @param origin String code of the origin airport
+	 * @param destination String code of the destination airport
+	 */
+	public AirportFilter(String origin, String destination) {
+		this.origin = origin;
+		this.destination = destination;
+	}
+	
+	
+	/**
 	 * method that filters flights with a specified origin and destination airport
 	 */
 	@Override

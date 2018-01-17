@@ -8,7 +8,7 @@ public class DurationFilter implements Filter {
 	
 	/**
 	 * Constructor with sets the duration limit
-	 * @param durationLimit long maximum duration for the flights
+	 * @param durationLimit long maximum duration for the flights in min
 	 */
 	public DurationFilter(long durationLimit) {
 		duration = durationLimit;
