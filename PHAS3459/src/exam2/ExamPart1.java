@@ -68,6 +68,7 @@ public class ExamPart1 {
 
 		ArrayList<Flight> al = new ArrayList<Flight>();
 
+		//creating a bufferedreader
 		URL website = new URL(url);
 		InputStream is = website.openStream();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -75,6 +76,7 @@ public class ExamPart1 {
 
 		String line;
 
+		//looping through the lines on the website
 		while ((line = br.readLine()) != null ) {
 
 			Scanner sc = new Scanner(line);
@@ -83,6 +85,7 @@ public class ExamPart1 {
 
 			Flight f = new Flight();
 
+			//setting the variables
 			f.fCode = sc.next();
 			f.oCode = sc.next();
 			f.dCode = sc.next();
@@ -115,6 +118,7 @@ public class ExamPart1 {
 		String input = dDate + "T" + dTime;
 		String input2 = aDate + "T" + aTime;
 		
+		//calculating the duration of the flight
 		LocalDateTime lt1 = LocalDateTime.parse(input);
 		ZoneId z1 = ZoneId.of("Europe/London");
 		ZonedDateTime zt1 = ZonedDateTime.of(lt1, z1);
@@ -124,7 +128,6 @@ public class ExamPart1 {
 		long duration = zt1.until(zt2, ChronoUnit.MINUTES);
 		
 		return duration;
-
 
 	}
 	

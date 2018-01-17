@@ -9,7 +9,7 @@ public class DurationFilter implements Filter {
 	long duration;
 
 	/**
-	 * Constructor with sets the duration limit
+	 * Constructor which sets the duration limit
 	 * @param durationLimit long maximum duration for the flights in min
 	 */
 	public DurationFilter(long durationLimit) {
@@ -18,7 +18,7 @@ public class DurationFilter implements Filter {
 
 
 	/**
-	 * method that filter flights with a duration no more than than some specified limit
+	 * method that filters flights with a duration no more than than some specified limit
 	 * @param al arrayList of flights that should be filtered
 	 */
 	@Override
@@ -49,13 +49,20 @@ public class DurationFilter implements Filter {
 		ArrayList<Pair<Flight, Flight>> output = new ArrayList<Pair<Flight, Flight>>(); 
 		boolean tester = false;
 
+		//looping through all flights that should occur first
 		for (Flight f: first) {
+			//getting the duration of the single flight
 			long duration1 = ExamPart1.getDuration(f.dDate, f.dTime, f.aDate, f.aTime);
+			//looping for all flights that should occur second
 			for (Flight s: second) {
+				//getting the duration of the single flight
 				long duration2 = ExamPart1.getDuration(s.dDate, s.dTime, s.aDate, s.aTime);
+				
+				//checking whether the flights do connect
 				if (f.dCode.equals(s.oCode)) {
 					tester = true;
 					if(tester) {
+						//checking whether the duration of the flights is lower then the maxduration
 						if ((duration1 + duration2) <= duration) {
 							Pair<Flight, Flight> currentPair = new Pair<Flight, Flight>(f, s);
 							output.add(currentPair);

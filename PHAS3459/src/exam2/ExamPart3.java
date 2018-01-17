@@ -155,8 +155,8 @@ public class ExamPart3 {
 					+ "exam-data/2017-18/flights.txt");
 
 
-			System.out.println("\n\nPrinting the details of the cheapest one or two flight journey from \n" 
-					+ "LHR to CPT with a total duration of less than 24 hours:\n\n\n");
+			System.out.println("\nPrinting the details of the cheapest one or two flight journey from \n" 
+					+ "LHR to CPT with a total duration of less than 24 hours:\n\n");
 
 			//creating the implementation objects 
 			AirportFilter aFilter = new AirportFilter("LHR", "CPT");
@@ -179,9 +179,9 @@ public class ExamPart3 {
 			//comparing the two possibilities and printing out the cheapest choice
 			compareSingleMulti(cheapestFlight, cheapestJourney, airports);
 
-
-
-
+			System.out.println("In that case arrival time and date of the first flight fit with \n"
+					+ "the departure date and time of the second flight. Thus this journey is possible and\n"
+					+ "the cheapest choice");
 
 
 

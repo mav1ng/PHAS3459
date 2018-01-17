@@ -24,6 +24,7 @@ public interface Filter {
 	 * @return arraylist of flight objects
 	 * @throws Exception throws exception if some of the data structures are not working
 	 */
-	public ArrayList<Pair<Flight, Flight>> multiFilter(ArrayList<Flight> al, ArrayList<Flight> al2) throws Exception;
+	public ArrayList<Pair<Flight, Flight>> multiFilter(ArrayList<Flight> al, 
+			ArrayList<Flight> al2) throws Exception;
 
 }
