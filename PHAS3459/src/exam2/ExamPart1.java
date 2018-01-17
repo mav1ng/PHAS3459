@@ -139,12 +139,12 @@ public class ExamPart1 {
 		long duration = getDuration(f.dDate, f.dTime, f.aDate, f.aTime);
 		
 		System.out.println("Flight code: " + f.fCode + "\n" + 
-				"Origin Airport :" + hm.get(f.oCode) + "\n" +
-				"Destination Airport : " + hm.get(f.dCode) + "\n" +
+				"Origin Airport: " + hm.get(f.oCode).name + "\n" +
+				"Destination Airport: " + hm.get(f.dCode).name + "\n" +
 				"Date and Local time of Departure: " + f.dDate + "  " + f.dTime + "\n" +
-				"Date and Local time of Arrival: " + f.aDate + "  " + f.aTime +
+				"Date and Local time of Arrival: " + f.aDate + "  " + f.aTime + "\n" +
 				"Duration of the Flight: " + duration + "min\n" +
-				"Cost of the Flight: " + f.cost);
+				"Cost of the Flight: " + f.cost +"pounds\n\n");
 
 	}
 
@@ -162,12 +162,18 @@ public class ExamPart1 {
 			ArrayList<Flight> flights = getFlights("http://www.hep.ucl.ac.uk/undergrad/3459/"
 					+ "exam-data/2017-18/flights.txt");
 
-			System.out.println(airports);
-			System.out.println(flights);
+			for (Flight f: flights) {
+				printFlightDetails(f, airports);
+			}
 
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("The data on the website might not be suited for the specified scanner. \n"
+					+ "check if the scanner is working correctly!");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Something with the correct storage of the Data has gone wrong. Check if \n"
+					+ "there is some mistake regarding the data structures!");
 			e.printStackTrace();
 		}
 
